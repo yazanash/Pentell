@@ -13,14 +13,26 @@ class UserServiceImple implements UserService {
   UserServiceImple(this.localSource, this.remoteSource, this.networkInfo);
 
   @override
-  Future<Either<Failure, bool>> emailAuth() {
-    // TODO: implement emailAuth
+  Future<Either<Failure, bool>> requestEmailAuth(String email) {
+    // TODO: implement requestEmailAuth
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<Failure, bool>> phoneAuth() {
-    // TODO: implement phoneAuth
+  Future<Either<Failure, bool>> requestPhoneAuth(String phoneNum) {
+    // TODO: implement requestPhoneAuth
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<Failure, bool>> verifyEmailCode(String code) {
+    // TODO: implement verifyEmailCode
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<Failure, bool>> verifyPhoneCode(String code) {
+    // TODO: implement verifyPhoneCode
     throw UnimplementedError();
   }
 }
