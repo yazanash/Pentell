@@ -13,9 +13,17 @@ class UserServiceImple implements UserService {
   UserServiceImple(this.localSource, this.remoteSource, this.networkInfo);
 
   @override
-  Future<Either<Failure, bool>> requestEmailAuth(String email) {
-    // TODO: implement requestEmailAuth
-    throw UnimplementedError();
+  Future<Either<Failure, bool>> requestEmailAuth(String email) async {
+    if (await networkInfo.isConnected) {
+      try {
+        remoteSource.RequestEmailVerification(email);
+        return const Right(true);
+      } catch (e) {
+        return Left(FailedAuthFailure());
+      }
+    } else {
+      return Left(NoInternetFailure());
+    }
   }
 
   @override
