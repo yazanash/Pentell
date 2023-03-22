@@ -20,10 +20,10 @@ class AuthServiceImple implements AuthService {
         remoteSource.RequestEmailVerification(email);
         return const Right(true);
       } catch (e) {
-        return Left(FailedAuthFailure());
+        return Left(FailedAuthFailure(''));
       }
     } else {
-      return Left(NoInternetFailure());
+      return Left(NoInternetFailure(''));
     }
   }
 

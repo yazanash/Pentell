@@ -1,22 +1,20 @@
-import 'package:equatable/equatable.dart';
-
-abstract class Failure extends Equatable {}
+abstract class Failure {
+  String get message;
+}
 
 class NoInternetFailure implements Failure {
+  final String _message;
+  NoInternetFailure(this._message);
   @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
-
-  @override
-  // TODO: implement stringify
-  bool? get stringify => throw UnimplementedError();
+  // TODO: implement message
+  String get message => _message;
 }
-class FailedAuthFailure implements Failure{
-  @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
 
+class FailedAuthFailure implements Failure {
+  final String _message;
+  FailedAuthFailure(this._message);
   @override
-  // TODO: implement stringify
-  bool? get stringify => throw UnimplementedError();
+  // TODO: implement message
+  String get message => _message;
 }
+

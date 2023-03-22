@@ -18,5 +18,59 @@ class CourseServiceImpl extends CourseService {
     // TODO: implement getAllPosts
     throw UnimplementedError();
   }
+  
+  @override
+  Future<Either<Failure, Unit>> addCVersion() {
+    // TODO: implement addCVersion
+    throw UnimplementedError();
+  }
+  
+  @override
+  Future<Either<Failure, Unit>> addCourse() {
+    // TODO: implement addCourse
+    throw UnimplementedError();
+  }
+  
+  @override
+  Future<Either<Failure, Unit>> addToWishList() {
+    // TODO: implement addToWishList
+    throw UnimplementedError();
+  }
+  
+  @override
+  Future<Either<Failure, Unit>> delete() {
+    // TODO: implement delete
+    throw UnimplementedError();
+  }
+  
+  @override
+  Future<Either<Failure, List<Post>>> getAllCourses() {
+    // TODO: implement getAllCourses
+    throw UnimplementedError();
+  }
+  
+  @override
+  Future<Either<Failure, Unit>> inviteFriends() {
+    // TODO: implement inviteFriends
+    throw UnimplementedError();
+  }
+  
+  @override
+  Future<Either<Failure, Unit>> joinCourse() {
+    // TODO: implement joinCourse
+    throw UnimplementedError();
+  }
+  
+  @override
+  Future<Either<Failure, Unit>> modify() {
+    // TODO: implement modify
+    throw UnimplementedError();
+  }
+  
+  @override
+  Future<Either<Failure, Unit>> rateCourse() {
+    // TODO: implement rateCourse
+    throw UnimplementedError();
+  }
 
 }
