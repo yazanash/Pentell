@@ -1,13 +1,13 @@
 import 'package:dartz/dartz.dart';
-import 'package:pentelligence/features/posts/models/entities/post.dart';
+import 'package:pentelligence/features/course/models/entities/course.dart';
 
 abstract class PostLocalSource {
-  Future<List<Post>> getAllPosts();
+  Future<List<Course>> getAllPosts();
 }
 
 class PostLocalSourceImpl implements PostLocalSource {
   @override
-  Future<List<Post>> getAllPosts()async {
+  Future<List<Course>> getAllPosts()async {
     // TODO: implement getAllPosts
     throw UnimplementedError();
   }
