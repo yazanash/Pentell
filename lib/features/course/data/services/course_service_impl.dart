@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:pentelligence/core/backend/network_info.dart';
 import 'package:pentelligence/core/errors/failures.dart';
-import 'package:pentelligence/features/posts/data/sources/post_local_source.dart';
-import 'package:pentelligence/features/posts/data/sources/post_remote_source.dart';
-import 'package:pentelligence/features/posts/models/entities/post.dart';
-import 'package:pentelligence/features/posts/models/services/course_service.dart';
+import 'package:pentelligence/features/course/data/sources/course_local_source.dart';
+import 'package:pentelligence/features/course/data/sources/course_remote_source.dart';
+import 'package:pentelligence/features/course/models/entities/course.dart';
+import 'package:pentelligence/features/course/models/services/course_service.dart';
 
 class CourseServiceImpl extends CourseService {
   final PostLocalSource localSource;
@@ -14,7 +14,7 @@ class CourseServiceImpl extends CourseService {
   CourseServiceImpl(this.localSource,this.remoteSource,this.networkInfo);
 
   @override
-  Future<Either<Failure, List<Post>>> getAllPosts() async {
+  Future<Either<Failure, List<Course>>> getAllPosts() async {
     // TODO: implement getAllPosts
     throw UnimplementedError();
   }
@@ -44,7 +44,7 @@ class CourseServiceImpl extends CourseService {
   }
   
   @override
-  Future<Either<Failure, List<Post>>> getAllCourses() {
+  Future<Either<Failure, List<Course>>> getAllCourses() {
     // TODO: implement getAllCourses
     throw UnimplementedError();
   }

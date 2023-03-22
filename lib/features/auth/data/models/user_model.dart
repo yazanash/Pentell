@@ -10,9 +10,7 @@ class UserModel extends User {
       String token,
       String imageUrl,
       String isVerified,
-      UserType userType,
-      List<Object> courses,
-      List<Object> channel)
+      UserType userType,)
       : super(
             id: id,
             name: name,
@@ -21,9 +19,7 @@ class UserModel extends User {
             token: token,
             imageUrl: imageUrl,
             isVerified: isVerified,
-            userType:userType,
-            courses: courses,
-            channel: channel);
+            userType:userType,);
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
@@ -34,9 +30,8 @@ class UserModel extends User {
         json['token'],
         json['imageUrl'],
         json['isVerified'],
-        json['courses'],
         json['userType'],
-        json['channel']);
+       );
   }
 
   Map<String, dynamic> toMap(User user) {
@@ -48,8 +43,6 @@ class UserModel extends User {
       "token": user.token,
       "imageUrl": user.imageUrl,
       "isVerified": user.isVerified,
-      "courses": user.courses,
-      "channel": user.channel
     };
   }
 }
