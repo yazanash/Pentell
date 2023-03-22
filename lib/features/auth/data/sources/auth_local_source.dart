@@ -1,15 +1,15 @@
 import 'package:hive/hive.dart';
 import 'package:pentelligence/features/auth/data/models/user_model.dart';
 
-abstract class UserLocalSource {
+abstract class AuthLocalSource {
   Future<UserModel> getUserAuth();
   Future<void> saveUserAuth();
 }
 
-class UserLocalSourceImpl implements UserLocalSource {
+class AuthLocalSourceImpl implements AuthLocalSource {
   final Box<Map<String,dynamic>> userbox;
 
-  UserLocalSourceImpl(this.userbox);
+  AuthLocalSourceImpl(this.userbox);
 
   @override
   Future<UserModel> getUserAuth() {

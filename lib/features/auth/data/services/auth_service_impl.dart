@@ -1,16 +1,17 @@
-import 'package:pentelligence/core/connection/network_info.dart';
+
+import 'package:pentelligence/core/backend/network_info.dart';
 import 'package:pentelligence/core/errors/failures.dart';
 import 'package:dartz/dartz.dart';
-import 'package:pentelligence/features/auth/data/sources/user_local_source.dart';
-import 'package:pentelligence/features/auth/data/sources/user_remote_source.dart';
-import 'package:pentelligence/features/auth/models/services/user_service.dart';
+import 'package:pentelligence/features/auth/data/sources/auth_local_source.dart';
+import 'package:pentelligence/features/auth/data/sources/auth_remote_source.dart';
+import 'package:pentelligence/features/auth/models/services/auth_service.dart';
 
-class UserServiceImple implements UserService {
-  final UserLocalSource localSource;
-  final UserRemoteSource remoteSource;
+class AuthServiceImple implements AuthService {
+  final AuthLocalSource localSource;
+  final AuthRemoteSource remoteSource;
   final NetworkInfo networkInfo;
 
-  UserServiceImple(this.localSource, this.remoteSource, this.networkInfo);
+  AuthServiceImple(this.localSource, this.remoteSource, this.networkInfo);
 
   @override
   Future<Either<Failure, bool>> requestEmailAuth(String email) async {

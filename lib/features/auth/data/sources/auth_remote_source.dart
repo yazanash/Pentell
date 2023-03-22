@@ -1,13 +1,13 @@
 import 'package:pentelligence/features/auth/models/entities/user.dart';
 
-abstract class UserRemoteSource {
+abstract class AuthRemoteSource {
   Future<void> RequestEmailVerification(String email);
   Future<bool> verifyEmailCode(String code);
   Future<void> RequestPhoneVerification(String phone);
   Future<bool> VerifyPhoneCode(String code);
 }
 
-class UserRemoteSourceImpl implements UserRemoteSource {
+class AuthRemoteSourceImpl implements AuthRemoteSource {
   @override
   Future<void> RequestEmailVerification(String data) {
     // TODO: implement RequestVerification

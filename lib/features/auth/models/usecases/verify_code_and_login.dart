@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:pentelligence/core/errors/failures.dart';
-import 'package:pentelligence/features/auth/models/services/user_service.dart';
+import 'package:pentelligence/features/auth/models/services/auth_service.dart';
 
 class VerifyCodeAndLogin {
-  final UserService _userService;
+  final AuthService _userService;
   VerifyCodeAndLogin(this._userService);
 
   Future<Either<Failure, bool>> call(bool isEmail, String code) async {
