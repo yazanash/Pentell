@@ -11,11 +11,11 @@ class User extends Equatable {
       required this.imageUrl,
       required this.isVerified,
       required this.userType,
-      required this.Courses,
-      required this.Channel});
+      required this.courses,
+      required this.channel});
 
   @override
-  // TODO: implement props
+  
   List<Object?> get props => [id, name, email, token];
 
   final int id;
@@ -26,14 +26,21 @@ class User extends Equatable {
   final String imageUrl;
   final String isVerified;
   final UserType userType;
-  List<Object> Courses;
-  List<Object> Channel;
+  List<Object> courses;
+  List<Object> channel;
 
-  List<Object> get getList {
-    return Channel;
+  List<Object> get getChannel {
+    return channel;
   }
 
-  set setList(List<Object> value) {
-    Channel = value;
+  set setChannel(List<Object> value) {
+    channel = value;
+  }
+    List<Object> get getCourses {
+    return courses;
+  }
+
+  set setCourses(List<Object> value) {
+    courses = value;
   }
 }
