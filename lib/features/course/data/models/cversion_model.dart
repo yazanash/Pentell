@@ -13,7 +13,14 @@ class CVersionModel extends CVersion {
       required super.maxch,
       required super.minch,
       required super.joined,
-      required super.lobby});
+      required super.lobby,
+      required super.price,
+      required super.hasoffer,
+      required super.offer,
+      required super.new_price,
+      required super.maxof,
+      required super.minof,
+      });
 
   factory CVersionModel.fromJson(Map<String, dynamic> json) {
     return CVersionModel(
@@ -26,7 +33,15 @@ class CVersionModel extends CVersion {
       maxch:json["maxch"],
       minch:json["minch"],
       joined:json["joined"],
-      lobby:json["lobby"]);
+      lobby:json["lobby"],
+      price:json['price'],
+      hasoffer:json['hasoffer'],
+      offer:json['offer'],
+      new_price:json['new_price'],
+      maxof:json['maxof'],
+      minof:json['minof'],
+      );
+
   }
 
   Map<String, dynamic> toMap(CVersion cversion) {
@@ -41,6 +56,12 @@ class CVersionModel extends CVersion {
       "minch":cversion.minch,
       "joined":cversion.joined,
       "lobby":cversion.lobby,
+      "price":cversion.price,
+      "hasoffer":cversion.hasoffer,
+      "offer":cversion.offer,
+      "new_price":cversion.new_price,
+      "maxof":cversion.maxof,
+      "minof":cversion.minof,
     };
   }
 }
