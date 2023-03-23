@@ -19,7 +19,7 @@ class CVersion {
   final double new_price;
   final int maxof;
   final int minof;
-
+  
   CVersion(
       {required this.version_id,
       required this.teacher,
