@@ -13,7 +13,13 @@ class CVersion {
   final int minch;
   final int joined;
   final Object category;
-
+  final double price;
+  final bool hasoffer;
+  final String offer;
+  final double new_price;
+  final int maxof;
+  final int minof;
+  
   CVersion(
       {required this.version_id,
       required this.teacher,
@@ -24,5 +30,12 @@ class CVersion {
       required this.maxch,
       required this.minch,
       required this.joined,
-      required this.lobby});
+      required this.lobby,
+      required this.price,
+      required this.hasoffer,
+      required this.offer,
+      required this.new_price,
+      required this.maxof,
+      required this.minof,
+      });
 }
