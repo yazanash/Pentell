@@ -1,4 +1,3 @@
-
 import 'package:pentelligence/core/backend/network_info.dart';
 import 'package:pentelligence/core/errors/failures.dart';
 import 'package:dartz/dartz.dart';
@@ -23,25 +22,49 @@ class AuthServiceImple implements AuthService {
         return Left(FailedAuthFailure(''));
       }
     } else {
-      return Left(NoInternetFailure(''));
+      return Left(OfflineFailure(''));
     }
   }
 
   @override
-  Future<Either<Failure, bool>> requestPhoneAuth(String phoneNum) {
-    // TODO: implement requestPhoneAuth
-    throw UnimplementedError();
+  Future<Either<Failure, bool>> requestPhoneAuth(String phoneNum) async {
+    if (await networkInfo.isConnected) {
+      try {
+        remoteSource.RequestPhoneVerification(phoneNum);
+        return const Right(true);
+      } catch (e) {
+        return Left(FailedAuthFailure(''));
+      }
+    } else {
+      return Left(OfflineFailure(''));
+    }
   }
 
   @override
-  Future<Either<Failure, bool>> verifyEmailCode(String code) {
-    // TODO: implement verifyEmailCode
-    throw UnimplementedError();
+  Future<Either<Failure, bool>> verifyEmailCode(String code) async {
+    if (await networkInfo.isConnected) {
+      try {
+        remoteSource.verifyEmailCode(code);
+        return const Right(true);
+      } catch (e) {
+        return Left(FailedAuthFailure(''));
+      }
+    } else {
+      return Left(OfflineFailure(''));
+    }
   }
 
   @override
-  Future<Either<Failure, bool>> verifyPhoneCode(String code) {
-    // TODO: implement verifyPhoneCode
-    throw UnimplementedError();
+  Future<Either<Failure, bool>> verifyPhoneCode(String code) async {
+    if (await networkInfo.isConnected) {
+      try {
+        remoteSource.VerifyPhoneCode(code);
+        return const Right(true);
+      } catch (e) {
+        return Left(FailedAuthFailure(''));
+      }
+    } else {
+      return Left(OfflineFailure(''));
+    }
   }
 }
