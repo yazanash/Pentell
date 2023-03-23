@@ -1,4 +1,5 @@
 import 'package:pentelligence/features/auth/models/entities/profile.dart';
+import 'package:pentelligence/features/course/models/entities/categories.dart';
 
 import 'cversion.dart';
 
@@ -9,8 +10,8 @@ class Course {
   final Profile teacher;
   final int current_version;
   final List<CVersion> cversions;
-  final List<Object> tags;
-  final Object category;
+  final List<String> tags;
+  final Category category;
 
   Course(
       {
