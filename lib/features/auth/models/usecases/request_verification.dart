@@ -7,9 +7,10 @@ class RequestVerificationUsecase {
   RequestVerificationUsecase(this._userService);
 
   Future<Either<Failure, bool>> call(bool isEmail, String data) async {
-    if (isEmail)
+    if (isEmail) {
       return await _userService.requestEmailAuth(data);
-    else
+    } else {
       return await _userService.requestPhoneAuth(data);
+    }
   }
 }

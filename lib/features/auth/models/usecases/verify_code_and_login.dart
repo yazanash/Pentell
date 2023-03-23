@@ -7,9 +7,10 @@ class VerifyCodeAndLogin {
   VerifyCodeAndLogin(this._userService);
 
   Future<Either<Failure, bool>> call(bool isEmail, String code) async {
-    if (isEmail)
+    if (isEmail) {
       return await _userService.verifyEmailCode(code);
-    else
+    } else {
       return await _userService.verifyPhoneCode(code);
+    }
   }
 }

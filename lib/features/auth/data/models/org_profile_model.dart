@@ -1,5 +1,4 @@
 import 'package:pentelligence/features/auth/models/entities/org_profile.dart';
-import 'package:pentelligence/features/auth/models/entities/profile.dart';
 
 class OrgProfileModel extends OrgProfile {
   OrgProfileModel(
