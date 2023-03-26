@@ -12,11 +12,11 @@ import 'package:pentelligence/features/course/data/services/course_service_impl.
 import 'package:pentelligence/features/course/models/usecases/get_all_courses.dart';
 
 final sl = GetIt.instance;
-
+late final Box<Map<String,dynamic>> userBox;
 Future<void> init() async {
   //  Database
   await Hive.initFlutter();
-  final userBox = await Hive.openBox<Map<String, dynamic>>('user');
+   userBox = await Hive.openBox<Map<String, dynamic>>('user');
 
   //  core
   sl.registerSingleton(() => InternetConnectionChecker());
