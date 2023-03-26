@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'injection_dependancy.dart' as di;
 
 void main() async {
   await WidgetsFlutterBinding.ensureInitialized();
