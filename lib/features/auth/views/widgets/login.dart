@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pentelligence/core/utalis/button.dart';
-import 'package:pentelligence/core/utalis/input.dart';
+import 'package:pentelligence/core/utilities/button.dart';
+import 'package:pentelligence/core/utilities/input.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);

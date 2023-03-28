@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pentelligence/core/utalis/splash.dart';
+import 'package:pentelligence/core/utilities/splash.dart';
 import 'package:pentelligence/features/auth/views/widgets/login.dart';
 import 'package:pentelligence/features/auth/views/widgets/verify.dart';
+import 'package:pentelligence/features/connections/views/pages/profile_page.dart';
 import 'injection_dependancy.dart' as di;
 
 void main() async {
@@ -21,8 +22,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashWidget(userBox: di.userBox),
+      // home: SplashWidget(userBox: di.userBox),
       // home: Login(),
+      home: ProfilePage(),
       // home: VerifyCode(),
     );
   }

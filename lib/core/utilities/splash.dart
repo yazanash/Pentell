@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:pentelligence/core/utilities/profile_image.dart';
+import 'package:pentelligence/features/connections/views/widgets/profile_header.dart';
 
 class SplashWidget extends StatelessWidget {
   const SplashWidget({Key? key, required this.userBox}) : super(key: key);
