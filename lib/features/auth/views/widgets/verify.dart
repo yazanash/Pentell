@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pentelligence/core/utilities/button.dart';
 import 'package:pentelligence/core/utilities/input.dart';
 
-class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+class VerifyCode extends StatelessWidget {
+  const VerifyCode({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,17 +25,9 @@ class Login extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  "Welcome To",
+                  "Verify Your Account",
                   style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-                const Text(
-                  "Pentelligence",
-                  style: TextStyle(
-                    fontSize: 40,
+                    fontSize: 26,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
@@ -52,11 +44,7 @@ class Login extends StatelessWidget {
                     padding:
                         const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
                     child: Column(children: [
-                      Input("user@example.com", "Email"),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Input("Enter Your Password", "Password"),
+                      Input("Enter Code Here", "Your Code"),
                       const SizedBox(
                         height: 30,
                       ),

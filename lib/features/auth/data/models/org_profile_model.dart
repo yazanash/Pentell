@@ -11,6 +11,11 @@ class OrgProfileModel extends OrgProfile {
       required super.ceo,
       required super.channels,
       required super.courses,
+       required super.imageUrl,
+       required super.followingCount,
+       required super.followersCount,
+       required super.followers,
+       required super.following,
       required super.employee,
       required super.teachers,
       required super.roles});
@@ -23,27 +28,39 @@ class OrgProfileModel extends OrgProfile {
         email: json['email'],
         phoneNumber: json['phoneNumber'],
         address: json['address'],
+        imageUrl: json['imageUrl'],
         ceo: json['ceo'],
         channels: json['channels'],
         courses: json['courses'],
         employee: json['employee'],
         teachers: json['teachers'],
-        roles: json['roles']);
+        roles: json['roles'],
+      followingCount:json['followingCount'],
+      followersCount:json['followersCount'],
+      followers:json['followers'],
+      following:json['following']
+        );
+        
   }
 
   Map<String, dynamic> toMap(OrgProfile profile) {
     return {
-        'id': profile.id,
-        'name': profile.name,
-        'email': profile.email,
-        'phoneNumber': profile.phoneNumber,
-        'address': profile.address,
-        'ceo': profile.ceo,
-        'channels': profile.channels,
-        'courses': profile.courses,
-        'employee': profile.employee,
-        'teachers': profile.teachers,
-        'roles': profile.roles
+      'id': profile.id,
+      'name': profile.name,
+      'email': profile.email,
+      'phoneNumber': profile.phoneNumber,
+      'address': profile.address,
+      'ceo': profile.ceo,
+      'channels': profile.channels,
+      'imageUrl':profile.imageUrl,
+      'courses': profile.courses,
+      'employee': profile.employee,
+      'followingCount':profile.followingCount,
+      'followersCount':profile.followersCount,
+      'followers':profile.followers,
+      'following':profile.following,
+      'teachers': profile.teachers,
+      'roles': profile.roles
     };
   }
 }
