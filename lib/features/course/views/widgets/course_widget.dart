@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:pentelligence/core/utilities/tag_widget.dart';
-import 'package:pentelligence/features/course/views/widgets/join_in_btn.dart';
+import 'package:pentelligence/features/connections/views/widgets/join_in_btn.dart';
 
 class CourseWidget extends StatelessWidget {
   const CourseWidget({
@@ -35,143 +35,148 @@ class CourseWidget extends StatelessWidget {
                 //  subCard without color panel
                 children: [
                   Expanded(
+                    flex: 2,
                     child: Row(
                       // first row {Course name,institute name, teacher name} and image
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                       textDirection:
                           isRtl ? TextDirection.rtl : TextDirection.ltr,
                       children: [
-                        Expanded(
-                          flex: 3,
-                          child: Column(
-                            //  {Course ,institute ,teacher => names}
+                        Column(
+                          //  {Course ,institute ,teacher => names}
 
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Course name',
-                                style: TextStyle(
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w800,
-                                    color: Colors.amber),
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'institute Name',
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.w500,
                               ),
-                              Text(
-                                'Institute Name  |  Teacher Name',
-                                style: TextStyle(
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                            ],
+                            ),
+                            Text(
+                              'Course name',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w800,
+                                  color: Colors.amber),
+                            ),
+                            Text(
+                              'Teacher Name',
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                          ],
+                        ),
+                        Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.amber,
                           ),
                         ),
-                        Expanded(
-                          // circle image
-                          child: Icon(
-                            Icons.circle,
-                            color: Colors.red,
-                            size: 50,
-                          ),
-                        ),
+                        // Icon(
+                        //   Icons.circle,
+                        //   color: Colors.red,
+                        //   size: 50,
+                        // ),
                       ],
                     ),
                   ),
                   //  second row course description
                   Expanded(
+                    flex: 1,
                     child: Container(
                       alignment: Alignment.center,
-                      padding: EdgeInsets.all(5),
                       child: Text(
                         'description of the final course at stake of course its not final nor finished but thats what you will get when you fuck with santa clause',
                         maxLines: 2,
                         softWrap: true,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(color: Colors.grey),
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 12,
+                        ),
                       ),
                     ),
                   ),
 
                   //  third row controls
                   Expanded(
-                    child: Row(
+                    flex: 2,
+                    child: Column(
                       textDirection:
                           isRtl ? TextDirection.rtl : TextDirection.ltr,
                       children: [
                         Expanded(
-                          flex: 10,
-                          child: Column(
+                          flex: 1,
+                          child: Row(
                             //  price and rate
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                "Price : 1'500'000 s.p",
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
                               Row(
-                                textDirection: isRtl
-                                    ? TextDirection.rtl
-                                    : TextDirection.ltr,
                                 children: [
                                   RatingBar.builder(
-                                      itemSize: 15,
-                                      allowHalfRating: true,
-                                      itemBuilder: ((context, index) {
-                                        return Icon(
-                                          Icons.star,
-                                          color: Colors.amber,
-                                        );
-                                      }),
-                                      onRatingUpdate: (rating) {}),
-                                  Text('4.8'),
+                                    itemSize: 15,
+                                    allowHalfRating: true,
+                                    itemBuilder: ((context, index) {
+                                      return Icon(
+                                        Icons.star,
+                                        color: Colors.amber,
+                                      );
+                                    }),
+                                    onRatingUpdate: (rating) {},
+                                  ),
+                                  Text(' 4.8'),
                                 ],
-                              )
-                            ],
-                          ),
-                        ),
-                        //  date of creation
-                        Expanded(
-                          flex: 5,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.edit,
-                                size: 15,
                               ),
                               Text(
                                 '10/10/22',
                                 style: TextStyle(
                                   fontSize: 12,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        //  wishlist
                         Expanded(
-                          flex: 8,
+                          flex: 2,
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             textDirection:
                                 isRtl ? TextDirection.rtl : TextDirection.ltr,
                             children: [
-                              Material(
-                                color: Colors.transparent,
-                                child: IconButton(
-                                  splashRadius: 20,
-                                  onPressed: () {},
-                                  icon: Icon(Icons.bookmark_border),
-                                ),
+                              Text(
+                                "Price : 1'500'000 s.p",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 12),
                               ),
-                              JoinBtn(
-                                title: 'join in',
-                                color: Colors.blue,
-                                onPressed: () {},
+                              Row(
+                                children: [
+                                  Material(
+                                    color: Colors.transparent,
+                                    child: IconButton(
+                                      splashRadius: 20,
+                                      onPressed: () {},
+                                      icon: Icon(Icons.bookmark_border),
+                                    ),
+                                  ),
+                                  // join btn
+                                  MaterialBtn(
+                                    title: 'join in',
+                                    color: Colors.blue,
+                                    onPressed: () {},
+                                  ),
+                                ],
                               ),
                             ],
                           ),
                         ),
-                        //  joinButton
                       ],
                     ),
                   ),
@@ -186,7 +191,7 @@ class CourseWidget extends StatelessWidget {
                 borderRadius: isRtl
                     ? BorderRadius.horizontal(left: Radius.circular(15))
                     : BorderRadius.horizontal(right: Radius.circular(15)),
-                color: Colors.teal,
+                color: Colors.amber,
               ),
             ),
           ),

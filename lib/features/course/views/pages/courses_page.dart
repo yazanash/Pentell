@@ -31,7 +31,7 @@ class CoursesPage extends StatelessWidget {
         if (index == 0) {
           return SizedBox(height: 5);
         }
-        return SizedBox(height: 0);
+        return SizedBox();
       },
     );
   }

@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
-class JoinBtn extends StatelessWidget {
-  const JoinBtn({
+class MaterialBtn extends StatelessWidget {
+  const MaterialBtn({
     Key? key,
     required this.title,
     required this.color,
     required this.onPressed,
+    this.icon,
   }) : super(key: key);
+
   final String title;
   final Color color;
   final VoidCallback onPressed;
+  final Widget? icon;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +24,18 @@ class JoinBtn extends StatelessWidget {
         onTap: onPressed,
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 3),
-          child: Text(
-            title,
-            style: TextStyle(color: color, fontWeight: FontWeight.bold),
+          child: Row(
+            children: [
+              if (icon != null)
+                Row(children: [
+                  icon as Widget,
+                  SizedBox(width: 3),
+                ]),
+              Text(
+                title,
+                style: TextStyle(color: color, fontWeight: FontWeight.bold),
+              ),
+            ],
           ),
         ),
       ),

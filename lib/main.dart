@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pentelligence/homePage.dart';
 import 'injection_dependancy.dart' as di;
 
 void main() async {
@@ -27,8 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Container(),
+      home: HomePage(),
     );
   }
 }
-
