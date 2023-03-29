@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
+import 'package:pentelligence/core/utilities/splash.dart';
 import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
 import 'package:pentelligence/homePage.dart';
-=======
-import 'package:pentelligence/core/utilities/splash.dart';
->>>>>>> 79df94df4af03be72e81e52a06a20c79b20dd9dd
 import 'injection_dependancy.dart' as di;
 
 void main() async {
@@ -24,11 +21,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-<<<<<<< HEAD
-      home: LobbyPage(),
-=======
+      // home: LobbyPage(),
       home: SplashWidget(userBox:di.userBox),
->>>>>>> 79df94df4af03be72e81e52a06a20c79b20dd9dd
     );
   }
 }
