@@ -15,6 +15,7 @@ class SettingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
+      height: 50,
       child: InkWell(
         onTap: onPressed,
         child: Row(
