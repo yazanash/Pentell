@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:pentelligence/features/course/views/pages/members_tab.dart';
 import 'package:pentelligence/features/course/views/pages/tasks_tab.dart';
 
 class LobbyPage extends StatelessWidget {
@@ -25,7 +26,7 @@ class LobbyPage extends StatelessWidget {
         body: TabBarView(
           children: [
             TasksTab(),
-            Container(),
+            MembersTab(members: []),
           ],
         ),
       ),
