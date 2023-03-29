@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pentelligence/core/utilities/splash.dart';
+import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
 import 'package:pentelligence/homePage.dart';
 import 'injection_dependancy.dart' as di;
 
@@ -20,6 +21,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      // home: LobbyPage(),
+      // home: SplashWidget(userBox:di.userBox),
       home: HomePage(),
     );
   }

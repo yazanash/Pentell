@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pentelligence/features/connections/views/pages/profile_page.dart';
 import 'package:pentelligence/features/course/views/pages/board_page.dart';
+import 'package:pentelligence/features/course/views/pages/course_info.dart';
 import 'package:pentelligence/features/course/views/pages/courses_page.dart';
+import 'package:pentelligence/features/course/views/pages/more_page.dart';
 import 'package:pentelligence/features/course/views/pages/notification_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -58,7 +60,7 @@ class HomePage extends StatelessWidget {
         const CoursesPage(isRtl: false),
         const BoardPage(),
         ProfilePage(),
-        Container(),
+        const MorePage(),
       ][index],
     );
   }

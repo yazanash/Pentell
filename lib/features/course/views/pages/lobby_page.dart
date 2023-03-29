@@ -12,10 +12,10 @@ class LobbyPage extends StatelessWidget {
       initialIndex: 0,
       child: Scaffold(
         appBar: AppBar(
-            bottom: TabBar(
+            bottom: const TabBar(
           tabs: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: Text('Mails'),
             ),
             Text('Members'),
@@ -23,7 +23,8 @@ class LobbyPage extends StatelessWidget {
         )),
         body: TabBarView(
           children: [
-            TasksTab(),
+            const TasksTab(),
+            Container(),
             MembersTab(members: []),
           ],
         ),
