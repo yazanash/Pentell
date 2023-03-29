@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pentelligence/core/utilities/splash.dart';
 import 'injection_dependancy.dart' as di;
 
 void main() async {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Container(),
+      home: SplashWidget(userBox:di.userBox),
     );
   }
 }
