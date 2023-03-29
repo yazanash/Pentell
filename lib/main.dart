@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
+import 'package:pentelligence/homePage.dart';
 import 'injection_dependancy.dart' as di;
 
 void main() async {
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Container(),
+      home: LobbyPage(),
     );
   }
 }

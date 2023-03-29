@@ -16,14 +16,17 @@ class HomePage extends StatelessWidget {
           IconButton(
             onPressed: () {},
             icon: const Icon(Icons.search),
-
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.notifications),
           ),
         ],
         title: Text(
           'Demo',
           // style: TextStyle(color: Color(0xFFAB9C6F)),
         ),
-        
+
         // backgroundColor: Color(0xffd2d2d2),
         elevation: 0,
       ),
@@ -35,10 +38,9 @@ class HomePage extends StatelessWidget {
         selectedIndex: index,
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-          NavigationDestination(
-              icon: Icon(Icons.notifications_rounded), label: 'Notification'),
-          NavigationDestination(
-              icon: Icon(Icons.dashboard), label: 'Dashboard'),
+          // NavigationDestination(
+          //     icon: Icon(Icons.notifications_rounded), label: 'Notification'),
+          NavigationDestination(icon: Icon(Icons.dashboard), label: 'Board'),
           NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
           NavigationDestination(icon: Icon(Icons.more_horiz), label: 'more'),
         ],
@@ -46,7 +48,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.grey.shade200,
       body: <Widget>[
         const CoursesPage(isRtl: false),
-        const NotificationPage(),
+        Container(),
         Container(),
         Container(),
       ][index],

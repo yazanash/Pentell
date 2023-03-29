@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:pentelligence/core/utilities/tag_widget.dart';
-import 'package:pentelligence/features/connections/views/widgets/join_in_btn.dart';
+import 'package:pentelligence/features/connections/views/widgets/materialbtn.dart';
 
 class CourseWidget extends StatelessWidget {
   const CourseWidget({

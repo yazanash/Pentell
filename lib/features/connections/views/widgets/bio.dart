@@ -1,9 +1,8 @@
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 
 class Bio extends StatelessWidget {
-  const Bio({Key? key}) : super(key: key);
+  const Bio({Key? key, required this.description}) : super(key: key);
+  final String description;
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +17,7 @@ class Bio extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          Text('desicription'),
-          Text('user job: bitch'),
-          Text('collage/schools: somthing'),
-          Text('user specialist: degree'),
+          Text(description),
         ],
       ),
     );
