@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pentelligence/features/connections/views/pages/profile_page.dart';
+import 'package:pentelligence/features/course/views/pages/board_page.dart';
 import 'package:pentelligence/features/course/views/pages/courses_page.dart';
 import 'package:pentelligence/features/course/views/pages/notification_page.dart';
 
@@ -14,11 +16,19 @@ class HomePage extends StatelessWidget {
         toolbarHeight: 50,
         actions: [
           IconButton(
+            splashRadius: 25,
             onPressed: () {},
             icon: const Icon(Icons.search),
           ),
           IconButton(
-            onPressed: () {},
+            splashRadius: 25,
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const NotificationPage(),
+                ),
+              );
+            },
             icon: const Icon(Icons.notifications),
           ),
         ],
@@ -38,8 +48,6 @@ class HomePage extends StatelessWidget {
         selectedIndex: index,
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-          // NavigationDestination(
-          //     icon: Icon(Icons.notifications_rounded), label: 'Notification'),
           NavigationDestination(icon: Icon(Icons.dashboard), label: 'Board'),
           NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
           NavigationDestination(icon: Icon(Icons.more_horiz), label: 'more'),
@@ -48,8 +56,8 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.grey.shade200,
       body: <Widget>[
         const CoursesPage(isRtl: false),
-        Container(),
-        Container(),
+        const BoardPage(),
+        ProfilePage(),
         Container(),
       ][index],
     );

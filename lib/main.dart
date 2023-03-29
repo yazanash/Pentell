@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: LobbyPage(),
-      home: SplashWidget(userBox:di.userBox),
+      // home: SplashWidget(userBox:di.userBox),
+      home: HomePage(),
     );
   }
 }
