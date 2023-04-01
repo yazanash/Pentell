@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-Widget authButton() {
+Widget authButton(VoidCallback onPressed) {
   return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 10,vertical:5),
+    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
     child: SizedBox(
       width: double.infinity,
       height: 40,
       child: OutlinedButton(
-          onPressed: () {},
+          onPressed: onPressed,
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
           ),

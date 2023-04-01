@@ -5,11 +5,13 @@ import 'package:flutter/widgets.dart';
 class Bio extends StatelessWidget {
   Bio(
       {Key? key,
+      this.title = 'Bio :',
       required this.description,
       this.fontSize = 16,
       this.alignment = CrossAxisAlignment.center})
       : super(key: key);
   final String description;
+  final String title;
   double fontSize;
   CrossAxisAlignment alignment;
   @override
@@ -20,13 +22,13 @@ class Bio extends StatelessWidget {
         crossAxisAlignment: alignment,
         children: [
           Text(
-            'Bio',
+            title,
             style: TextStyle(
               fontSize: fontSize,
               fontWeight: FontWeight.bold,
             ),
           ),
-          Text(description),
+          Text(description.trim()),
         ],
       ),
     );
