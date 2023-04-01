@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
+import 'package:pentelligence/core/utilities/profile_image.dart';
 
 class InstituteAd extends StatelessWidget {
   const InstituteAd({Key? key}) : super(key: key);
@@ -11,16 +9,14 @@ class InstituteAd extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(left: 10),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-            width: 80,
-            height: 80,
-            decoration: BoxDecoration(
-              color: Colors.amber,
-              borderRadius: BorderRadius.circular(50),
-            ),
-          ),
+          ProfileImage(
+              url: 'lib/assets/logo3.png',
+              size: 80,
+              background: Colors.blueGrey,
+              borderWidth: 0,
+              isTrusted: true),
           SizedBox(
             width: 80,
             child: Text(
@@ -30,7 +26,6 @@ class InstituteAd extends StatelessWidget {
               style: TextStyle(fontSize: 10, fontWeight: FontWeight.w500),
             ),
           ),
-          SizedBox(height: 10),
         ],
       ),
     );

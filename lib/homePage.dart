@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pentelligence/core/popups/popup.dart';
 import 'package:pentelligence/features/connections/views/pages/profile_page.dart';
 import 'package:pentelligence/features/course/views/pages/board_page.dart';
-import 'package:pentelligence/features/course/views/pages/course_info.dart';
 import 'package:pentelligence/features/course/views/pages/courses_page.dart';
+import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
 import 'package:pentelligence/features/course/views/pages/more_page.dart';
-import 'package:pentelligence/features/course/views/pages/notification_page.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -15,7 +15,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 50,
         actions: [
           IconButton(
             splashRadius: 25,
@@ -25,11 +24,22 @@ class HomePage extends StatelessWidget {
           IconButton(
             splashRadius: 25,
             onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const NotificationPage(),
-                ),
-              );
+              // Navigator.of(context).push(
+              //   MaterialPageRoute(
+              //     builder: (context) => const LobbyPage(),
+              //   ),
+              // );
+
+              showDialog(
+                  context: context,
+                  barrierDismissible: true,
+                  builder: (c) {
+                    return Popup(
+                        imgAsset: 'imgAsset',
+                        description: 'description',
+                        positiveAction: () {},
+                        negativeAction: () {});
+                  });
             },
             icon: const Icon(Icons.notifications),
           ),
@@ -55,7 +65,7 @@ class HomePage extends StatelessWidget {
           NavigationDestination(icon: Icon(Icons.more_horiz), label: 'more'),
         ],
       ),
-      backgroundColor: Colors.grey.shade200,
+      backgroundColor: Color(0xFFEEEEEE),
       body: <Widget>[
         const CoursesPage(isRtl: false),
         const BoardPage(),

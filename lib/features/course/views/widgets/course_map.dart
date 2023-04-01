@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:timelines/timelines.dart';
+import 'package:pentelligence/core/utilities/timeline_widget.dart';
 
 class CourseMap extends StatelessWidget {
   const CourseMap({Key? key}) : super(key: key);
@@ -7,12 +7,7 @@ class CourseMap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Timeline.builder(
-        itemCount: 5,
-        itemBuilder: (context, index) {
-          return Container();
-        },
-      ),
+      child: TimeLineWidget(),
     );
   }
 }

@@ -9,29 +9,23 @@ class CoursesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      padding: EdgeInsets.symmetric(vertical: 10),
-      itemCount: 5 + 1,
+    return ListView.builder(
+      itemCount: 10 + 1,
       itemBuilder: (context, index) {
         if (index == 0) {
-          return SizedBox(
+          return Container(
+            // color: Colors.white,
             height: 110,
             child: ListView(
               padding: EdgeInsets.symmetric(horizontal: 10),
               scrollDirection: Axis.horizontal,
               children: [
-                for (int i = 0; i < 5; i++) InstituteAd(),
+                for (int i = 0; i < 6; i++) InstituteAd(),
               ],
             ),
           );
         }
         return CourseWidget(isRtl: isRtl);
-      },
-      separatorBuilder: (context, index) {
-        if (index == 0) {
-          return SizedBox(height: 5);
-        }
-        return SizedBox();
       },
     );
   }

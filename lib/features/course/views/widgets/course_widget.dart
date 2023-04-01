@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:pentelligence/core/utilities/tag_widget.dart';
 import 'package:pentelligence/features/connections/views/widgets/materialbtn.dart';
 import 'package:pentelligence/features/course/views/pages/course_info.dart';
 
@@ -16,7 +15,7 @@ class CourseWidget extends StatelessWidget {
       onTap: () => Navigator.of(context)
           .push(MaterialPageRoute(builder: ((context) => CourseInfoPage()))),
       child: Container(
-        height: 150,
+        height: 160,
         margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
@@ -26,9 +25,9 @@ class CourseWidget extends StatelessWidget {
           textDirection: isRtl ? TextDirection.rtl : TextDirection.ltr,
           children: [
             Expanded(
-              flex: 19,
+              flex: 20,
               child: Container(
-                padding: EdgeInsets.all(5),
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: isRtl
@@ -80,14 +79,9 @@ class CourseWidget extends StatelessWidget {
                             height: 50,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: Colors.amber,
+                              color: Colors.blueGrey,
                             ),
                           ),
-                          // Icon(
-                          //   Icons.circle,
-                          //   color: Colors.red,
-                          //   size: 50,
-                          // ),
                         ],
                       ),
                     ),
