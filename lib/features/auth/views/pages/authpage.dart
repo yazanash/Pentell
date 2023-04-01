@@ -4,11 +4,18 @@ import 'package:pentelligence/features/auth/views/widgets/login.dart';
 import 'package:pentelligence/features/auth/views/widgets/verify.dart';
 
 class AuthPage extends StatelessWidget {
+   ScrollController controller = ScrollController();
+
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: const [Login(), VerifyCode()],
+    return Scaffold(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        controller: controller,
+        physics: const NeverScrollableScrollPhysics(),
+        child: Row(
+          children:  [Login(controller: controller,), VerifyCode(controller:controller)],
+        ),
       ),
     );
   }

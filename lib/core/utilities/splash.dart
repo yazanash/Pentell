@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:pentelligence/core/utilities/profile_image.dart';
+import 'package:pentelligence/features/auth/views/pages/authpage.dart';
 import 'package:pentelligence/features/connections/views/widgets/dashboard_btn.dart';
 import 'package:pentelligence/features/connections/views/widgets/profile_header.dart';
+import 'package:pentelligence/homePage.dart';
 
 import '../../features/connections/views/widgets/lobby_card.dart';
 
@@ -11,8 +13,7 @@ class SplashWidget extends StatelessWidget {
   final Box<Map<String, dynamic>> userBox;
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 3));
-    checkAuth(context);
+    check(context);
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -70,10 +71,17 @@ class SplashWidget extends StatelessWidget {
 
   Future<void> checkAuth(context) async {
     if (userBox.containsKey('token')) {
-      Navigator.of(context).pushReplacementNamed("home");
+      // Navigator.of(context).pushReplacementNamed("home");
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: ((context) => HomePage())));
+    } else {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: ((context) => AuthPage())));
     }
-    // else{
-    //    Navigator.of(context).pushReplacementNamed("login");
-    // }
+  }
+
+  Future<void> check(context) async {
+    await Future.delayed(const Duration(seconds: 3));
+    checkAuth(context);
   }
 }

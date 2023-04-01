@@ -14,7 +14,10 @@ Widget CardInfo(
       child: Container(
         decoration: BoxDecoration(
             color: Colors.blue, borderRadius: BorderRadius.circular(10)),
-       
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: ElevatedButton(
+            onPressed: () {},
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -39,6 +42,8 @@ Widget CardInfo(
                     ),
                   ),
                 ]),
+          ),
+        ),
       ),
     ),
   );

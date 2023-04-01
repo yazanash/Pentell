@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pentelligence/core/utilities/profile_image.dart';
+import 'package:pentelligence/features/auth/models/entities/profile.dart';
 
 class NotifyWidget extends StatelessWidget {
   const NotifyWidget({Key? key}) : super(key: key);
@@ -15,16 +17,14 @@ class NotifyWidget extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: Center(
-              child: Container(
-                height: 50,
-                width: 50,
-                margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: Colors.amber,
-                ),
-              ),
+            child: Column(
+              children: [
+                ProfileImage(
+                    url: "lib/assets/logo3.png",
+                    size: 60,
+                    padding: 8,
+                    background: Colors.black),
+              ],
             ),
           ),
           Expanded(

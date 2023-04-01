@@ -3,12 +3,11 @@ import 'package:pentelligence/core/utilities/button.dart';
 import 'package:pentelligence/core/utilities/input.dart';
 
 class VerifyCode extends StatelessWidget {
-  const VerifyCode({Key? key}) : super(key: key);
-
+  const VerifyCode({Key? key, required this.controller}) : super(key: key);
+  final ScrollController controller;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return  Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
               colors: [Color(0xff0E9A9F), Color(0xff27DCAB)],
@@ -48,7 +47,9 @@ class VerifyCode extends StatelessWidget {
                       const SizedBox(
                         height: 30,
                       ),
-                      authButton(),
+                      authButton(() {
+                      controller.jumpTo(MediaQuery.of(context).size.width);
+                    }),
                     ]),
                   ),
                 )
@@ -86,7 +87,6 @@ class VerifyCode extends StatelessWidget {
             ),
           )
         ]),
-      ),
     );
   }
 }
