@@ -22,16 +22,15 @@ const HTTP_PROFILE = '';
 const HTTP_USER_PROFILE = '';
 const HTTP_ORG_PROFILE = '';
 
-const Map<String, String> arabic = {
-  'home': 'الرئيسية',
-};
+const IMG_NO_CONTENT = 'lib/assets/no_content.png';
+
+const Map<String, String> arabic = {};
 const Map<String, String> english = {
   'home': 'Home',
   'complete your profile': 'Complete your profile',
   'sign in': 'Sign in',
   's.p': 's.p',
   'enter code': 'Enter Code',
-  'proxy hint': 'please run proxy/VPN to recieve sms',
   'email': 'Email',
   'password': 'Password',
   'phoneNum': 'Phone Number',

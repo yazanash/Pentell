@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pentelligence/core/utilities/timeline_widget.dart';
-import 'package:timelines/timelines.dart';
 
 class TasksTab extends StatelessWidget {
   const TasksTab({Key? key}) : super(key: key);

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pentelligence/core/constant/constant.dart';
 import 'package:pentelligence/core/popups/popup.dart';
 import 'package:pentelligence/features/connections/views/pages/profile_page.dart';
 import 'package:pentelligence/features/course/views/pages/board_page.dart';
 import 'package:pentelligence/features/course/views/pages/courses_page.dart';
-import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
-import 'package:pentelligence/features/course/views/pages/more_page.dart';
+import 'package:pentelligence/features/course/views/pages/settings_page.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -35,10 +35,12 @@ class HomePage extends StatelessWidget {
                   barrierDismissible: true,
                   builder: (c) {
                     return Popup(
-                        imgAsset: 'imgAsset',
+                        imgAsset: IMG_NO_CONTENT,
+                        title: 'title',
+                        body: [Text('$index')],
                         description: 'description',
-                        positiveAction: () {},
-                        negativeAction: () {});
+                        positiveAction: Text('no'),
+                        negativeAction: Text('ok'));
                   });
             },
             icon: const Icon(Icons.notifications),

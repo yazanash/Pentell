@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pentelligence/core/utilities/user_tile.dart';
 import 'package:pentelligence/features/course/views/pages/members_tab.dart';
 import 'package:pentelligence/features/course/views/pages/tasks_tab.dart';
 
@@ -12,13 +13,13 @@ class LobbyPage extends StatelessWidget {
       initialIndex: 0,
       child: Scaffold(
         appBar: AppBar(
-            title: Text('Lobby'),
+            title: Text('CourseName'),
             bottom: TabBar(
               tabs: [
                 Container(
                   height: 50,
                   alignment: Alignment.center,
-                  child: Text('Mails'),
+                  child: Text('News'),
                 ),
                 Container(
                   height: 50,
@@ -31,7 +32,7 @@ class LobbyPage extends StatelessWidget {
           children: [
             const TasksTab(),
             MembersTab(members: [
-              for (int i = 0; i < 5; i++) Text('data $i'),
+              for (int i = 0; i < 5; i++) UserTile(),
             ]),
           ],
         ),
