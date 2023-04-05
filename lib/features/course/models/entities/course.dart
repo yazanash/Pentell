@@ -8,20 +8,22 @@ class Course {
   final String name;
   final String provider;
   final Profile teacher;
-  final int current_version;
+  final int currentVersion;
   final List<CVersion> cversions;
   final List<String> tags;
   final Category category;
+  
+  bool isJoined;
 
-  Course(
-      {
-        required this.id,
-        required this.name,
-        required this.provider,
-        required this.teacher,
-        required this.cversions,
-        required this.tags,
-        required this.category,
-        required this.current_version
-      });
+  Course({
+    required this.id,
+    required this.name,
+    required this.provider,
+    required this.teacher,
+    required this.cversions,
+    required this.tags,
+    required this.category,
+    required this.currentVersion,
+    this.isJoined = false,
+  });
 }

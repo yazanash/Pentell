@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:pentelligence/core/utilities/button.dart';
 import 'package:pentelligence/core/utilities/input.dart';
+import 'package:pentelligence/features/auth/views/provider/auth_state.dart';
+import 'package:provider/provider.dart';
 
 class Login extends StatelessWidget {
-  const Login({Key? key, required this.controller}) : super(key: key);
+  const Login({
+    Key? key,
+    required this.controller,
+    required this.onPressed,
+  }) : super(key: key);
+
   final ScrollController controller;
+  final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -59,12 +67,22 @@ class Login extends StatelessWidget {
                     const SizedBox(
                       height: 30,
                     ),
-                    authButton(() {
-                      controller.animateTo(MediaQuery.of(context).size.width,
-                      duration: Duration(milliseconds: 500),
-                      curve: Curves.linear);
-                      print("object");
-                    }),
+                    Consumer<AuthState>(
+                      builder: (_, state, child) {
+                        return authButton(
+                          () async {
+                            await Provider.of<AuthState>(context, listen: false)
+                                .testBtn();
+                            controller.animateTo(
+                                MediaQuery.of(context).size.width,
+                                duration: Duration(milliseconds: 500),
+                                curve: Curves.linear);
+                            print("object");
+                          },
+                          state.isLoading,
+                        );
+                      },
+                    ),
                   ]),
                 ),
               )

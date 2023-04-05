@@ -72,11 +72,11 @@ class SplashWidget extends StatelessWidget {
   Future<void> checkAuth(context) async {
     if (userBox.containsKey('token')) {
       // Navigator.of(context).pushReplacementNamed("home");
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: ((context) => HomePage())));
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: ((context) => HomePage())));
     } else {
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: ((context) => AuthPage())));
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: ((context) => AuthPage())));
     }
   }
 
