@@ -10,18 +10,18 @@ class CoursesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedList(
-      initialItemCount: 1,
+      initialItemCount: 6 + 1,
       itemBuilder: (context, index, anime) {
         if (index == 0) {
           return Container(
             // color: Colors.white,
             height: 110,
-            child: ListView(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+            child: ListView.builder(
+              itemCount: 6,
+              padding:const EdgeInsets.symmetric(horizontal: 10),
               scrollDirection: Axis.horizontal,
-              children: [
-                for (int i = 0; i < 6; i++) InstituteAd(),
-              ],
+              itemBuilder:(_,index) => InstituteAd()
+              ,
             ),
           );
         }

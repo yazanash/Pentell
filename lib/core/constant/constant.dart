@@ -26,6 +26,7 @@ const HTTP_ORG_PROFILE = '';
 
 const IMG_NO_CONTENT = 'lib/assets/no_content.png';
 const IMG_ERROR = 'lib/assets/error.png';
+const IMG_LOGO = 'lib/assets/logo3.png';
 
 const Map<String, String> arabic = {};
 const Map<String, String> english = {

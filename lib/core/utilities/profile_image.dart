@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 Widget ProfileImage(
-    {
-     required String url,
+    {required String url,
     double? radius,
     double size = 110,
     bool isTrusted = false,
@@ -22,8 +21,10 @@ Widget ProfileImage(
     child: Stack(children: [
       Padding(
         padding: EdgeInsets.all(padding),
-        child: Image.asset(
-          url,
+        child: Center(
+          child: Image.asset(
+            url,
+          ),
         ),
       ),
       if (isTrusted)
@@ -35,7 +36,6 @@ Widget ProfileImage(
                 borderRadius: BorderRadius.circular(30), color: Colors.blue),
             width: 30,
             height: 30,
-           
             child: Padding(
               padding: const EdgeInsets.all(5.0),
               child: Image.asset(

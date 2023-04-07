@@ -5,11 +5,13 @@ import 'package:pentelligence/features/connections/views/pages/profile_page.dart
 import 'package:pentelligence/features/course/views/pages/board_page.dart';
 import 'package:pentelligence/features/course/views/pages/courses_page.dart';
 import 'package:pentelligence/features/course/views/pages/settings_page.dart';
+import 'package:pentelligence/main_state.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
 
-  int index = 0;
+  int currentPage = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,7 @@ class HomePage extends StatelessWidget {
                           color: Colors.white,
                         ),
                         title: 'title',
-                        body: [Text('$index')],
+                        body: [Text('$currentPage')],
                         popColor: Colors.red,
                         description:
                             'description description description description description description',
@@ -61,26 +63,36 @@ class HomePage extends StatelessWidget {
         // backgroundColor: Color(0xffd2d2d2),
         elevation: 0,
       ),
-      bottomNavigationBar: NavigationBar(
-        height: 75,
-        onDestinationSelected: (value) {
-          //
-        },
-        selectedIndex: index,
-        destinations: const [
-          NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-          NavigationDestination(icon: Icon(Icons.dashboard), label: 'Board'),
-          NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
-          NavigationDestination(icon: Icon(Icons.more_horiz), label: 'more'),
-        ],
+      bottomNavigationBar: Consumer<MainState>(
+        builder: (_, state, child) => NavigationBar(
+          height: 75,
+          onDestinationSelected: (index) {
+            // Provider.of<MainState>(context, listen: false).setIndex(index);
+            state.setIndex(index);
+          },
+          selectedIndex: state.index,
+          destinations: const [
+            NavigationDestination(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            NavigationDestination(icon: Icon(Icons.dashboard), label: 'Board'),
+            NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
+            NavigationDestination(icon: Icon(Icons.more_horiz), label: 'more'),
+          ],
+        ),
       ),
       backgroundColor: Color(0xFFEEEEEE),
-      body: <Widget>[
-        const CoursesPage(isRtl: false),
-        const BoardPage(),
-        ProfilePage(),
-        const MorePage(),
-      ][index],
+      body: Consumer<MainState>(
+        builder: (context, state, child) {
+          return <Widget>[
+            const CoursesPage(isRtl: false),
+            const BoardPage(),
+            ProfilePage(),
+            const MorePage(),
+          ][state.index];
+        },
+      ),
     );
   }
 }
