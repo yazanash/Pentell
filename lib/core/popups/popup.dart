@@ -29,7 +29,7 @@ class Popup extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-                width: MediaQuery.of(context).size.width * 0.8,
+                width: MediaQuery.of(context).size.width,
                 margin: EdgeInsets.only(bottom: 10),
                 decoration: BoxDecoration(
                   color: popColor,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pentelligence/core/popups/popup.dart';
+import 'package:pentelligence/core/popups/tesk_popup.dart';
 import 'package:pentelligence/core/utilities/user_tile.dart';
 import 'package:pentelligence/features/course/views/pages/members_tab.dart';
 import 'package:pentelligence/features/course/views/pages/tasks_tab.dart';
@@ -35,6 +37,15 @@ class LobbyPage extends StatelessWidget {
               for (int i = 0; i < 5; i++) UserTile(),
             ]),
           ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (_) => MessageTask(),
+            );
+          },
+          child: Icon(Icons.add),
         ),
       ),
     );

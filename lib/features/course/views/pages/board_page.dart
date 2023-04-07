@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pentelligence/features/auth/models/entities/user_profile.dart';
 import 'package:pentelligence/features/connections/views/widgets/dashboard_btn.dart';
+import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/board_panel.dart';
 
 class BoardPage extends StatelessWidget {
@@ -45,7 +46,13 @@ class BoardPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    DashboardButton(ratio: 1.25),
+                    DashboardButton(
+                      ratio: 1.25,
+                      onPressed: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (_) => LobbyPage()));
+                      },
+                    ),
                     DashboardButton(ratio: 1.25),
                     DashboardButton(ratio: 1.25),
                     DashboardButton(ratio: 1.25),

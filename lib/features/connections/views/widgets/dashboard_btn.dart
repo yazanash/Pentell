@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
 
 Widget DashboardButton(
     {String text = "button",
@@ -6,11 +7,11 @@ Widget DashboardButton(
     Color iconColor = Colors.blue,
     double iconSize = 30.0,
     IconData icon = Icons.add,
-    double ratio = 0.75}) {
+    double ratio = 0.75,VoidCallback? onPressed,}) {
   return Container(
     padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
     child: ElevatedButton(
-      onPressed: () {},
+      onPressed: onPressed,
       style: ButtonStyle(
         elevation: MaterialStateProperty.all<double>(0),
         // backgroundColor: MaterialStateProperty.all<Color>(Color(0xff444444)),

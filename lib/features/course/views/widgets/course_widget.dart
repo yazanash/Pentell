@@ -22,6 +22,7 @@ class CourseWidget extends StatelessWidget {
         ),
         child: Row(
           //  main Card
+          crossAxisAlignment: CrossAxisAlignment.start,
           textDirection: isRtl ? TextDirection.rtl : TextDirection.ltr,
           children: [
             Expanded(
@@ -190,7 +191,20 @@ class CourseWidget extends StatelessWidget {
                   borderRadius: isRtl
                       ? BorderRadius.horizontal(left: Radius.circular(15))
                       : BorderRadius.horizontal(right: Radius.circular(15)),
-                  color: Colors.amber,
+                  color: Colors.blue,
+                ),
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: RatingBar.builder(
+                  itemCount: 3,
+                  itemSize: 15,
+                  direction: Axis.vertical,
+                  itemBuilder: (_, index) {
+                    return Icon(
+                      Icons.star,
+                      color: Colors.red,
+                    );
+                  },
+                  onRatingUpdate: (newRate) {},
                 ),
               ),
             ),

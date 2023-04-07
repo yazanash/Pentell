@@ -11,12 +11,13 @@ class BoardPanal extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(10.0),
       margin: const EdgeInsets.all(8.0),
-      height: 200,
+      // height: 200,
       decoration: BoxDecoration(
-        color: Colors.grey.shade400,
+        color: Colors.blueGrey.shade300,
         borderRadius: BorderRadius.circular(15),
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           //  first row {img, name, followers}
           Row(
