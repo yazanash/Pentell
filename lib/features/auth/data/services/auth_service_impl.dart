@@ -16,22 +16,9 @@ class AuthServiceImple implements AuthService {
   Future<Either<Failure, bool>> requestEmailAuth(String email) async {
     if (await networkInfo.isConnected) {
       try {
-        remoteSource.RequestEmailVerification(email);
-        return const Right(true);
-      } catch (e) {
-        return Left(FailedAuthFailure(''));
-      }
-    } else {
-      return Left(OfflineFailure(''));
-    }
-  }
+        bool ok = await remoteSource.requestEmailVerification(email);
 
-  @override
-  Future<Either<Failure, bool>> requestPhoneAuth(String phoneNum) async {
-    if (await networkInfo.isConnected) {
-      try {
-        remoteSource.RequestPhoneVerification(phoneNum);
-        return const Right(true);
+        return Right(ok);
       } catch (e) {
         return Left(FailedAuthFailure(''));
       }
@@ -45,20 +32,6 @@ class AuthServiceImple implements AuthService {
     if (await networkInfo.isConnected) {
       try {
         remoteSource.verifyEmailCode(code);
-        return const Right(true);
-      } catch (e) {
-        return Left(FailedAuthFailure(''));
-      }
-    } else {
-      return Left(OfflineFailure(''));
-    }
-  }
-
-  @override
-  Future<Either<Failure, bool>> verifyPhoneCode(String code) async {
-    if (await networkInfo.isConnected) {
-      try {
-        remoteSource.VerifyPhoneCode(code);
         return const Right(true);
       } catch (e) {
         return Left(FailedAuthFailure(''));

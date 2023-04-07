@@ -33,13 +33,20 @@ class HomePage extends StatelessWidget {
               showDialog(
                   context: context,
                   barrierDismissible: true,
+                  barrierColor: Colors.white.withOpacity(0.5),
                   builder: (c) {
                     return Popup(
-                        imgAsset: IMG_NO_CONTENT,
+                        icon: Icon(
+                          Icons.warning_rounded,
+                          size: 50,
+                          color: Colors.white,
+                        ),
                         title: 'title',
                         body: [Text('$index')],
-                        description: 'description',
-                        positiveAction: Text('no'),
+                        popColor: Colors.red,
+                        description:
+                            'description description description description description description',
+                        // positiveAction: Text('no'),
                         negativeAction: Text('ok'));
                   });
             },

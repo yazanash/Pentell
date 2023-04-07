@@ -8,4 +8,5 @@ abstract class CommunityService {
   Future<Either<Failure, Unit>> unFollow();
   Future<Either<Failure, Unit>> mute();
   Future<Either<Failure, Unit>> personalRate();
+  // Future<Either<Failure, Unit>> getAllReels();
 }

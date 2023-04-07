@@ -16,6 +16,8 @@ enum UserType {
 
 const HTTP_API_URL = 'https://dona-soft.com/api/';
 
+const HTTP_EMAIL_LOGIN = '';
+const HTTP_CODE_VERIFY = '';
 const HTTP_COURSES = '';
 const HTTP_CVERSION = '';
 const HTTP_PROFILE = '';
@@ -23,6 +25,7 @@ const HTTP_USER_PROFILE = '';
 const HTTP_ORG_PROFILE = '';
 
 const IMG_NO_CONTENT = 'lib/assets/no_content.png';
+const IMG_ERROR = 'lib/assets/error.png';
 
 const Map<String, String> arabic = {};
 const Map<String, String> english = {
