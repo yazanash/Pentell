@@ -9,9 +9,9 @@ class CoursesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 10 + 1,
-      itemBuilder: (context, index) {
+    return AnimatedList(
+      initialItemCount: 1,
+      itemBuilder: (context, index, anime) {
         if (index == 0) {
           return Container(
             // color: Colors.white,

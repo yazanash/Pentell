@@ -1,3 +1,5 @@
 import 'package:flutter/widgets.dart';
 
-class PanalState extends ChangeNotifier {}
+class PanalState extends ChangeNotifier {
+  
+}
