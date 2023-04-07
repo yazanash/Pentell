@@ -15,49 +15,15 @@ class BoardPage extends StatelessWidget {
       scrollDirection: Axis.vertical,
       // color: Colors.grey,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                child: Text(
-                  "Lobbies",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ),
-              SingleChildScrollView(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: const [
-                      LobbyCard(
-                        name: "name",
-                      ),
-                      LobbyCard(
-                        name: "name",
-                      ),
-                      LobbyCard(
-                        name: "name",
-                      ),
-                      LobbyCard(
-                        name: "name",
-                      ),
-                      LobbyCard(
-                        name: "name",
-                      ),
-                      LobbyCard(
-                        name: "name",
-                      ),
-                    ],
-                  )),
-            ],
-          ),
           const SizedBox(
-            height: 10,
+            height: 200,
           ),
           Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -67,23 +33,20 @@ class BoardPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 150,
-                child: GridView.count(
-                  childAspectRatio: 1.25,
-                  crossAxisCount: 1,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  scrollDirection: Axis.horizontal,
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    DashboardButton(ratio: 2),
-                    DashboardButton(ratio: 2),
-                    DashboardButton(ratio: 2),
-                    DashboardButton(ratio: 2),
-                    DashboardButton(ratio: 2),
-                    DashboardButton(ratio: 2),
-                    DashboardButton(ratio: 2),
-                    DashboardButton(ratio: 2),
+                    DashboardButton(ratio: 1.25),
+                    DashboardButton(ratio: 1.25),
+                    DashboardButton(ratio: 1.25),
+                    DashboardButton(ratio: 1.25),
+                    DashboardButton(ratio: 1.25),
+                    DashboardButton(ratio: 1.25),
+                    DashboardButton(ratio: 1.25),
+                    DashboardButton(ratio: 1.25),
+                    DashboardButton(ratio: 1.25),
+                    DashboardButton(ratio: 1.25),
                   ],
                 ),
               ),
