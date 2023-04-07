@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 Widget Input(hint, label) {
   return Padding(
-    padding: const EdgeInsets.only(left: 10, right: 10),
+    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
     child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -10,7 +10,7 @@ Widget Input(hint, label) {
           Text(
             label,
             style: const TextStyle(
-              color: Colors.white,
+              color: Colors.black54,
               fontSize: 16,
               fontWeight: FontWeight.bold,
             ),

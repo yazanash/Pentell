@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pentelligence/core/popups/message_or_poll_popup.dart';
 import 'package:pentelligence/core/popups/popup.dart';
 import 'package:pentelligence/core/popups/tesk_popup.dart';
 import 'package:pentelligence/core/utilities/user_tile.dart';
@@ -42,7 +43,7 @@ class LobbyPage extends StatelessWidget {
           onPressed: () {
             showDialog(
               context: context,
-              builder: (_) => MessageTask(),
+              builder: (_) => MessageOrPoll(),
             );
           },
           child: Icon(Icons.add),

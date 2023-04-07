@@ -16,8 +16,8 @@ class UserTile extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: Container(
         decoration: const BoxDecoration(
-            color: Colors.white,
-            border: Border(right: BorderSide(color: Colors.black, width: 10))),
+          color: Colors.white,
+        ),
         child: ClipRRect(
           child: ElevatedButton(
             onPressed: onPressed,

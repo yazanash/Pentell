@@ -9,15 +9,36 @@ class MessageTask extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: Container(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Text(
-                'Add Message:',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 100,
+              decoration: BoxDecoration(
+                color: Colors.green,
+                borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Icon(
+                    Icons.message,
+                    size: 50,
+                    color: Colors.white,
+                  ),
+                  Text(
+                    'اضافة رسالة',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               ),
             ),
             Input('hint', 'label'),
