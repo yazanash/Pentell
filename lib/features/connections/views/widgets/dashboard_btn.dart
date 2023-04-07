@@ -3,10 +3,10 @@ import 'package:pentelligence/core/utilities/profile_image.dart';
 
 Widget DashboardButton(
     {String text = "button",
-    iconColor = Colors.blue,
-    iconSize = 30.0,
-    icon = Icons.add,
-    ratio = 0.75}) {
+   Color iconColor = Colors.blue,
+   double iconSize = 30.0,
+   IconData icon = Icons.add,
+    double ratio = 0.75}) {
   return AspectRatio(
     aspectRatio: ratio,
     child: Container(

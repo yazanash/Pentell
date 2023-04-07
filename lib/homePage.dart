@@ -9,7 +9,7 @@ import 'package:pentelligence/features/course/views/pages/settings_page.dart';
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
 
-  int index = 0;
+  int index = 1;
 
   @override
   Widget build(BuildContext context) {
