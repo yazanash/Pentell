@@ -7,8 +7,7 @@ class Course {
   final String id;
   final String name;
   final String provider;
-  final Profile teacher;
-  final int currentVersion;
+  final List<int> currentVersions;
   final List<CVersion> cversions;
   final List<String> tags;
   final Category category;
@@ -19,11 +18,10 @@ class Course {
     required this.id,
     required this.name,
     required this.provider,
-    required this.teacher,
     required this.cversions,
     required this.tags,
     required this.category,
-    required this.currentVersion,
+    required this.currentVersions,
     this.isJoined = false,
   });
 }

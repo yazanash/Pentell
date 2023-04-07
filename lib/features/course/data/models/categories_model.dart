@@ -1,4 +1,3 @@
-import 'dart:js_util';
 
 import 'package:pentelligence/features/course/models/entities/categories.dart';
 
