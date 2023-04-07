@@ -41,6 +41,7 @@ class CourseInfoPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Bio(
+              color: Colors.black,
               description:
                   "sdkfnsldkfnksdjfnkjnk jnskj nksdj nksdjfn ksdjfn ksdjnf ksjdnf ksdjn fksdjn fksdn sdkfnsldkfnksdjfnkjnk jnskj nksdj nksdjfn ksdjfn ksdjnf ksjdnf ksdjn fksdjn fksdn fkj",
               fontSize: 24.0,
@@ -99,12 +100,36 @@ class CourseInfoPage extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Row(children: [
-                CardInfo(ratio: 1, icon: Icons.book),
-                CardInfo(ratio: 1, icon: Icons.lock_clock),
-                CardInfo(ratio: 1, icon: Icons.person),
-                CardInfo(ratio: 1, icon: Icons.map),
-                CardInfo(ratio: 1, icon: Icons.phone),
-                CardInfo(ratio: 1, icon: Icons.pending),
+                CardInfo(
+                    ratio: 1.5,
+                    description: "view course content",
+                    text: "Content",
+                    icon: Icons.book),
+                CardInfo(
+                    ratio: 1.5,
+                    description: "15/12/2023",
+                    text: "Time",
+                    icon: Icons.lock_clock),
+                CardInfo(
+                    ratio: 1.5,
+                    description: "95",
+                    text: "Joined",
+                    icon: Icons.person),
+                CardInfo(
+                    ratio: 1.5,
+                    description: "Institute location",
+                    text: "Location",
+                    icon: Icons.map),
+                CardInfo(
+                    ratio: 1.5,
+                    description: "+9969669669",
+                    text: "Phone",
+                    icon: Icons.phone),
+                CardInfo(
+                    ratio: 1.5,
+                    description: "Full",
+                    text: "In progress",
+                    icon: Icons.pending),
               ]),
             ),
           ),
@@ -130,6 +155,7 @@ class CourseInfoPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: Bio(
+              color: Colors.black,
               description:
                   "description description description description description description description description description description",
               title: "Requirements",

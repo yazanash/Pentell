@@ -89,7 +89,7 @@ class HomePage extends StatelessWidget {
         builder: (context, state, child) {
           return <Widget>[
             const CoursesPage(isRtl: false),
-            const AddCourse(),
+            const BoardPage(),
             ProfilePage(),
             const MorePage(),
           ][state.index];

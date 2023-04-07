@@ -5,6 +5,7 @@ Widget CardInfo(
     {String text = "button",
     iconColor = Colors.white,
     iconSize = 30.0,
+    String description = "dsv",
     icon = Icons.add,
     double ratio = 0.75}) {
   return Padding(
@@ -34,9 +35,13 @@ Widget CardInfo(
                         color: Colors.white,
                         fontWeight: FontWeight.w600),
                   ),
-                  const Text(
-                    "description",
-                    style: TextStyle(
+                 const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    description,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
                       fontSize: 13,
                       color: Colors.white,
                     ),
