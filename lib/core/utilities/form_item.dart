@@ -3,19 +3,36 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class FormInput extends StatelessWidget {
-  FormInput({Key? key, this.label, this.icon, this.suffix, this.maxlen})
+  FormInput(
+      {Key? key,
+      this.label,
+      this.icon,
+      this.suffix,
+      this.maxlen,
+      this.onTap,
+      required this.getval})
       : super(key: key);
   String? label;
   Widget? icon;
   Widget? suffix;
-  int? maxlen;
+  int? maxlen = 1;
+  VoidCallback? onTap;
+  Function(String?) getval;
+  TextEditingController controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       textInputAction: TextInputAction.done,
-      maxLength: maxlen,
-      obscureText: true,
-      obscuringCharacter: "*",
+      // maxLength: maxlen,
+      // obscureText: true,
+      // obscuringCharacter: "*",
+      maxLines: maxlen,
+      onSaved: (newValue) => getval(newValue),
+      // maxLines:null,
+      onTap: onTap,
+      // minLines: null,
+      // expands: true,
       decoration: InputDecoration(
         // icon: icon,
         prefixIcon: icon,

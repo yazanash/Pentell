@@ -58,6 +58,7 @@ class Login extends StatelessWidget {
                     child: Column(children: [
                       FormInput(
                         label: "UserName",
+                        getval: (p0) => {},
                         // icon: const Icon(Icons.email),
                         // maxlen: 50,
                         // suffix:
@@ -67,6 +68,7 @@ class Login extends StatelessWidget {
                         height: 30,
                       ),
                       FormInput(
+                        getval: (p0) => {},
                         label: "Password",
                         icon: const Icon(Icons.lock),
                       ),
