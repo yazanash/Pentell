@@ -1,4 +1,4 @@
-
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class MembersTab extends StatelessWidget {
@@ -9,9 +9,15 @@ class MembersTab extends StatelessWidget {
   final List<Widget> members;
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: EdgeInsets.symmetric(horizontal: 5,vertical: 10),
-      children: members,
+    return Scaffold(
+      body: ListView(
+        padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+        children: members,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+      ),
     );
   }
 }

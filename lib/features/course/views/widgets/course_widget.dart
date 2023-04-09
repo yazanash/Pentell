@@ -11,6 +11,7 @@ class CourseWidget extends StatelessWidget {
   final bool isRtl;
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return InkWell(
       onTap: () => Navigator.of(context)
           .push(MaterialPageRoute(builder: ((context) => CourseInfoPage()))),
@@ -24,10 +25,8 @@ class CourseWidget extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: isRtl
-                  ? BorderRadius.horizontal(right: Radius.circular(15))
-                  : BorderRadius.horizontal(left: Radius.circular(15)),
+              color: theme.backgroundColor,
+              borderRadius: BorderRadius.circular(15),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -152,7 +151,7 @@ class CourseWidget extends StatelessWidget {
                             // join btn
                             MaterialBtn(
                               title: 'join in',
-                              color: Colors.blue,
+                              color: Colors.lightBlue,
                               onPressed: () {},
                             ),
                           ],
@@ -168,20 +167,25 @@ class CourseWidget extends StatelessWidget {
             top: 0,
             right: 0,
             child: Container(
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                  color: Colors.yellow.withOpacity(0.5),
-                  borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(15),
-                      bottomLeft: Radius.circular(15))),
+              padding: const EdgeInsets.all(5),
+              decoration: const BoxDecoration(
+                color: Colors.blueGrey,
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(5),
+                    topRight: Radius.circular(15)),
+              ),
               child: RatingBar.builder(
-                itemSize: 20,
+                ignoreGestures: true,
+                itemSize: 16,
                 itemCount: 3,
                 allowHalfRating: true,
                 itemBuilder: ((context, index) {
-                  return const Icon(
-                    Icons.flash_on,
-                    color: Colors.yellow,
+                  return const Padding(
+                    padding: EdgeInsets.all(5.0),
+                    child: Icon(
+                      Icons.flash_on,
+                      color: Colors.yellow,
+                    ),
                   );
                 }),
                 onRatingUpdate: (rating) {},

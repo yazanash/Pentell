@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pentelligence/core/popups/message_or_poll_popup.dart';
 import 'package:pentelligence/core/utilities/timeline_widget.dart';
 
 class TasksTab extends StatelessWidget {
@@ -6,6 +7,30 @@ class TasksTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TimeLineWidget();
+    return Scaffold(
+      body: TimeLineWidget(),
+      floatingActionButton: Wrap(
+        direction: Axis.vertical,
+        children: [
+          FloatingActionButton(
+            backgroundColor: Colors.green,
+            mini: true,
+            onPressed: () {
+              showDialog<String>(
+                context: context,
+                builder: (_) => MessageOrPoll(),
+              );
+            },
+            child: Icon(Icons.message_outlined),
+          ),
+          FloatingActionButton(
+            backgroundColor: Colors.pink,
+            child: Icon(Icons.poll_outlined),
+            onPressed: () {},
+            mini: true,
+          ),
+        ],
+      ),
+    );
   }
 }

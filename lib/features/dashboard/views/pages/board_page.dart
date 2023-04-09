@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pentelligence/features/auth/models/entities/user_profile.dart';
 import 'package:pentelligence/features/connections/views/widgets/dashboard_btn.dart';
+import 'package:pentelligence/features/connections/views/widgets/lobby_card.dart';
 import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/board_panel.dart';
 
@@ -10,6 +11,7 @@ class BoardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       // color: Colors.grey,
@@ -29,7 +31,25 @@ class BoardPage extends StatelessWidget {
               followersCount: 440,
             ),
           ),
-          const SizedBox(height: 10),
+          Container(
+            margin: EdgeInsets.only(bottom: 15.0, left: 15),
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'lobby:',
+              style: theme.textTheme.headline6
+                  ?.copyWith(fontWeight: FontWeight.bold),
+            ),
+          ),
+          Container(
+            height: 200,
+            child: ListView.builder(
+              itemCount: 5,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return LobbyCard(name: 'name');
+              },
+            ),
+          ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,

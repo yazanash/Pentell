@@ -6,11 +6,13 @@ class LobbyCard extends StatelessWidget {
   final String name;
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Container(
         decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(10)),
+            color: theme.primaryColorLight,
+            borderRadius: BorderRadius.circular(10)),
         width: 160,
         height: 170,
         child: Padding(

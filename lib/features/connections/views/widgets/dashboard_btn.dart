@@ -22,10 +22,10 @@ Widget DashboardButton({
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(vertical: 10),
               child: Icon(
-                Icons.chat,
+                icon,
                 size: 30,
                 color: Colors.white,
               ),
