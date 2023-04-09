@@ -50,6 +50,7 @@ class VerifyCode extends StatelessWidget {
                     child: Column(children: [
                       FormInput(
                         label: "Verify Code",
+                        getval: (p0) => {},
                         icon: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,

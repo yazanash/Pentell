@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pentelligence/core/constant/constant.dart';
 import 'package:pentelligence/core/utilities/splash.dart';
 import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
+import 'package:pentelligence/features/dashboard/views/provider/chapterstate.dart';
 import 'package:pentelligence/homePage.dart';
 import 'package:pentelligence/main_state.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<MainState>(create: (context) => MainState()),
+         ChangeNotifierProvider<ChaptersState>(create: (context) => ChaptersState()),
       ],
       builder: (context, child) {
         // var theme = Provider.of<MainState>(context).
