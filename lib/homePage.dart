@@ -5,6 +5,7 @@ import 'package:pentelligence/features/connections/views/pages/profile_page.dart
 import 'package:pentelligence/features/course/views/pages/board_page.dart';
 import 'package:pentelligence/features/course/views/pages/courses_page.dart';
 import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
+import 'package:pentelligence/features/course/views/pages/test_page.dart';
 import 'package:pentelligence/features/dashboard/views/pages/add_course.dart';
 import 'package:pentelligence/features/dashboard/views/pages/my_courses.dart';
 import 'package:pentelligence/features/dashboard/views/pages/employees.dart';
@@ -23,7 +24,15 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
             splashRadius: 25,
-            onPressed: () {},
+            onPressed: () {
+              if (Provider.of<MainState>(context, listen: false).theme ==
+                  ThemeType.light)
+                Provider.of<MainState>(context, listen: false)
+                    .setTheme(ThemeType.dark);
+              else
+                Provider.of<MainState>(context, listen: false)
+                    .setTheme(ThemeType.light);
+            },
             icon: const Icon(Icons.search),
           ),
           IconButton(
@@ -92,8 +101,8 @@ class HomePage extends StatelessWidget {
             const CoursesPage(isRtl: false),
             const BoardPage(),
             ProfilePage(),
-            // const MorePage(),
-            EmployeesPage(),
+            const TestPage(),
+            // EmployeesPage(),
           ][state.index];
         },
       ),

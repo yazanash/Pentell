@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pentelligence/core/constant/constant.dart';
 import 'package:pentelligence/core/utilities/splash.dart';
 import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
 import 'package:pentelligence/homePage.dart';
@@ -22,15 +23,24 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<MainState>(create: (context) => MainState()),
       ],
-      child: MaterialApp(
-        title: 'Pentelligence',
-        theme: ThemeData(
-          primarySwatch: Colors.blueGrey,
-        ),
-        // home: LobbyPage(),
-        // home: SplashWidget(userBox:di.userBox),
-        home: HomePage(),
-      ),
+      builder: (context, child) {
+        // var theme = Provider.of<MainState>(context).
+        return MaterialApp(
+          title: 'Pentelligence',
+          theme: ThemeData(
+            primarySwatch: Colors.blueGrey,
+          ),
+          darkTheme: ThemeData.dark(),
+          themeMode: Provider.of<MainState>(context).theme == ThemeType.light
+              ? ThemeMode.light
+              : ThemeMode.dark,
+          
+          // home: LobbyPage(),
+          // home: SplashWidget(userBox:di.userBox),
+          home: child,
+        );
+      },
+      child: HomePage(),
     );
   }
 }

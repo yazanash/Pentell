@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pentelligence/core/constant/constant.dart';
 import 'package:pentelligence/core/popups/message_or_poll_popup.dart';
 import 'package:pentelligence/core/popups/popup.dart';
 import 'package:pentelligence/core/popups/tesk_popup.dart';
@@ -41,7 +42,7 @@ class LobbyPage extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            showDialog(
+            showDialog<String>(
               context: context,
               builder: (_) => MessageOrPoll(),
             );

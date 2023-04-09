@@ -14,6 +14,14 @@ enum UserType {
   EMP,
 }
 
+enum PopupType {
+  rating,
+  generic,
+  invitation,
+  poll,
+  alert,
+}
+
 const HTTP_API_URL = 'https://dona-soft.com/api/';
 
 const HTTP_EMAIL_LOGIN = '';

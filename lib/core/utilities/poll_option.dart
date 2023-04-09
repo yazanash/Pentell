@@ -3,38 +3,51 @@ import 'package:flutter/material.dart';
 class PollOption extends StatelessWidget {
   const PollOption({
     Key? key,
+    required this.isEnabled,
     required this.hasVoted,
     required this.optionTitle,
     required this.votePercent,
+    this.onSelect,
   }) : super(key: key);
-  final bool hasVoted;
-  final double votePercent;
+  final bool isEnabled, hasVoted;
+  final double? votePercent;
   final String optionTitle;
+  final void Function(bool?)? onSelect;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      child: Column(
-        children: [
+    final theme = Theme.of(context);
+    return Column(
+      children: [
+        Row(
+          children: [
+            Checkbox(value: hasVoted, onChanged: onSelect),
+            Text('option title'),
+          ],
+        ),
+        if (isEnabled)
           Row(
             children: [
-              Checkbox(value: hasVoted, onChanged: (newVal) {}),
-              Text('option title'),
+              Expanded(
+                flex: 9,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: LinearProgressIndicator(
+                    backgroundColor: theme.primaryColorLight,
+                    color: Colors.blue,
+                    value: votePercent,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Text(
+                  '+999',
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+              ),
             ],
           ),
-          if (hasVoted)
-            Row(
-              children: [
-                LinearProgressIndicator(
-                  color: Colors.blue,
-                  value: 0.5,
-                ),
-                Text('+15'),
-              ],
-            ),
-        ],
-      ),
+      ],
     );
   }
 }
