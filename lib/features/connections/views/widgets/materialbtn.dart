@@ -16,14 +16,19 @@ class MaterialBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Material(
-      color: color.withAlpha(50),
+      color: theme.backgroundColor.withAlpha(50),
       borderRadius: BorderRadius.circular(15),
       child: InkWell(
         borderRadius: BorderRadius.circular(15),
         onTap: onPressed,
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+          decoration: BoxDecoration(
+            color: color.withAlpha(50),
+            borderRadius: BorderRadius.circular(15),
+          ),
           child: Row(
             children: [
               if (icon != null)

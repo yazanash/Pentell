@@ -6,7 +6,7 @@ class TimeLineWidget extends StatelessWidget {
     Key? key,
     this.children = const [],
     this.dotIndicator = const DotIndicator(
-      size: 40,
+      size: 20,
       color: Colors.green,
       child: Icon(
         Icons.route_rounded,
@@ -43,14 +43,6 @@ class TimeLineWidget extends StatelessWidget {
           return indicatorPos;
         },
         contentsBuilder: (context, index) {
-          // return Container(
-          //   // margin: EdgeInsets.only(top: 40),
-          //   padding: EdgeInsets.only(left: 10),
-          //   child: CourseWidget(
-          //     isRtl: false,
-          //   ),
-          // );
-
           return children[index];
         },
       ),

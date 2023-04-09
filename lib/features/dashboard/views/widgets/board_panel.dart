@@ -8,129 +8,87 @@ class BoardPanal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Container(
-      padding: const EdgeInsets.all(10.0),
-      margin: const EdgeInsets.all(8.0),
-      // height: 200,
+      padding: const EdgeInsets.symmetric(vertical: 30.0),
+      margin: const EdgeInsets.all(15.0),
       decoration: BoxDecoration(
-        color: Colors.blueGrey.shade300,
+        color: theme.primaryColor,
         borderRadius: BorderRadius.circular(15),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          //  first row {img, name, followers}
+          //  img
+          ProfileImage(
+            url: profile.imageUrl,
+            size: 100,
+            isTrusted: false,
+            background: Colors.blue,
+            padding: 8,
+            // borderColor: Colors.blue,
+          ),
+          //  userName
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: Text(
+              profile.name,
+              style: theme.textTheme.headline6?.copyWith(color: Colors.white),
+            ),
+          ),
+          const SizedBox(height: 10),
           Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              ProfileImage(
-                url: profile.imageUrl,
-                size: 75,
-                isTrusted: false,
-                background: Colors.blue,
-                padding: 8,
-                // borderColor: Colors.blue,
+              Column(
+                children: [
+                  Text(
+                    "Followers",
+                    style: theme.textTheme.bodyMedium
+                        ?.copyWith(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    profile.followersCount.toString(),
+                    style: theme.textTheme.bodyLarge
+                        ?.copyWith(color: Colors.white),
+                  )
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(left: 5, right: 5, bottom: 10),
-                      child: Text(
-                        profile.name,
-                        style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue),
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
-                          child: Column(
-                            children: [
-                              const Text(
-                                "Followers",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                profile.followersCount.toString(),
-                                style: const TextStyle(
-                                    fontSize: 16, color: Colors.blue),
-                              )
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
-                          child: Column(
-                            children: [
-                              const Text(
-                                "Following",
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black),
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                profile.followingCount.toString(),
-                                style: const TextStyle(
-                                    fontSize: 16, color: Colors.blue),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
+              Column(
+                children: [
+                  Text(
+                    "Following",
+                    style: theme.textTheme.bodyMedium
+                        ?.copyWith(color: Colors.white),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    profile.followingCount.toString(),
+                    style: theme.textTheme.bodyLarge
+                        ?.copyWith(color: Colors.white),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Text(
+                    'Courses',
+                    style: theme.textTheme.bodyMedium
+                        ?.copyWith(color: Colors.white),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    '500',
+                    style: theme.textTheme.bodyLarge
+                        ?.copyWith(color: Colors.white),
+                  ),
+                ],
               )
-            ],
-          ),
-          SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Column(
-                children: [
-                  Text('RATING'),
-                  Text('5.0'),
-                ],
-              ),
-              Column(
-                children: [
-                  Text('PLAN'),
-                  Text('basic'),
-                ],
-              ),
-              Column(
-                children: [
-                  Text('EMPLOY'),
-                  Text('5'),
-                ],
-              ),
-            ],
-          ),
-          SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text('asd'),
             ],
           ),
         ],

@@ -15,21 +15,29 @@ class PlanWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 50,
-      width: 50,
+      width: 200,
       child: Card(
+        shape: isSelected
+            ? RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+                side: BorderSide(color: Colors.blue))
+            : null,
         child: Column(
           children: [
-            Radio(
-              value: isSelected,
-              groupValue: true,
-              onChanged: (val) => onChanged(),
+            Row(
+              children: [
+                Radio(
+                  value: isSelected,
+                  groupValue: true,
+                  onChanged: (val) => onChanged(),
+                ),
+              ],
             ),
             Column(
               children: [
                 Text(
                   'planName',
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 Text(
                   'planDetails',

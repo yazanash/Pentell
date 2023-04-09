@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pentelligence/core/constant/constant.dart';
 import 'package:pentelligence/core/popups/popup.dart';
 import 'package:pentelligence/features/connections/views/pages/profile_page.dart';
-import 'package:pentelligence/features/course/views/pages/board_page.dart';
+import 'package:pentelligence/features/dashboard/views/pages/board_page.dart';
 import 'package:pentelligence/features/course/views/pages/courses_page.dart';
 import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
 import 'package:pentelligence/features/course/views/pages/test_page.dart';
@@ -94,13 +94,13 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      backgroundColor: Color(0xFFEEEEEE),
       body: Consumer<MainState>(
         builder: (context, state, child) {
           return <Widget>[
             const CoursesPage(isRtl: false),
             const BoardPage(),
             ProfilePage(),
+            // LobbyPage(),
             const TestPage(),
             // EmployeesPage(),
           ][state.index];
