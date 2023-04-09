@@ -6,11 +6,11 @@ Widget authButton(VoidCallback onPressed, bool isLoading) {
     child: SizedBox(
       width: double.infinity,
       height: 40,
-      child: OutlinedButton(
+      child: ElevatedButton(
         onPressed: onPressed,
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-        ),
+        // style: ButtonStyle(
+        //   backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+        // ),
         child: isLoading
             ? const SizedBox(
                 height: 20,
@@ -24,7 +24,7 @@ Widget authButton(VoidCallback onPressed, bool isLoading) {
                 style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
-                    color: Colors.teal),
+                    color: Colors.white),
               ),
       ),
     ),
