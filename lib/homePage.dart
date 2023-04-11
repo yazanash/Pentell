@@ -138,8 +138,8 @@ class HomePage extends StatelessWidget {
             icon: const Icon(Icons.notifications),
           ),
         ],
-        title: Text(
-          'Pentilligance',
+        title: const Text(
+          'Pentelligence',
           // style: TextStyle(color: Color(0xFFAB9C6F)),
         ),
 
@@ -166,7 +166,7 @@ class HomePage extends StatelessWidget {
         builder: (context, state, child) {
           return <Widget>[
             const CoursesPage(isRtl: false),
-            OrgInfo(),
+            const BoardPage(),
             ProfilePage(),
             // LobbyPage(),
             const TestPage(),

@@ -15,7 +15,7 @@ class CoursesPage extends StatelessWidget {
         if (index == 0) {
           return Container(
             // color: Colors.white,
-            height: 110,
+            height: 140,
             child: ListView.builder(
               itemCount: 6,
               padding:const EdgeInsets.symmetric(horizontal: 10),

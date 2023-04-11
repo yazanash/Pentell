@@ -6,10 +6,11 @@ class InstituteAd extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Container(
-      padding: EdgeInsets.only(left: 10),
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           ProfileImage(
               url: 'lib/assets/logo3.png',
@@ -18,12 +19,17 @@ class InstituteAd extends StatelessWidget {
               borderWidth: 0,
               isTrusted: true),
           SizedBox(
+            height: 5,
+          ),
+          SizedBox(
             width: 80,
             child: Text(
-              'data data data data data',
-              softWrap: false,
+              'Institute Name Name Name',
+              softWrap: true,
+              maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontSize: 10, fontWeight: FontWeight.w500),
+              style: theme.textTheme.headline4,
+              textAlign: TextAlign.center,
             ),
           ),
         ],

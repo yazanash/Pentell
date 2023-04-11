@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:pentelligence/core/utilities/profile_image.dart';
 import 'package:pentelligence/features/connections/views/widgets/materialbtn.dart';
 import 'package:pentelligence/features/course/views/pages/course_info.dart';
 
@@ -25,7 +26,7 @@ class CourseWidget extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             decoration: BoxDecoration(
-              color: theme.primaryColor,
+              color: theme.colorScheme.background,
               borderRadius: BorderRadius.circular(15),
             ),
             child: Column(
@@ -39,13 +40,12 @@ class CourseWidget extends StatelessWidget {
 
                   textDirection: isRtl ? TextDirection.rtl : TextDirection.ltr,
                   children: [
-                    Container(
-                      width: 50,
-                      height: 50,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.blueGrey,
-                      ),
+                    ProfileImage(
+                      url: "lib/assets/logo3.png",
+                      size: 60,
+                      borderWidth: 0,
+                      padding: 8,
+                      borderColor: Colors.white,
                     ),
                     const SizedBox(
                       width: 20,
@@ -151,7 +151,7 @@ class CourseWidget extends StatelessWidget {
                             // join btn
                             MaterialBtn(
                               title: 'join in',
-                              color: Colors.lightBlue,
+                              color: theme.colorScheme.primary,
                               onPressed: () {},
                             ),
                           ],
