@@ -71,8 +71,8 @@ class HomePage extends StatelessWidget {
             icon: const Icon(Icons.notifications),
           ),
         ],
-        title: Text(
-          'Demo',
+        title: const Text(
+          'Pentelligence',
           // style: TextStyle(color: Color(0xFFAB9C6F)),
         ),
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pentelligence/core/constant/constant.dart';
+import 'package:pentelligence/core/themes/themes.dart';
 import 'package:pentelligence/core/utilities/splash.dart';
 import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
 import 'package:pentelligence/features/dashboard/views/provider/chapterstate.dart';
@@ -29,9 +30,7 @@ class MyApp extends StatelessWidget {
         // var theme = Provider.of<MainState>(context).
         return MaterialApp(
           title: 'Pentelligence',
-          theme: ThemeData(
-            primarySwatch: Colors.blueGrey,
-          ),
+          theme:lightTheme,
           darkTheme: ThemeData.dark(),
           themeMode: Provider.of<MainState>(context).theme == ThemeType.light
               ? ThemeMode.light

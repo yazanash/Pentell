@@ -26,7 +26,7 @@ class MaterialBtn extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 3),
           decoration: BoxDecoration(
-            color: color.withAlpha(50),
+            color: theme.primaryColor,
             borderRadius: BorderRadius.circular(15),
           ),
           child: Row(
@@ -38,7 +38,7 @@ class MaterialBtn extends StatelessWidget {
                 ]),
               Text(
                 title,
-                style: TextStyle(color: color, fontWeight: FontWeight.bold),
+                style: theme.textTheme.headline2,
               ),
             ],
           ),
