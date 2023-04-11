@@ -23,7 +23,7 @@ class AddChapter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("data"),
+        title: const Text("Add Chapter Page"),
         actions: [
           IconButton(
               onPressed: () {
@@ -31,7 +31,7 @@ class AddChapter extends StatelessWidget {
                     .add(Chapter());
                 // print("object");
               },
-              icon: const Icon(Icons.add))
+              icon: const Icon(Icons.add,color: Color(0xFF708070),))
         ],
       ),
       backgroundColor: Colors.white,
@@ -69,8 +69,7 @@ class AddChapter extends StatelessWidget {
               );
             },
           ),
-        )
-        ),
+        )),
       ),
     );
   }

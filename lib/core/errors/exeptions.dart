@@ -9,3 +9,5 @@ class PermissionException implements Exception {}
 class BannedUserException implements Exception {}
 
 class FailedAuthException implements Exception {}
+
+class EndOfLicenceException implements Exception {}

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pentelligence/core/constant/constant.dart';
+import 'package:pentelligence/core/themes/themes.dart';
 import 'package:pentelligence/core/utilities/splash.dart';
 import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
 import 'package:pentelligence/features/dashboard/views/provider/chapterstate.dart';
@@ -20,23 +22,23 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle.dark.copyWith(systemNavigationBarColor: primary),
+    );
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<MainState>(create: (context) => MainState()),
-         ChangeNotifierProvider<ChaptersState>(create: (context) => ChaptersState()),
+        ChangeNotifierProvider<ChaptersState>(
+            create: (context) => ChaptersState()),
       ],
       builder: (context, child) {
         // var theme = Provider.of<MainState>(context).
         return MaterialApp(
           title: 'Pentelligence',
-          theme: ThemeData(
-            primarySwatch: Colors.blueGrey,
-          ),
-          darkTheme: ThemeData.dark(),
-          themeMode: Provider.of<MainState>(context).theme == ThemeType.light
-              ? ThemeMode.light
-              : ThemeMode.dark,
-          
+          theme: lightTheme,
+          darkTheme: darkTheme,
+          themeMode: ThemeMode.dark,
+
           // home: LobbyPage(),
           // home: SplashWidget(userBox:di.userBox),
           home: child,

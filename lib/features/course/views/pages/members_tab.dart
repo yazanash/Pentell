@@ -15,6 +15,7 @@ class MembersTab extends StatelessWidget {
         children: members,
       ),
       floatingActionButton: FloatingActionButton(
+        heroTag: '3',
         onPressed: () {},
         child: Icon(Icons.add),
       ),

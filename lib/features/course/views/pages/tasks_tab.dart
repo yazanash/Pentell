@@ -13,6 +13,7 @@ class TasksTab extends StatelessWidget {
         direction: Axis.vertical,
         children: [
           FloatingActionButton(
+            heroTag: '1',
             backgroundColor: Colors.green,
             mini: true,
             onPressed: () {
@@ -24,6 +25,7 @@ class TasksTab extends StatelessWidget {
             child: Icon(Icons.message_outlined),
           ),
           FloatingActionButton(
+            heroTag: '2',
             backgroundColor: Colors.pink,
             child: Icon(Icons.poll_outlined),
             onPressed: () {},

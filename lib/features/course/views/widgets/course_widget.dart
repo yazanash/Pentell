@@ -25,7 +25,7 @@ class CourseWidget extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             decoration: BoxDecoration(
-              color: theme.backgroundColor,
+              color: theme.primaryColor,
               borderRadius: BorderRadius.circular(15),
             ),
             child: Column(

@@ -51,7 +51,6 @@ class Popup extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 14,
-                  color: Colors.grey,
                 ),
               ),
             ),
@@ -60,9 +59,7 @@ class Popup extends StatelessWidget {
             margin: EdgeInsets.only(top: 15),
             padding: EdgeInsets.all(15),
             decoration: BoxDecoration(
-              color: Colors.grey.shade200,
-              borderRadius:
-                  BorderRadius.vertical(bottom: Radius.circular(15)),
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(15)),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
