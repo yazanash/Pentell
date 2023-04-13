@@ -1,11 +1,12 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-final primary = Color(0xFF111519);
+final primary =  Color(0xFF111519);
 final background = Color(0xFF262F38);
 
 final ThemeData lightTheme = _lightTheme();
-final ThemeData darkTheme = _darkTheme();
 
 NavigationBarThemeData bottomNav(NavigationBarThemeData base) => base.copyWith(
     // indicatorColor: Colors.white.withOpacity(0.5),
@@ -48,58 +49,57 @@ TextTheme textTheme(TextTheme base) => base.copyWith(
 ThemeData _lightTheme() {
   final base = ThemeData.light();
   return base.copyWith(
-    colorScheme: base.colorScheme.copyWith(
-      // primary: const Color(0xff53A2BE),
-      // onPrimary: Colors.white,
-      // secondary: const Color(0xff0A2239),
-      // onSecondary: Colors.white,
-      background: Colors.white,
-      // onBackground: Colors.black,
-    ),
-    primaryColor: const Color(0xff53A2BE),
+    
+    colorScheme: ColorScheme.fromSwatch(primarySwatch: generateMaterialColor(Colors.red)),
+    // primaryColor: const Color(0xff53A2BE),
     scaffoldBackgroundColor: const Color(0xfff6f6f6),
-    appBarTheme: appBarTheme(base.appBarTheme),
+    // appBarTheme: appBarTheme(base.appBarTheme),
     textTheme: textTheme(base.textTheme),
     iconTheme: iconTheme(base.iconTheme),
-    navigationBarTheme: bottomNav(base.navigationBarTheme),
+    // navigationBarTheme: bottomNav(base.navigationBarTheme),
   );
 }
 
-ThemeData _darkTheme() {
-  final base = ThemeData.dark();
-  return base.copyWith(
-    primaryColor: primary,
-    primaryColorDark: primary,
-    splashColor: primary,
-    backgroundColor: background,
-    scaffoldBackgroundColor: background,
-    // applyElevationOverlayColor: true,
 
-    buttonTheme: ButtonThemeData().copyWith(
-      splashColor: background,
-    ),
-    floatingActionButtonTheme: FloatingActionButtonThemeData().copyWith(
-      backgroundColor: Color(0xFF6BD4F9),
-      foregroundColor: Colors.white,
-    ),
-    appBarTheme: AppBarTheme().copyWith(
-      backgroundColor: primary,
-      foregroundColor: Colors.white,
-      systemOverlayStyle: SystemUiOverlayStyle.light.copyWith(
-        systemNavigationBarColor: primary,
-        systemNavigationBarIconBrightness: Brightness.dark,
-      ),
-    ),
-    navigationBarTheme: NavigationBarThemeData().copyWith(
-      backgroundColor: primary,
-      indicatorColor: background,
-    ),
-  );
-}
-
-AppBarTheme appBarTheme(AppBarTheme base) => base.copyWith(
-      backgroundColor: const Color(0xff53A2BE),
-    );
+// AppBarTheme appBarTheme(AppBarTheme base) => base.copyWith(
+//       backgroundColor: const Color(0xff53A2BE),
+//     );
 
 IconThemeData iconTheme(IconThemeData base) =>
     base.copyWith(color: Colors.black);
+
+
+
+
+MaterialColor generateMaterialColor(Color color) {
+  return MaterialColor(color.value, {
+    50: tintColor(color, 0.9),
+    100: tintColor(color, 0.8),
+    200: tintColor(color, 0.6),
+    300: tintColor(color, 0.4),
+    400: tintColor(color, 0.2),
+    500: color,
+    600: shadeColor(color, 0.1),
+    700: shadeColor(color, 0.2),
+    800: shadeColor(color, 0.3),
+    900: shadeColor(color, 0.4),
+  });
+}
+
+int tintValue(int value, double factor) =>
+    max(0, min((value + ((255 - value) * factor)).round(), 255));
+
+Color tintColor(Color color, double factor) => Color.fromRGBO(
+    tintValue(color.red, factor),
+    tintValue(color.green, factor),
+    tintValue(color.blue, factor),
+    1);
+
+int shadeValue(int value, double factor) =>
+    max(0, min(value - (value * factor).round(), 255));
+
+Color shadeColor(Color color, double factor) => Color.fromRGBO(
+    shadeValue(color.red, factor),
+    shadeValue(color.green, factor),
+    shadeValue(color.blue, factor),
+    1);
