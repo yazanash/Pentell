@@ -49,14 +49,20 @@ TextTheme textTheme(TextTheme base) => base.copyWith(
 ThemeData _lightTheme() {
   final base = ThemeData.light();
   return base.copyWith(
-    
-    colorScheme: ColorScheme.fromSwatch(primarySwatch: generateMaterialColor(Colors.red)),
-    // primaryColor: const Color(0xff53A2BE),
+    colorScheme: base.colorScheme.copyWith(
+      // primary: const Color(0xff53A2BE),
+      // onPrimary: Colors.white,
+      // secondary: const Color(0xff0A2239),
+      // onSecondary: Colors.white,
+      background: Colors.white,
+      // onBackground: Colors.black,
+    ),
+    primaryColor: const Color(0xff53A2BE),
     scaffoldBackgroundColor: const Color(0xfff6f6f6),
-    // appBarTheme: appBarTheme(base.appBarTheme),
+    appBarTheme: appBarTheme(base.appBarTheme),
     textTheme: textTheme(base.textTheme),
     iconTheme: iconTheme(base.iconTheme),
-    // navigationBarTheme: bottomNav(base.navigationBarTheme),
+    navigationBarTheme: bottomNav(base.navigationBarTheme),
   );
 }
 
