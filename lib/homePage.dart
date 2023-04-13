@@ -28,7 +28,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       drawer: Drawer(
         child: SingleChildScrollView(
@@ -95,6 +94,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         actions: [
           IconButton(
+            icon: const Icon(Icons.search),
             splashRadius: 25,
             onPressed: () {
               if (Provider.of<MainState>(context, listen: false).theme ==
@@ -105,9 +105,9 @@ class HomePage extends StatelessWidget {
                 Provider.of<MainState>(context, listen: false)
                     .setTheme(ThemeType.light);
             },
-            icon: const Icon(Icons.search),
           ),
           IconButton(
+            icon: const Icon(Icons.notifications),
             splashRadius: 25,
             onPressed: () {
               // Navigator.of(context).push(
@@ -135,7 +135,6 @@ class HomePage extends StatelessWidget {
                         negativeAction: Text('ok'));
                   });
             },
-            icon: const Icon(Icons.notifications),
           ),
         ],
         title: const Text(

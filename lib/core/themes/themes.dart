@@ -5,7 +5,6 @@ final primary = Color(0xFF111519);
 final background = Color(0xFF262F38);
 
 final ThemeData lightTheme = _lightTheme();
-final ThemeData darkTheme = _darkTheme();
 
 NavigationBarThemeData bottomNav(NavigationBarThemeData base) => base.copyWith(
     // indicatorColor: Colors.white.withOpacity(0.5),
@@ -65,37 +64,7 @@ ThemeData _lightTheme() {
   );
 }
 
-ThemeData _darkTheme() {
-  final base = ThemeData.dark();
-  return base.copyWith(
-    primaryColor: primary,
-    primaryColorDark: primary,
-    splashColor: primary,
-    backgroundColor: background,
-    scaffoldBackgroundColor: background,
-    // applyElevationOverlayColor: true,
 
-    buttonTheme: ButtonThemeData().copyWith(
-      splashColor: background,
-    ),
-    floatingActionButtonTheme: FloatingActionButtonThemeData().copyWith(
-      backgroundColor: Color(0xFF6BD4F9),
-      foregroundColor: Colors.white,
-    ),
-    appBarTheme: AppBarTheme().copyWith(
-      backgroundColor: primary,
-      foregroundColor: Colors.white,
-      systemOverlayStyle: SystemUiOverlayStyle.light.copyWith(
-        systemNavigationBarColor: primary,
-        systemNavigationBarIconBrightness: Brightness.dark,
-      ),
-    ),
-    navigationBarTheme: NavigationBarThemeData().copyWith(
-      backgroundColor: primary,
-      indicatorColor: background,
-    ),
-  );
-}
 
 AppBarTheme appBarTheme(AppBarTheme base) => base.copyWith(
       backgroundColor: const Color(0xff53A2BE),

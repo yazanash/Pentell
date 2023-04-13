@@ -36,7 +36,6 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'Pentelligence',
           theme: lightTheme,
-          darkTheme: darkTheme,
           themeMode: ThemeMode.dark,
 
           // home: LobbyPage(),
