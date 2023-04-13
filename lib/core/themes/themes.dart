@@ -59,7 +59,7 @@ ThemeData _lightTheme() {
     ),
     primaryColor: const Color(0xff53A2BE),
     scaffoldBackgroundColor: const Color(0xfff6f6f6),
-    appBarTheme: appBarTheme(base.appBarTheme),
+    // appBarTheme: appBarTheme(base.appBarTheme),
     textTheme: textTheme(base.textTheme),
     iconTheme: iconTheme(base.iconTheme),
     navigationBarTheme: bottomNav(base.navigationBarTheme),
