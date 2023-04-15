@@ -23,12 +23,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // SystemChrome.setSystemUIOverlayStyle(
-    //   SystemUiOverlayStyle.dark.copyWith(systemNavigationBarColor: Theme.of(context).navigationBarTheme.backgroundColor),
-    // );
-    // SystemChrome.setSystemUIOverlayStyle(
-    //   SystemUiOverlayStyle.light.copyWith(systemNavigationBarColor: Theme.of(context).navigationBarTheme.backgroundColor),
-    // );
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle.dark.copyWith(systemNavigationBarColor: Theme.of(context).navigationBarTheme.backgroundColor),
+    );
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<MainState>(create: (context) => MainState()),
@@ -43,7 +40,7 @@ class MyApp extends StatelessWidget {
           darkTheme: darkTheme,
           themeMode: Provider.of<MainState>(context).theme==ThemeType.dark? ThemeMode.dark:ThemeMode.light,
 
-          // home: LobbyPage(),
+          // home: LobbyPage(),a
           // home: SplashWidget(userBox:di.userBox),
           home: child,
         );

@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-final primary =  Color(0xFF111519);
+final primary = Color(0xFF111519);
 final background = Color(0xFF262F38);
 
 final ThemeData lightTheme = _lightTheme();
@@ -49,23 +49,24 @@ TextTheme textTheme(TextTheme base) => base.copyWith(
 ThemeData _lightTheme() {
   final base = ThemeData.light();
   return base.copyWith(
-    colorScheme: base.colorScheme.copyWith(
-      // primary: const Color(0xff53A2BE),
-      // onPrimary: Colors.white,
-      // secondary: const Color(0xff0A2239),
-      // onSecondary: Colors.white,
-      background: Colors.white,
-      // onBackground: Colors.black,
-    ),
-    primaryColor: const Color(0xff53A2BE),
-    scaffoldBackgroundColor: const Color(0xfff6f6f6),
-    // appBarTheme: appBarTheme(base.appBarTheme),
-    textTheme: textTheme(base.textTheme),
-    iconTheme: iconTheme(base.iconTheme),
-    navigationBarTheme: bottomNav(base.navigationBarTheme),
-  );
+      useMaterial3: true,
+      // backgroundColor: Colors.red,
+      // scaffoldBackgroundColor: generateMaterialColor(Color(0xffB08726)).withOpacity(0.5),
+      colorScheme: ColorScheme(
+          brightness: Brightness.light,
+          primary: generateMaterialColor(Color(0xff53A2BE)),
+          onPrimary: Colors.white,
+          secondary: generateMaterialColor(Color(0xff53A2BE)),
+          onSecondary: Colors.white,
+          error: Colors.white,
+          onError: Colors.red,
+          background: Colors.white,
+          onBackground: Colors.black,
+          surface: Colors.white,
+          onSurface: generateMaterialColor(Color(0xff53A2BE)),
+          surfaceTint: Colors.white),
+      textTheme: textTheme(base.textTheme));
 }
-
 
 // AppBarTheme appBarTheme(AppBarTheme base) => base.copyWith(
 //       backgroundColor: const Color(0xff53A2BE),
@@ -73,9 +74,6 @@ ThemeData _lightTheme() {
 
 IconThemeData iconTheme(IconThemeData base) =>
     base.copyWith(color: Colors.black);
-
-
-
 
 MaterialColor generateMaterialColor(Color color) {
   return MaterialColor(color.value, {

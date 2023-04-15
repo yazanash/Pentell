@@ -165,7 +165,7 @@ class HomePage extends StatelessWidget {
         builder: (context, state, child) {
           return <Widget>[
             const CoursesPage(isRtl: false),
-            const BoardPage(),
+             AddCourse(),
             ProfilePage(),
             // LobbyPage(),
             const TestPage(),

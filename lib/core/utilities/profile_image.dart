@@ -31,7 +31,7 @@ class ProfileImage extends StatelessWidget {
               ? BorderRadius.circular(radius!)
               : BorderRadius.circular(size),
           border: Border.all(color: borderColor, width: borderWidth),
-          color: theme.primaryColor),
+          color: theme.colorScheme.primary),
       width: size,
       height: size,
       child: Stack(children: [
