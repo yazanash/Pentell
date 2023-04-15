@@ -7,7 +7,7 @@ import 'package:pentelligence/features/course/data/sources/course_remote_source.
 import 'package:pentelligence/features/course/models/entities/course.dart';
 import 'package:pentelligence/features/course/models/services/course_service.dart';
 
-class CourseServiceImpl extends CourseService {
+class CourseServiceImpl implements CourseService {
   final PostLocalSource localSource;
   final PostRemoteSource remoteSource;
   final NetworkInfo networkInfo;

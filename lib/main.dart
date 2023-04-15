@@ -4,7 +4,10 @@ import 'package:pentelligence/core/constant/constant.dart';
 import 'package:pentelligence/core/themes/dark_theme.dart';
 import 'package:pentelligence/core/themes/themes.dart';
 import 'package:pentelligence/core/utilities/splash.dart';
+import 'package:pentelligence/features/auth/views/pages/authpage.dart';
+import 'package:pentelligence/features/auth/views/provider/auth_state.dart';
 import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
+import 'package:pentelligence/features/course/views/provider/courses_state.dart';
 import 'package:pentelligence/features/dashboard/views/provider/chapterstate.dart';
 import 'package:pentelligence/homePage.dart';
 import 'package:pentelligence/main_state.dart';
@@ -12,7 +15,7 @@ import 'package:provider/provider.dart';
 import 'injection_dependancy.dart' as di;
 
 void main() async {
-  await WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   await di.init();
   runApp(const MyApp());
 }
@@ -31,9 +34,15 @@ class MyApp extends StatelessWidget {
     // );
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<MainState>(create: (context) => MainState()),
+        ChangeNotifierProvider<MainState>(
+          create: (context) => MainState(),
+        ),
         ChangeNotifierProvider<ChaptersState>(
-            create: (context) => ChaptersState()),
+          create: (context) => ChaptersState(),
+        ),
+        ChangeNotifierProvider<AuthState>(
+          create: (context) => AuthState(),
+        ),
       ],
       builder: (context, child) {
         // var theme = Provider.of<MainState>(context).
@@ -41,7 +50,9 @@ class MyApp extends StatelessWidget {
           title: 'Pentelligence',
           theme: lightTheme,
           darkTheme: darkTheme,
-          themeMode: Provider.of<MainState>(context).theme==ThemeType.dark? ThemeMode.dark:ThemeMode.light,
+          themeMode: Provider.of<MainState>(context).theme == ThemeType.dark
+              ? ThemeMode.dark
+              : ThemeMode.light,
 
           // home: LobbyPage(),
           // home: SplashWidget(userBox:di.userBox),
@@ -49,6 +60,7 @@ class MyApp extends StatelessWidget {
         );
       },
       child: HomePage(),
+      // child: AuthPage(),
     );
   }
 }

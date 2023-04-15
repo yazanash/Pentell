@@ -10,9 +10,8 @@ class TagWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.center,
-      height: 20,
       padding: EdgeInsets.symmetric(horizontal: 10),
+      margin: EdgeInsets.all(5),
       decoration: BoxDecoration(
         color: Colors.lightBlue[50],
         border: Border.all(

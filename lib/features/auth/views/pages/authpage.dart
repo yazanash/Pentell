@@ -11,28 +11,25 @@ class AuthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ChangeNotifierProvider<AuthState>(
-        create: (context) => AuthState(),
-        child: ListView(
-          itemExtent: MediaQuery.of(context).size.width,
-          scrollDirection: Axis.horizontal,
-          controller: controller,
-          physics: const NeverScrollableScrollPhysics(),
-          children: [
-            Login(
-              controller: controller,
-              onPressed: () {
-                Provider.of<AuthState>(context, listen: false);
-              },
-            ),
-            VerifyCode(
-              controller: controller,
-              onPressed: () {
-                Provider.of<AuthState>(context, listen: false);
-              },
-            ),
-          ],
-        ),
+      body: ListView(
+        itemExtent: MediaQuery.of(context).size.width,
+        scrollDirection: Axis.horizontal,
+        controller: controller,
+        physics: const NeverScrollableScrollPhysics(),
+        children: [
+          Login(
+            controller: controller,
+            onPressed: () {
+              Provider.of<AuthState>(context, listen: false).testBtn();
+            },
+          ),
+          VerifyCode(
+            controller: controller,
+            onPressed: () {
+              Provider.of<AuthState>(context, listen: false).testBtn();
+            },
+          ),
+        ],
       ),
     );
   }

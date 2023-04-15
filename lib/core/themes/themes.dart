@@ -62,7 +62,7 @@ ThemeData _lightTheme() {
     // appBarTheme: appBarTheme(base.appBarTheme),
     textTheme: textTheme(base.textTheme),
     iconTheme: iconTheme(base.iconTheme),
-    navigationBarTheme: bottomNav(base.navigationBarTheme),
+    // navigationBarTheme: bottomNav(base.navigationBarTheme),
   );
 }
 

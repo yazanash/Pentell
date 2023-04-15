@@ -7,6 +7,7 @@ import 'package:pentelligence/features/auth/views/pages/authpage.dart';
 import 'package:pentelligence/features/connections/views/pages/profile_page.dart';
 import 'package:pentelligence/features/course/views/pages/course_info.dart';
 import 'package:pentelligence/features/course/views/pages/notification_page.dart';
+import 'package:pentelligence/features/course/views/provider/courses_state.dart';
 import 'package:pentelligence/features/dashboard/views/pages/board_page.dart';
 import 'package:pentelligence/features/course/views/pages/courses_page.dart';
 import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
@@ -164,7 +165,10 @@ class HomePage extends StatelessWidget {
       body: Consumer<MainState>(
         builder: (context, state, child) {
           return <Widget>[
-            const CoursesPage(isRtl: false),
+            ChangeNotifierProvider(
+              create: (context) => CoursesPageState(),
+              child: const CoursesPage(isRtl: false),
+            ),
             const BoardPage(),
             ProfilePage(),
             // LobbyPage(),
