@@ -1,24 +1,22 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
-final primary = MaterialColor(
-  Color(0xFF111519).value,
-  {
-    500: Color(0xFF111519),
-  },
-);
-final background = Color(0xFF262F38);
+final primary = generateMaterialColor(Color(0xFF262F38));
 
-final darkTheme = _darkTheme();
+final background = Color.fromARGB(255, 0, 77, 166);
+
+final darkTheme = _darkTheme2();
 
 ThemeData _darkTheme() {
   final base = ThemeData.dark();
   return base.copyWith(
-    
     primaryColor: primary,
     primaryColorDark: primary,
     splashColor: primary,
     backgroundColor: background,
     scaffoldBackgroundColor: background,
+
     // applyElevationOverlayColor: true,
     textTheme: textTheme(base.textTheme),
     buttonTheme: ButtonThemeData().copyWith(
@@ -31,11 +29,10 @@ ThemeData _darkTheme() {
     appBarTheme: AppBarTheme().copyWith(
       backgroundColor: primary,
       foregroundColor: Colors.white,
-      
     ),
     navigationBarTheme: NavigationBarThemeData().copyWith(
       backgroundColor: primary,
-      indicatorColor: background,
+      indicatorColor: primary.shade600,
     ),
   );
 }
@@ -43,10 +40,51 @@ ThemeData _darkTheme() {
 ThemeData _darkTheme2() {
   final base = ThemeData.dark();
   return base.copyWith(
-    colorScheme: ColorScheme.fromSwatch(
-      primarySwatch: primary,
-      accentColor: Color(0xFF552255),
+    useMaterial3: true,
+    scaffoldBackgroundColor: primary,
+
+    // colorScheme: ColorScheme.fromSwatch(
+    //   primarySwatch: Colors.red,
+    //   backgroundColor: Colors.amber,
+    //   primaryColorDark: Colors.white,
+    //   accentColor: generateMaterialColor(Colors.purple),
+    //   cardColor: primary,
+
+    //   brightness: Brightness.dark,
+    // ),
+    colorScheme: ColorScheme(
+      brightness: Brightness.dark,
+      primary: Color(0xFF6BD4F9),
+      onPrimary: Colors.blue,
+      secondary: Colors.green,
+      onSecondary: Colors.white70,
+      error: Colors.red,
+      onError: Colors.white,
+      background: primary.shade600,
+      onBackground: primary.shade700,
+      surface: primary,
+      onSurface: Colors.white70,
+      surfaceTint: primary,
+      // primaryContainer: Color(0xFF6BD4F9),
+      // secondaryContainer:Color(0xFF6BD4F9),
+      // onPrimaryContainer: Colors.blueGrey.shade900,
     ),
+    // navigationBarTheme:
+    //     NavigationBarThemeData().copyWith(backgroundColor: primary.shade400),
+    appBarTheme: AppBarTheme(backgroundColor: primary),
+
+    // cardTheme: CardTheme().copyWith(color: Colors.deepOrange),
+    // backgroundColor: Colors.white,
+    // primaryIconTheme: primaryIconThemeData(base.primaryIconTheme),
+    // navigationBarTheme: NavigationBarThemeData().copyWith(
+    //   backgroundColor: primary,
+    //   indicatorColor: primary.shade400,
+    //   iconTheme: MaterialStateProperty.all<IconThemeData>(
+    //       iconThemeData(base.iconTheme)),
+    //   labelTextStyle: MaterialStateProperty.all<TextStyle>(
+    //     TextStyle(fontSize: 14, color: Colors.white),
+    //   ),
+    // ),
     textTheme: textTheme(base.textTheme),
   );
 }
@@ -73,7 +111,7 @@ TextTheme textTheme(TextTheme base) => base.copyWith(
       headline2: base.headline2!.copyWith(
         fontSize: 15,
         fontWeight: FontWeight.w400,
-        color: const Color(0xff0A2239),
+        color: Color.fromARGB(255, 74, 147, 215),
       ),
 // for sub-widgets heading/title
       headline3: base.headline3!.copyWith(
@@ -84,7 +122,7 @@ TextTheme textTheme(TextTheme base) => base.copyWith(
       headline4: base.headline4!.copyWith(
         fontSize: 12,
         fontWeight: FontWeight.w400,
-        color: const Color(0xff0A2239),
+        color: Color.fromARGB(255, 74, 147, 215),
       ),
 // for widgets contents/paragraph
       bodyText1: base.bodyText1!.copyWith(
@@ -94,10 +132,44 @@ TextTheme textTheme(TextTheme base) => base.copyWith(
           fontSize: 18, fontWeight: FontWeight.w300, color: Colors.white),
     );
 
-IconThemeData primaryIconThemeData(IconThemeData base) => base.copyWith();
+IconThemeData primaryIconThemeData(IconThemeData base) =>
+    base.copyWith(color: Colors.white);
 IconThemeData iconThemeData(IconThemeData base) => base.copyWith();
 IconThemeData accentIconThemeData(IconThemeData base) => base.copyWith();
 
 ProgressIndicatorThemeData progressIndicatorThemeData(
         ProgressIndicatorThemeData base) =>
     base.copyWith();
+
+MaterialColor generateMaterialColor(Color color) {
+  return MaterialColor(color.value, {
+    50: tintColor(color, 0.9),
+    100: tintColor(color, 0.8),
+    200: tintColor(color, 0.2),
+    300: tintColor(color, 0.4),
+    400: tintColor(color, 0.1),
+    500: color,
+    600: shadeColor(color, 0.1),
+    700: shadeColor(color, 0.2),
+    800: shadeColor(color, 0.3),
+    900: shadeColor(color, 0.4),
+  });
+}
+
+int tintValue(int value, double factor) =>
+    max(0, min((value + ((255 - value) * factor)).round(), 255));
+
+Color tintColor(Color color, double factor) => Color.fromRGBO(
+    tintValue(color.red, factor),
+    tintValue(color.green, factor),
+    tintValue(color.blue, factor),
+    1);
+
+int shadeValue(int value, double factor) =>
+    max(0, min(value - (value * factor).round(), 255));
+
+Color shadeColor(Color color, double factor) => Color.fromRGBO(
+    shadeValue(color.red, factor),
+    shadeValue(color.green, factor),
+    shadeValue(color.blue, factor),
+    1);

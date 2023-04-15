@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:pentelligence/features/course/views/provider/courses_state.dart';
 import 'package:pentelligence/features/course/views/widgets/course_widget.dart';
 import 'package:pentelligence/features/course/views/widgets/institute_ad.dart';
+import 'package:provider/provider.dart';
 
 class CoursesPage extends StatelessWidget {
   const CoursesPage({Key? key, required this.isRtl}) : super(key: key);
@@ -10,22 +12,30 @@ class CoursesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedList(
-      initialItemCount: 6 + 1,
+      key: Provider.of<CoursesPageState>(context).animatedListKey,
+      // initialItemCount: 0,
       itemBuilder: (context, index, anime) {
         if (index == 0) {
-          return Container(
-            // color: Colors.white,
-            height: 140,
-            child: ListView.builder(
-              itemCount: 6,
-              padding:const EdgeInsets.symmetric(horizontal: 10),
-              scrollDirection: Axis.horizontal,
-              itemBuilder:(_,index) => InstituteAd()
-              ,
+          return SizeTransition(
+            key: UniqueKey(),
+            sizeFactor: anime,
+            child: Container(
+              // color: Colors.white,
+              height: 140,
+              child: ListView.builder(
+                itemCount: 6,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (_, index) => InstituteAd(),
+              ),
             ),
           );
         }
-        return CourseWidget(isRtl: isRtl);
+        return SizeTransition(
+          key: UniqueKey(),
+          sizeFactor: anime,
+          child: CourseWidget(isRtl: isRtl),
+        );
       },
     );
   }
