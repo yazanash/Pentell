@@ -22,9 +22,9 @@ Widget authButton(VoidCallback onPressed, bool isLoading) {
             : const Text(
                 "Login",
                 style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
       ),
     ),

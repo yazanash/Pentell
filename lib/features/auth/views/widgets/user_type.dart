@@ -16,15 +16,16 @@ class UserType extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.transparent,
       child: Card(
+        color: Color(0xffFD830D),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-        elevation: 10,
+        elevation: 0,
         child: InkWell(
           borderRadius: BorderRadius.circular(5),
           onTap: onPressed,
           child: Container(
             margin: EdgeInsets.all(15.0),
+            width: MediaQuery.of(context).size.width * 0.76,
             child: Column(
               children: [
                 icon,

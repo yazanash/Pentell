@@ -8,11 +8,11 @@ import 'package:provider/provider.dart';
 class Login extends StatelessWidget {
   const Login({
     Key? key,
-    required this.controller,
+    // required this.controller,
     required this.onPressed,
   }) : super(key: key);
 
-  final ScrollController controller;
+  // final ScrollController controller;
   final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
@@ -82,10 +82,10 @@ class Login extends StatelessWidget {
                               await Provider.of<AuthState>(context,
                                       listen: false)
                                   .testBtn();
-                              controller.animateTo(
-                                  MediaQuery.of(context).size.width,
-                                  duration: Duration(milliseconds: 500),
-                                  curve: Curves.linear);
+                              // controller.animateTo(
+                              //     MediaQuery.of(context).size.width,
+                              //     duration: Duration(milliseconds: 500),
+                              //     curve: Curves.linear);
                               print("object");
                             },
                             state.isLoading,

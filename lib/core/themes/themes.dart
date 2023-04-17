@@ -20,51 +20,55 @@ NavigationBarThemeData bottomNav(NavigationBarThemeData base) => base.copyWith(
 
 TextTheme textTheme(TextTheme base) => base.copyWith(
 // This'll be our appbars title
-      headline1: base.headline1!.copyWith(
-          fontSize: 30, fontWeight: FontWeight.w500, color: Colors.white),
+      headline1: const TextStyle(fontSize: 24),
 // for widgets heading/title
       headline2: base.headline2!.copyWith(
-        fontSize: 15,
+        fontSize: 20,
         fontWeight: FontWeight.w400,
-        color: const Color(0xff0A2239),
       ),
 // for sub-widgets heading/title
       headline3: base.headline3!.copyWith(
-        fontSize: 24,
+        fontSize: 16,
         fontWeight: FontWeight.w400,
-        color: Colors.black,
       ),
       headline4: base.headline4!.copyWith(
         fontSize: 12,
         fontWeight: FontWeight.w400,
-        color: const Color(0xff0A2239),
       ),
 // for widgets contents/paragraph
       bodyText1: base.bodyText1!.copyWith(
-          fontSize: 20, fontWeight: FontWeight.w300, color: Colors.black),
+        fontSize: 20,
+        fontWeight: FontWeight.w300,
+        color: Colors.lightBlueAccent,
+      ),
 // for sub-widgets contents/paragraph
-      bodyText2: base.bodyText2!.copyWith(
-          fontSize: 18, fontWeight: FontWeight.w300, color: Colors.black),
+      bodyText2: base.bodyText2!.copyWith(fontSize: 12),
     );
 ThemeData _lightTheme() {
   final base = ThemeData.light();
-  return base.copyWith(
+  return ThemeData(
       useMaterial3: true,
       // backgroundColor: Colors.red,
       // scaffoldBackgroundColor: generateMaterialColor(Color(0xffB08726)).withOpacity(0.5),
-      colorScheme: ColorScheme(
+      colorScheme: const ColorScheme(
+          // primaryContainer: Color(0xfffd830d),
           brightness: Brightness.light,
-          primary: generateMaterialColor(Color(0xff53A2BE)),
+
+          // onPrimaryContainer: Colors.white,
+          // primaryContainer: Colors.amber,
+          primary: Color(0xffFD830D),
           onPrimary: Colors.white,
-          secondary: generateMaterialColor(Color(0xff53A2BE)),
+          secondary: Color(0xff3b7197),
           onSecondary: Colors.white,
           error: Colors.white,
           onError: Colors.red,
-          background: Colors.white,
-          onBackground: Colors.black,
-          surface: Colors.white,
-          onSurface: generateMaterialColor(Color(0xff53A2BE)),
-          surfaceTint: Colors.white),
+          background: Colors.red,
+          onBackground: Colors.red,
+          surface: Color(0xffeeeeee),
+          onSurface: Color(0xff191716),
+          surfaceTint: Color(0xffeeeeee),),
+   
+     
       textTheme: textTheme(base.textTheme));
 }
 

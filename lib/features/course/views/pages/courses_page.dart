@@ -13,7 +13,7 @@ class CoursesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedList(
       key: Provider.of<CoursesPageState>(context).animatedListKey,
-      // initialItemCount: 0,
+      initialItemCount: 20,
       itemBuilder: (context, index, anime) {
         if (index == 0) {
           return SizeTransition(

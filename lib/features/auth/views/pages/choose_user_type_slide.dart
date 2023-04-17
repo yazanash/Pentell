@@ -5,16 +5,18 @@ import 'package:pentelligence/features/auth/views/widgets/user_type.dart';
 class ChooseUserTypeSlide extends StatelessWidget {
   const ChooseUserTypeSlide({
     Key? key,
-    required this.callBack,
+    // required this.callBack,
   }) : super(key: key);
 
-  final void Function(k.UserType type) callBack;
+  // final void Function(k.UserType type) callBack;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        Text("Complete You Account"),
+        SizedBox(height: 10),
         Text('Choose your type'),
         SizedBox(height: 10),
         UserType(
@@ -25,7 +27,7 @@ class ChooseUserTypeSlide extends StatelessWidget {
           title: 'User',
           description: 'student / teacher',
           onPressed: () {
-            callBack(k.UserType.BU);
+            // callBack(k.UserType.BU);
           },
         ),
         SizedBox(height: 10),
@@ -39,7 +41,7 @@ class ChooseUserTypeSlide extends StatelessWidget {
           title: 'Business',
           description: 'institute / company',
           onPressed: () {
-            callBack(k.UserType.ORG);
+            // callBack(k.UserType.ORG);
           },
         ),
       ],
