@@ -17,7 +17,7 @@ class SplashWidget extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-          color: Colors.white,
+          color: Color(0xff53A2BE),
         ),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -25,7 +25,7 @@ class SplashWidget extends StatelessWidget {
           children: [
             Center(
               child: Image.asset("lib/assets/logo3.png",
-                  color: Colors.blueGrey, width: 150, height: 150),
+                  color: Colors.white, width: 150, height: 150),
             ),
             Positioned(
               bottom: 50,
@@ -40,7 +40,7 @@ class SplashWidget extends StatelessWidget {
                         "From",
                         style: TextStyle(
                           fontSize: 14,
-                          color: Colors.blueGrey,
+                          color: Colors.white,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -51,7 +51,7 @@ class SplashWidget extends StatelessWidget {
                         "TRIOVERSE",
                         style: TextStyle(
                           fontSize: 18,
-                          color: Colors.blueGrey,
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
                       )

@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
         );
       },
       // child: HomePage(),
-      child: AuthPage(),
+      child: SplashWidget(userBox:di.userBox),
     );
   }
 }

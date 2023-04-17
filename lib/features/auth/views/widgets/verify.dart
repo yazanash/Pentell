@@ -77,15 +77,15 @@ class VerifyCode extends StatelessWidget {
                               await Provider.of<AuthState>(context,
                                       listen: false)
                                   .testBtn();
-                              // controller.animateTo(
-                              //     MediaQuery.of(context).size.width,
-                              //     duration: Duration(milliseconds: 500),
-                              //     curve: Curves.linear);
-                              Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(
-                                  builder: (context) => EditProfilePage(),
-                                ),
-                              );
+                              controller.animateTo(
+                                  MediaQuery.of(context).size.width,
+                                  duration: Duration(milliseconds: 500),
+                                  curve: Curves.linear);
+                              // Navigator.of(context).pushReplacement(
+                              //   MaterialPageRoute(
+                              //     builder: (context) => EditProfilePage(),
+                              //   ),
+                              // );
                               print("object");
                             },
                             state.isLoading,

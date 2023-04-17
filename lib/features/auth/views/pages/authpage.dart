@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pentelligence/features/auth/views/provider/auth_state.dart';
+import 'package:pentelligence/features/auth/views/widgets/choose_action.dart';
 import 'package:pentelligence/features/auth/views/widgets/login.dart';
 import 'package:pentelligence/features/auth/views/widgets/verify.dart';
 import 'package:provider/provider.dart';
@@ -23,12 +24,13 @@ class AuthPage extends StatelessWidget {
               Provider.of<AuthState>(context, listen: false).testBtn();
             },
           ),
-          VerifyCode(
-            controller: controller,
-            onPressed: () {
-              Provider.of<AuthState>(context, listen: false).testBtn();
-            },
+          ChooseAction(
+            // controller: controller,
+            // onPressed: () {
+            //   Provider.of<AuthState>(context, listen: false).testBtn();
+            // },
           ),
+         const ChooseAction()
         ],
       ),
     );
