@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class PollOption extends StatelessWidget {
   const PollOption({
     Key? key,
-    required this.isEnabled,
+    required this.isDisabled,
     required this.hasVoted,
     required this.optionTitle,
     required this.votePercent,
     this.onSelect,
   }) : super(key: key);
-  final bool isEnabled, hasVoted;
+  final bool isDisabled, hasVoted;
   final double? votePercent;
   final String optionTitle;
   final void Function(bool?)? onSelect;
@@ -25,7 +25,7 @@ class PollOption extends StatelessWidget {
             Text('option title'),
           ],
         ),
-        if (isEnabled)
+        if (isDisabled)
           Row(
             children: [
               Expanded(

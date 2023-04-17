@@ -25,21 +25,6 @@ class TestPage extends StatelessWidget {
       // ),
       child: Column(
         children: [
-          Expanded(
-            flex: 2,
-            child: ListView.builder(
-              padding: EdgeInsets.all(8.0),
-              scrollDirection: Axis.horizontal,
-              itemCount: 3,
-              itemBuilder: (context, index) {
-                return PlanWidget(
-                    planName: 'basic',
-                    planDetails: 'planDetails',
-                    isSelected: index % 2 == 1,
-                    onChanged: () {});
-              },
-            ),
-          ),
           Container(
             margin: EdgeInsets.symmetric(vertical: 10),
             height: 1,

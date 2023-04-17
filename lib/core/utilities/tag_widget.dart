@@ -1,28 +1,49 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
 
 class TagWidget extends StatelessWidget {
-  const TagWidget({Key? key, required this.tag}) : super(key: key);
+  const TagWidget({
+    Key? key,
+    required this.tag,
+    required this.color,
+    required this.isChecked,
+  }) : super(key: key);
   final String tag;
-
+  final Color color;
+  final bool isChecked;
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.only(right: 10),
       margin: EdgeInsets.all(5),
       decoration: BoxDecoration(
-        color: Colors.lightBlue[50],
+        // color: Colors.lightBlue[50],
         border: Border.all(
-          color: Colors.lightBlue,
+          color: color,
           width: 1,
         ),
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(10),
       ),
-      child: Text(
-        '$tag',
-        style: const TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: 35,
+            height: 35,
+            child: Checkbox(
+              value: isChecked,
+              onChanged: (val) {},
+              shape: const CircleBorder(),
+              activeColor: Theme.of(context).colorScheme.primary,
+              tristate: true,
+              splashRadius: 0,
+            ),
+          ),
+          Text(
+            '$tag',
+            style: TextStyle(color: color, fontWeight: FontWeight.bold),
+          ),
+        ],
       ),
     );
   }

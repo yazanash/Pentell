@@ -16,18 +16,7 @@ class CatagoriesSlide extends StatelessWidget {
         ),
         SizedBox(height: 10),
         Wrap(
-          children: [
-            TagWidget(tag: 'tagasdasdasd'),
-            TagWidget(tag: 'tag'),
-            TagWidget(tag: 'tag'),
-            TagWidget(tag: 'tagas'),
-            TagWidget(tag: 'tag'),
-            TagWidget(tag: 'tagsss'),
-            TagWidget(tag: 'tag'),
-            TagWidget(tag: 'tagdadasd'),
-            TagWidget(tag: 'tag'),
-            TagWidget(tag: 'tag'),
-          ],
+          children: [],
         ),
       ],
     );

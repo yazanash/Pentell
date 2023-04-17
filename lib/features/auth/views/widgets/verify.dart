@@ -87,6 +87,7 @@ class VerifyCode extends StatelessWidget {
                               //   ),
                               // );
                               print("object");
+                              onPressed();
                             },
                             state.isLoading,
                           );

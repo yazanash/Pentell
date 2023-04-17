@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:pentelligence/core/constant/constant.dart';
 import 'package:pentelligence/core/themes/dark_theme.dart';
 import 'package:pentelligence/core/themes/themes.dart';
+import 'package:pentelligence/core/utilities/plan_widget.dart';
 import 'package:pentelligence/core/utilities/splash.dart';
 import 'package:pentelligence/features/auth/views/pages/authpage.dart';
 import 'package:pentelligence/features/auth/views/provider/auth_state.dart';
@@ -26,9 +27,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle.dark.copyWith(systemNavigationBarColor: Theme.of(context).navigationBarTheme.backgroundColor),
-    );
+    
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<MainState>(
@@ -49,15 +48,16 @@ class MyApp extends StatelessWidget {
           darkTheme: darkTheme,
           themeMode: Provider.of<MainState>(context).theme == ThemeType.dark
               ? ThemeMode.dark
-              : ThemeMode.dark,
+              : ThemeMode.light,
 
           // home: LobbyPage(),a
           // home: SplashWidget(userBox:di.userBox),
           home: child,
         );
       },
-      // child: HomePage(),
-      child: SplashWidget(userBox:di.userBox),
+      child: HomePage(),
+      // child: SplashWidget(userBox:di.userBox),
+      // child: PlansPage(),
     );
   }
 }

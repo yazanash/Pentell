@@ -38,13 +38,11 @@ class PollWidget extends StatelessWidget {
           ),
           for (var i in pollModel.options.keys)
             PollOption(
-              isEnabled: pollModel.selectedOption != null ? false : true,
+              isDisabled: pollModel.selectedOption != null ? false : true,
               hasVoted: pollModel.selectedOption == i,
               optionTitle: pollModel.options[i].toString(),
               votePercent: 0,
-              onSelect:pollModel.selectedOption ==null? (newVal){
-
-              }:null,
+              onSelect: pollModel.selectedOption == null ? (newVal) {} : null,
             ),
         ],
       ),

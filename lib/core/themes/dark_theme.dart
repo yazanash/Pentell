@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 final primary = generateMaterialColor(Color(0xFF262F38));
 
@@ -55,23 +56,28 @@ ThemeData _darkTheme2() {
     colorScheme: ColorScheme(
       brightness: Brightness.dark,
       primary: Color(0xFF6BD4F9),
-      onPrimary: Colors.blue,
-      secondary: Colors.green,
-      onSecondary: Colors.white70,
+
+      onPrimary: Colors.white,
+      secondary: Colors.blue,
+      onSecondary: Colors.white,
       error: Colors.red,
       onError: Colors.white,
-      background: primary.shade600,
-      onBackground: primary.shade700,
+      background: primary,
+      onBackground: Colors.amber,
       surface: primary,
-      onSurface: Colors.white70,
-      surfaceTint: primary,
+      onSurface: Colors.white60,
+
       // primaryContainer: Color(0xFF6BD4F9),
       // secondaryContainer:Color(0xFF6BD4F9),
       // onPrimaryContainer: Colors.blueGrey.shade900,
     ),
     // navigationBarTheme:
     //     NavigationBarThemeData().copyWith(backgroundColor: primary.shade400),
-    appBarTheme: AppBarTheme(backgroundColor: primary),
+    appBarTheme: AppBarTheme(
+      backgroundColor: primary,
+      systemOverlayStyle:
+          SystemUiOverlayStyle(systemNavigationBarColor: Colors.amber),
+    ),
 
     // cardTheme: CardTheme().copyWith(color: Colors.deepOrange),
     // backgroundColor: Colors.white,

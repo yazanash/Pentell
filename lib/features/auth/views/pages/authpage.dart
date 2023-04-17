@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pentelligence/features/auth/views/pages/plans_page.dart';
 import 'package:pentelligence/features/auth/views/provider/auth_state.dart';
 import 'package:pentelligence/features/auth/views/widgets/choose_action.dart';
 import 'package:pentelligence/features/auth/views/widgets/login.dart';
@@ -19,18 +20,18 @@ class AuthPage extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         children: [
           Login(
-            controller: controller,
+            // controller: controller,
             onPressed: () {
               Provider.of<AuthState>(context, listen: false).testBtn();
             },
           ),
-          ChooseAction(
-            // controller: controller,
-            // onPressed: () {
-            //   Provider.of<AuthState>(context, listen: false).testBtn();
-            // },
+          VerifyCode(
+            controller: controller,
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => PlansPage()));
+            },
           ),
-         const ChooseAction()
         ],
       ),
     );

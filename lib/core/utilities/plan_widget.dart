@@ -3,49 +3,37 @@ import 'package:flutter/material.dart';
 class PlanWidget extends StatelessWidget {
   const PlanWidget({
     Key? key,
-    required this.planName,
-    required this.planDetails,
-    required this.isSelected,
-    required this.onChanged,
+    required this.isLeft,
+    required this.isRight,
+    required this.title,
+    required this.isSeelected,
+    required this.onPressed,
   }) : super(key: key);
-  final String planName, planDetails;
-  final bool isSelected;
-  final VoidCallback onChanged;
+  final bool isLeft, isRight;
+  final String title;
+  final bool isSeelected;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 200,
-      child: Card(
-        shape: isSelected
-            ? RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-                side: BorderSide(color: Colors.blue))
-            : null,
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Radio(
-                  value: isSelected,
-                  groupValue: true,
-                  onChanged: (val) => onChanged(),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Text(
-                  'planName',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  'planDetails',
-                  style: TextStyle(),
-                ),
-              ],
-            ),
-          ],
+    return Material(
+      borderRadius: BorderRadius.horizontal(
+          left: isLeft ? Radius.circular(10) : Radius.zero,
+          right: isRight ? Radius.circular(10) : Radius.zero),
+      color: Colors.white38,
+      child: InkWell(
+        borderRadius: BorderRadius.horizontal(
+          left: isLeft ? Radius.circular(10) : Radius.zero,
+          right: isRight ? Radius.circular(10) : Radius.zero,
+        ),
+        onTap: onPressed,
+        child: Container(
+          decoration: BoxDecoration(
+            color: isSeelected ? Colors.grey.shade900 : null,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          padding: EdgeInsets.all(10),
+          child: Text(title),
         ),
       ),
     );
