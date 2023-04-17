@@ -29,6 +29,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       drawer: Drawer(
         child: SingleChildScrollView(
@@ -138,8 +139,9 @@ class HomePage extends StatelessWidget {
             },
           ),
         ],
-        title: const Text(
+        title: Text(
           'Pentelligence',
+          style: theme.textTheme.headline1,
           // style: TextStyle(color: Color(0xFFAB9C6F)),
         ),
 

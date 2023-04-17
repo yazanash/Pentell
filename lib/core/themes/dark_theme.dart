@@ -40,7 +40,7 @@ ThemeData _darkTheme() {
 
 ThemeData _darkTheme2() {
   final base = ThemeData.dark();
-  return base.copyWith(
+  return ThemeData(
     useMaterial3: true,
     scaffoldBackgroundColor: primary,
 
@@ -53,31 +53,26 @@ ThemeData _darkTheme2() {
 
     //   brightness: Brightness.dark,
     // ),
-    colorScheme: ColorScheme(
+    colorScheme: const ColorScheme(
       brightness: Brightness.dark,
-      primary: Color(0xFF6BD4F9),
-
-      onPrimary: Colors.white,
-      secondary: Colors.blue,
-      onSecondary: Colors.white,
+      primary: Color(0xFF6bd4f9),
+      onPrimary: Color(0xff191716),
+      secondary: Color(0xff262f38),
+      onSecondary: Color(0xffffffff),
       error: Colors.red,
       onError: Colors.white,
-      background: primary,
-      onBackground: Colors.amber,
-      surface: primary,
-      onSurface: Colors.white60,
-
+      background: Color(0xff464646),
+      onBackground: Color(0xfffff),
+      surface: Color(0xff191716),
+      onSurface: Color(0xffffffff),
+      surfaceTint: Colors.amber,
       // primaryContainer: Color(0xFF6BD4F9),
       // secondaryContainer:Color(0xFF6BD4F9),
       // onPrimaryContainer: Colors.blueGrey.shade900,
     ),
     // navigationBarTheme:
     //     NavigationBarThemeData().copyWith(backgroundColor: primary.shade400),
-    appBarTheme: AppBarTheme(
-      backgroundColor: primary,
-      systemOverlayStyle:
-          SystemUiOverlayStyle(systemNavigationBarColor: Colors.amber),
-    ),
+    // appBarTheme: AppBarTheme(backgroundColor: primary),
 
     // cardTheme: CardTheme().copyWith(color: Colors.deepOrange),
     // backgroundColor: Colors.white,
@@ -111,31 +106,29 @@ ThemeData _darkTheme3() {
 
 TextTheme textTheme(TextTheme base) => base.copyWith(
 // This'll be our appbars title
-      headline1: base.headline1!.copyWith(
-          fontSize: 30, fontWeight: FontWeight.w500, color: Colors.white),
+      headline1: const TextStyle(
+          fontSize: 24),
 // for widgets heading/title
       headline2: base.headline2!.copyWith(
-        fontSize: 15,
+        fontSize: 20,
         fontWeight: FontWeight.w400,
-        color: Color.fromARGB(255, 74, 147, 215),
       ),
 // for sub-widgets heading/title
       headline3: base.headline3!.copyWith(
-        fontSize: 24,
+        fontSize: 16,
         fontWeight: FontWeight.w400,
-        color: Colors.white,
       ),
       headline4: base.headline4!.copyWith(
         fontSize: 12,
         fontWeight: FontWeight.w400,
-        color: Color.fromARGB(255, 74, 147, 215),
       ),
 // for widgets contents/paragraph
       bodyText1: base.bodyText1!.copyWith(
-          fontSize: 20, fontWeight: FontWeight.w300, color: Colors.white),
+          fontSize: 20, fontWeight: FontWeight.w300, color: Colors.lightBlueAccent,),
 // for sub-widgets contents/paragraph
       bodyText2: base.bodyText2!.copyWith(
-          fontSize: 18, fontWeight: FontWeight.w300, color: Colors.white),
+          fontSize: 12),
+          
     );
 
 IconThemeData primaryIconThemeData(IconThemeData base) =>

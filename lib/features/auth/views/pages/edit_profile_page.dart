@@ -16,10 +16,7 @@ class EditProfilePage extends StatelessWidget {
     switch (state.level) {
       case 0:
         return ChooseUserTypeSlide(
-          callBack: (type) {
-            userType = type;
-            state.setLevel = 1;
-          },
+         
         );
 
       case 1:

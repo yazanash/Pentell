@@ -36,7 +36,7 @@ class FormInput extends StatelessWidget {
       decoration: InputDecoration(
         // icon: icon,
         prefixIcon: icon,
-        labelText: label,
+        hintText: label,
         suffixIcon: suffix,
         // labelStyle: TextStyle(color: Colors.blueGrey),
         errorBorder: const UnderlineInputBorder(

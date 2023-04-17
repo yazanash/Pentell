@@ -7,21 +7,20 @@ import 'package:pentelligence/homePage.dart';
 class SplashWidget extends StatelessWidget {
   const SplashWidget({Key? key, required this.userBox}) : super(key: key);
   final Box<Map<String, dynamic>> userBox;
+
   @override
   Widget build(BuildContext context) {
     check(context);
+    final theme = Theme.of(context);
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          color: Color(0xff53A2BE),
-        ),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Stack(
           children: [
             Center(
               child: Image.asset("lib/assets/logo3.png",
-                  color: Colors.white, width: 150, height: 150),
+                   width: 120, height: 120),
             ),
             Positioned(
               bottom: 50,
@@ -31,25 +30,17 @@ class SplashWidget extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children:  [
                       Text(
                         "From",
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                        ),
+                        style: theme.textTheme.headline3,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
                         "TRIOVERSE",
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: theme.textTheme.headline2,
                       )
                     ],
                   ),
@@ -69,7 +60,7 @@ class SplashWidget extends StatelessWidget {
           MaterialPageRoute(builder: ((context) => HomePage())));
     } else {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: ((context) => AuthPage())));
+          MaterialPageRoute(builder: ((context) => HomePage())));
     }
   }
 
