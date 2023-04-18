@@ -160,7 +160,7 @@ class HomePage extends StatelessWidget {
             NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
             NavigationDestination(icon: Icon(Icons.dashboard), label: 'Board'),
             NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
-            NavigationDestination(icon: Icon(Icons.more_horiz), label: 'more'),
+            // NavigationDestination(icon: Icon(Icons.more_horiz), label: 'more'),
           ],
         ),
       ),
@@ -174,7 +174,7 @@ class HomePage extends StatelessWidget {
             const BoardPage(),
             ProfilePage(),
             // LobbyPage(),
-            const TestPage(),
+            // const TestPage(),
             // EmployeesPage(),
           ][state.index];
         },

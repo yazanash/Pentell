@@ -35,17 +35,7 @@ class ChooseInterests extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            Wrap(
-              spacing: 5,
-              children: const [
-                TagWidget(tag: "tag one"),
-                TagWidget(tag: "tag two"),
-                TagWidget(tag: "tag three"),
-                TagWidget(tag: "tag four"),
-                TagWidget(tag: "tag five"),
-                TagWidget(tag: "tag sex"),
-              ],
-            )
+            
           ],
         ),
       ),
