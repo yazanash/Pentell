@@ -38,12 +38,12 @@ class ChooseInterests extends StatelessWidget {
             Wrap(
               spacing: 5,
               children: const [
-                TagWidget(tag: "tag one"),
-                TagWidget(tag: "tag two"),
-                TagWidget(tag: "tag three"),
-                TagWidget(tag: "tag four"),
-                TagWidget(tag: "tag five"),
-                TagWidget(tag: "tag sex"),
+                TagWidget(tag: "tag one",color: Colors.red,isChecked: true,),
+                TagWidget(tag: "tag two",color: Colors.red,isChecked: true,),
+                TagWidget(tag: "tag three",color: Colors.red,isChecked: true,),
+                TagWidget(tag: "tag four",color: Colors.red,isChecked: true,),
+                TagWidget(tag: "tag five",color: Colors.red,isChecked: true,),
+                TagWidget(tag: "tag sex",color: Colors.red,isChecked: true,),
               ],
             )
           ],

@@ -9,6 +9,7 @@ import 'package:pentelligence/features/auth/views/pages/authpage.dart';
 import 'package:pentelligence/features/auth/views/provider/auth_state.dart';
 import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
 import 'package:pentelligence/features/course/views/provider/courses_state.dart';
+import 'package:pentelligence/features/dashboard/views/pages/my_courses.dart';
 import 'package:pentelligence/features/dashboard/views/provider/chapterstate.dart';
 import 'package:pentelligence/homePage.dart';
 import 'package:pentelligence/main_state.dart';
@@ -55,7 +56,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: HomePage(),
+      child: MyCourses(),
       // child: SplashWidget(userBox:di.userBox),
       // child: PlansPage(),
     );
