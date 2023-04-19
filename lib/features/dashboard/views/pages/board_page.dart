@@ -84,8 +84,8 @@ class BoardPage extends StatelessWidget {
                 children: [
                   Expanded(
                     child: ActionCard(
-                      icon: Icon(Icons.menu_book_rounded),
-                      color: theme.colorScheme.tertiary,
+                      icon: Icons.menu_book_rounded,
+                      color: Colors.amber,
                       desc: 'view and edit courses',
                       title: 'Manage courses',
                       onPressed: () {
@@ -96,7 +96,7 @@ class BoardPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: ActionCard(
-                      icon: Icon(Icons.local_offer),
+                      icon: Icons.speaker_group_rounded,
                       color: Colors.purple,
                       desc: 'boost your engagment',
                       title: 'Offers',
@@ -110,7 +110,7 @@ class BoardPage extends StatelessWidget {
                 children: [
                   Expanded(
                     child: ActionCard(
-                      icon: Icon(Icons.groups_rounded),
+                      icon: Icons.groups_rounded,
                       desc: 'view and manage cast',
                       title: 'Cast',
                       onPressed: () {},
@@ -119,7 +119,7 @@ class BoardPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: ActionCard(
-                      icon: Icon(Icons.campaign_rounded),
+                      icon: Icons.campaign_rounded,
                       color: Colors.pink,
                       desc: 'boost your reach',
                       title: 'Advertisement',
@@ -127,6 +127,12 @@ class BoardPage extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+              ActionCard(
+                icon: Icons.local_offer,
+                desc: 'make new and exciting offers',
+                title: 'Offers',
+                onPressed: () {},
               ),
             ],
           ),

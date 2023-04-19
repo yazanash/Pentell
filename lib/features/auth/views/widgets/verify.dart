@@ -10,10 +10,10 @@ import '../../../../core/utilities/form_item.dart';
 class VerifyCode extends StatelessWidget {
   const VerifyCode({
     Key? key,
-    required this.controller,
+    // required this.controller,
     required this.onPressed,
   }) : super(key: key);
-  final ScrollController controller;
+  // final ScrollController controller;
   final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
@@ -77,10 +77,10 @@ class VerifyCode extends StatelessWidget {
                               await Provider.of<AuthState>(context,
                                       listen: false)
                                   .testBtn();
-                              controller.animateTo(
-                                  MediaQuery.of(context).size.width,
-                                  duration: Duration(milliseconds: 500),
-                                  curve: Curves.linear);
+                              // controller.animateTo(
+                              //     MediaQuery.of(context).size.width,
+                              //     duration: Duration(milliseconds: 500),
+                              //     curve: Curves.linear);
                               // Navigator.of(context).pushReplacement(
                               //   MaterialPageRoute(
                               //     builder: (context) => EditProfilePage(),

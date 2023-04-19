@@ -3,6 +3,7 @@ import 'package:pentelligence/features/dashboard/views/pages/add_course.dart';
 import 'package:pentelligence/features/dashboard/views/pages/pending_courses.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/course_card.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/tab_btn.dart';
+import 'package:pentelligence/features/dashboard/views/widgets/versions_list.dart';
 
 class MyCourses extends StatelessWidget {
   const MyCourses({Key? key}) : super(key: key);
@@ -58,16 +59,11 @@ class MyCourses extends StatelessWidget {
         ),
         DraggableScrollableSheet(
           initialChildSize: 0.3,
+          maxChildSize: 1,
+          minChildSize: 0,
+          snap: true,
           builder: (context, myController) {
-            return Container(
-              color: Colors.red,
-              width: MediaQuery.of(context).size.width,
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: TapBtn(
-                title: "Republish",
-                onPressed: () {},
-              ),
-            );
+            return VersionsList(controller: myController,);
           },
         )
       ]),

@@ -3,7 +3,6 @@ import 'package:hive/hive.dart';
 import 'package:pentelligence/features/auth/views/pages/authpage.dart';
 import 'package:pentelligence/homePage.dart';
 
-
 class SplashWidget extends StatelessWidget {
   const SplashWidget({Key? key, required this.userBox}) : super(key: key);
   final Box<Map<String, dynamic>> userBox;
@@ -19,8 +18,8 @@ class SplashWidget extends StatelessWidget {
         child: Stack(
           children: [
             Center(
-              child: Image.asset("lib/assets/logo3.png",
-                   width: 120, height: 120),
+              child:
+                  Image.asset("lib/assets/logo3.png", width: 120, height: 120),
             ),
             Positioned(
               bottom: 50,
@@ -30,7 +29,7 @@ class SplashWidget extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children:  [
+                    children: [
                       Text(
                         "From",
                         style: theme.textTheme.headline3,
@@ -60,7 +59,7 @@ class SplashWidget extends StatelessWidget {
           MaterialPageRoute(builder: ((context) => HomePage())));
     } else {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: ((context) => HomePage())));
+          MaterialPageRoute(builder: ((context) => AuthPage())));
     }
   }
 

@@ -27,48 +27,43 @@ class ProfileImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return InkWell(
-      onTap: onPressed,
-      borderRadius: BorderRadius.circular(size),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: radius != null
-              ? BorderRadius.circular(radius!)
-              : BorderRadius.circular(size),
-          border: Border.all(color: borderColor, width: borderWidth),
-          // color: theme.colorScheme.primary
-        ),
-        width: size,
-        height: size,
-        child: Stack(children: [
-          Padding(
-            padding: EdgeInsets.all(padding),
-            child: Center(
-              child: Image.asset(
-                url,
-              ),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: radius != null
+            ? BorderRadius.circular(radius!)
+            : BorderRadius.circular(size),
+        border: Border.all(color: borderColor, width: borderWidth),
+        // color: theme.colorScheme.primary
+      ),
+      width: size,
+      height: size,
+      child: Stack(children: [
+        Padding(
+          padding: EdgeInsets.all(padding),
+          child: Center(
+            child: Image.asset(
+              url,
             ),
           ),
-          if (isTrusted)
-            Positioned(
-              right: 0,
-              bottom: 0,
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    color: Colors.blue),
-                width: 30,
-                height: 30,
-                child: Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: Image.asset(
-                    "lib/assets/logo3.png",
-                  ),
+        ),
+        if (isTrusted)
+          Positioned(
+            right: 0,
+            bottom: 0,
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30), color: Colors.blue),
+              width: 30,
+              height: 30,
+              child: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Image.asset(
+                  "lib/assets/logo3.png",
                 ),
               ),
-            )
-        ]),
-      ),
+            ),
+          )
+      ]),
     );
   }
 }

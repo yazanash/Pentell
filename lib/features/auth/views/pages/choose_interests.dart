@@ -10,19 +10,24 @@ class ChooseInterests extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Container(
+        margin: const EdgeInsets.only(top: 30),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            const Text("Complete your Account"),
+              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+            Text(
+              "Complete your Account",
+              style: theme.textTheme.headline1,
+            ),
             const SizedBox(
               height: 10,
             ),
-            const Text("Choose your interests"),
+            Text("Choose your interests", style: theme.textTheme.headline2),
             const SizedBox(
               height: 10,
             ),
@@ -38,37 +43,37 @@ class ChooseInterests extends StatelessWidget {
               children: [
                 TagWidget(
                   tag: "tag one",
-                  color: Colors.red,
+                  color: Colors.green,
                   isChecked: true,
                   callback: (val) {},
                 ),
                 TagWidget(
                   tag: "tag two",
-                  color: Colors.red,
+                  color: Colors.green,
                   isChecked: true,
                   callback: (val) {},
                 ),
                 TagWidget(
                   tag: "tag three",
-                  color: Colors.red,
+                  color: Colors.green,
                   isChecked: true,
                   callback: (val) {},
                 ),
                 TagWidget(
                   tag: "tag four",
-                  color: Colors.red,
+                  color: Colors.green,
                   isChecked: true,
                   callback: (val) {},
                 ),
                 TagWidget(
                   tag: "tag five",
-                  color: Colors.red,
+                  color: Colors.green,
                   isChecked: true,
                   callback: (val) {},
                 ),
                 TagWidget(
                   tag: "tag sex",
-                  color: Colors.red,
+                  color: Colors.green,
                   isChecked: true,
                   callback: (val) {},
                 ),
