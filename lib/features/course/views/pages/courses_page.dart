@@ -26,7 +26,9 @@ class CoursesPage extends StatelessWidget {
                 itemCount: 6,
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (_, index) => InstituteAd(),
+                itemBuilder: (_, index) => InstituteAd(
+                  onPressed: () {},
+                ),
               ),
             ),
           );

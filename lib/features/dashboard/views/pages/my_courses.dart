@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:pentelligence/features/dashboard/views/pages/add_course.dart';
+import 'package:pentelligence/features/dashboard/views/pages/pending_courses.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/course_card.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/tab_btn.dart';
 
@@ -19,11 +19,19 @@ class MyCourses extends StatelessWidget {
               child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const TapBtn(
+              TapBtn(
                 title: "Add New Course",
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (c) => AddCourse()));
+                },
               ),
-              const TapBtn(
-                title: "Draft Course",
+              TapBtn(
+                title: "Pending Courses",
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (c) => PendingCoursesPage()));
+                },
               ),
               const SizedBox(
                 height: 10,
@@ -55,7 +63,10 @@ class MyCourses extends StatelessWidget {
               color: Colors.red,
               width: MediaQuery.of(context).size.width,
               padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: TapBtn(title: "Republish"),
+              child: TapBtn(
+                title: "Republish",
+                onPressed: () {},
+              ),
             );
           },
         )

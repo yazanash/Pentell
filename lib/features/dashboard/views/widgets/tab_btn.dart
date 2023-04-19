@@ -3,8 +3,13 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class TapBtn extends StatelessWidget {
-  const TapBtn({Key? key,required this.title}) : super(key: key);
+  const TapBtn({
+    Key? key,
+    required this.title,
+    this.onPressed,
+  }) : super(key: key);
   final String title;
+  final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,8 +21,8 @@ class TapBtn extends StatelessWidget {
               shape: MaterialStateProperty.all<OutlinedBorder>(
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
               )),
-          onPressed: () {},
-          child:  Row(
+          onPressed: onPressed,
+          child: Row(
             children: [
               Text(this.title),
             ],

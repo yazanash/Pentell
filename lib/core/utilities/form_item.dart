@@ -11,6 +11,7 @@ class FormInput extends StatelessWidget {
       this.maxLines = 1,
       this.minLines,
       this.expands = false,
+      this.expandIcon = false,
       this.onTap,
       required this.getval})
       : super(key: key);
@@ -20,7 +21,7 @@ class FormInput extends StatelessWidget {
   VoidCallback? onTap;
   Function(String?) getval;
   TextEditingController controller = TextEditingController();
-  final bool expands;
+  final bool expands, expandIcon;
   final int? maxLines, minLines;
 
   @override
@@ -39,6 +40,9 @@ class FormInput extends StatelessWidget {
       decoration: InputDecoration(
         // icon: icon,
         prefixIcon: icon,
+        prefixIconConstraints: expandIcon
+            ? const BoxConstraints(minHeight: 10, minWidth: 10)
+            : null,
         hintText: label,
         suffixIcon: suffix,
         // labelStyle: TextStyle(color: Colors.blueGrey),

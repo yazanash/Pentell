@@ -28,7 +28,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<MainState>(
@@ -56,9 +55,10 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: MyCourses(),
+      // child: MyCourses(),
       // child: SplashWidget(userBox:di.userBox),
       // child: PlansPage(),
+      child: HomePage(),
     );
   }
 }

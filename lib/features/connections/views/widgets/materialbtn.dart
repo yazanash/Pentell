@@ -4,13 +4,13 @@ class MaterialBtn extends StatelessWidget {
   const MaterialBtn({
     Key? key,
     required this.title,
-    required this.color,
     required this.onPressed,
+    this.color,
     this.icon,
   }) : super(key: key);
 
   final String title;
-  final Color color;
+  final Color? color;
   final VoidCallback onPressed;
   final Widget? icon;
 
@@ -18,7 +18,9 @@ class MaterialBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Material(
-      color: theme.backgroundColor.withAlpha(50),
+      color: color != null
+          ? color!.withOpacity(0.2)
+          : theme.backgroundColor.withOpacity(0.2),
       borderRadius: BorderRadius.circular(15),
       child: InkWell(
         borderRadius: BorderRadius.circular(15),
@@ -26,7 +28,7 @@ class MaterialBtn extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 3),
           decoration: BoxDecoration(
-            color: theme.primaryColor,
+            // color: color ?? theme.primaryColor,
             borderRadius: BorderRadius.circular(15),
           ),
           child: Row(
@@ -38,7 +40,9 @@ class MaterialBtn extends StatelessWidget {
                 ]),
               Text(
                 title,
-                style: theme.textTheme.headline2,
+                style: theme.textTheme.bodyText2?.copyWith(
+                  color: color ?? theme.primaryColor,
+                ),
               ),
             ],
           ),

@@ -14,7 +14,7 @@ import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
 import 'package:pentelligence/features/course/views/pages/test_page.dart';
 import 'package:pentelligence/features/dashboard/views/pages/add_chapter.dart';
 import 'package:pentelligence/features/dashboard/views/pages/add_course.dart';
-import 'package:pentelligence/features/dashboard/views/pages/addversion.dart';
+import 'package:pentelligence/features/dashboard/views/pages/add_version_info.dart';
 import 'package:pentelligence/features/dashboard/views/pages/my_courses.dart';
 import 'package:pentelligence/features/dashboard/views/pages/employees.dart';
 import 'package:pentelligence/features/dashboard/views/pages/org_info.dart';

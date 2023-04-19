@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:pentelligence/features/auth/models/entities/user_profile.dart';
 import 'package:pentelligence/features/connections/views/widgets/dashboard_btn.dart';
 import 'package:pentelligence/features/connections/views/widgets/lobby_card.dart';
+import 'package:pentelligence/features/connections/views/widgets/materialbtn.dart';
 import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
 import 'package:pentelligence/features/dashboard/views/pages/add_course.dart';
+import 'package:pentelligence/features/dashboard/views/pages/my_courses.dart';
+import 'package:pentelligence/features/dashboard/views/pages/pending_courses.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/action_card.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/board_panel.dart';
 
@@ -15,7 +18,7 @@ class BoardPage extends StatelessWidget {
     final theme = Theme.of(context);
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
-      // padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.all(10),
       // color: Colors.grey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,9 +45,10 @@ class BoardPage extends StatelessWidget {
                   'Active Lobbies',
                   style: theme.textTheme.headline1,
                 ),
-                TextButton(
+                MaterialBtn(
                   onPressed: () {},
-                  child: Text('Show All'),
+                  title: 'Show All',
+                  color: Colors.blue,
                 ),
               ],
             ),
@@ -81,21 +85,21 @@ class BoardPage extends StatelessWidget {
                   Expanded(
                     child: ActionCard(
                       icon: Icon(Icons.menu_book_rounded),
-                      color: Colors.amber,
+                      color: theme.colorScheme.tertiary,
                       desc: 'view and edit courses',
                       title: 'Manage courses',
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => AddCourse()));
+                            builder: (context) => MyCourses()));
                       },
                     ),
                   ),
                   Expanded(
                     child: ActionCard(
-                      icon: Icon(Icons.speaker_group_rounded),
+                      icon: Icon(Icons.local_offer),
                       color: Colors.purple,
-                      desc: 'view all lobbies',
-                      title: 'Lobbies',
+                      desc: 'boost your engagment',
+                      title: 'Offers',
                       onPressed: () {},
                     ),
                   ),
@@ -124,12 +128,6 @@ class BoardPage extends StatelessWidget {
                   ),
                 ],
               ),
-              ActionCard(
-                icon: Icon(Icons.local_offer),
-                desc: 'make new and exciting offers',
-                title: 'Offers',
-                onPressed: () {},
-              ),
             ],
           ),
           Column(
@@ -144,18 +142,12 @@ class BoardPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    DashboardButton(
-                      ratio: 1.25,
-                      onPressed: () {
-                        Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => LobbyPage()));
-                      },
-                    ),
-                  ],
+                child: DashboardButton(
+                  ratio: 1.25,
+                  onPressed: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (_) => LobbyPage()));
+                  },
                 ),
               ),
             ],

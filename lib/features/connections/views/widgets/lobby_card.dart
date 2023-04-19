@@ -91,7 +91,7 @@ class LobbyCard2 extends StatelessWidget {
       ),
       width: 150,
       margin: EdgeInsets.all(5),
-      padding: EdgeInsets.all(5),
+      padding: EdgeInsets.all(10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,

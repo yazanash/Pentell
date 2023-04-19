@@ -6,10 +6,12 @@ class TagWidget extends StatelessWidget {
     required this.tag,
     required this.color,
     required this.isChecked,
+    required this.callback,
   }) : super(key: key);
   final String tag;
   final Color color;
   final bool isChecked;
+  final void Function(bool?)? callback;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,7 +34,7 @@ class TagWidget extends StatelessWidget {
             height: 35,
             child: Checkbox(
               value: isChecked,
-              onChanged: (val) {},
+              onChanged: callback,
               shape: const CircleBorder(),
               activeColor: Theme.of(context).colorScheme.primary,
               tristate: true,

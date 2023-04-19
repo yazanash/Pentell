@@ -56,10 +56,10 @@ ThemeData _darkTheme2() {
 
     colorScheme: ColorScheme(
       brightness: Brightness.dark,
-      primary: Color(0xFF6bd4f9),
+      primary: Color(0xFF6BD4F9),
       onPrimary: Color(0xff191716),
       secondary: Color(0xff262f38),
-      onSecondary: Color(0xffffffff),
+      onSecondary: Color(0xffE6E6E6),
       error: Colors.red,
       onError: Colors.white,
       // background: Color(0xff464646),
@@ -68,14 +68,14 @@ ThemeData _darkTheme2() {
       // surface: Color(0xff191716),
       surface: primary,
       onSurface: Color(0xffffffff),
-      surfaceTint: Colors.transparent,
+      surfaceTint: primary,
       tertiary: Color(0xFFFD830D),
-      // surfaceVariant: Colors.white70,
-      primaryContainer: Color(0xFF6BD4F9),
+      // primaryContainer: Color.fromARGB(255, 255, 191, 0),
       onPrimaryContainer: Colors.blueGrey.shade900,
-      secondaryContainer:Color(0xff00aaee),
+      secondaryContainer: Color(0xFF6bd4f9),
       onSecondaryContainer: primary.shade600,
     ),
+
     // navigationBarTheme:
     //     NavigationBarThemeData().copyWith(backgroundColor: primary.shade400),
     // appBarTheme: AppBarTheme(backgroundColor: primary),

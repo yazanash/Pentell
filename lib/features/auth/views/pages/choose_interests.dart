@@ -35,37 +35,42 @@ class ChooseInterests extends StatelessWidget {
               height: 10,
             ),
             Row(
-             
-              children: const [
+              children: [
                 TagWidget(
                   tag: "tag one",
                   color: Colors.red,
                   isChecked: true,
+                  callback: (val) {},
                 ),
                 TagWidget(
                   tag: "tag two",
                   color: Colors.red,
                   isChecked: true,
+                  callback: (val) {},
                 ),
                 TagWidget(
                   tag: "tag three",
                   color: Colors.red,
                   isChecked: true,
+                  callback: (val) {},
                 ),
                 TagWidget(
                   tag: "tag four",
                   color: Colors.red,
                   isChecked: true,
+                  callback: (val) {},
                 ),
                 TagWidget(
                   tag: "tag five",
                   color: Colors.red,
                   isChecked: true,
+                  callback: (val) {},
                 ),
                 TagWidget(
                   tag: "tag sex",
                   color: Colors.red,
                   isChecked: true,
+                  callback: (val) {},
                 ),
               ],
             )
