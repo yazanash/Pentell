@@ -107,7 +107,7 @@ class BoardPanal2 extends StatelessWidget {
     final theme = Theme.of(context);
     return Card(
       elevation: 0,
-      color: Colors.white30,
+      color: theme.colorScheme.onSecondaryContainer,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -121,7 +121,7 @@ class BoardPanal2 extends StatelessWidget {
               ),
             ),
             Card(
-              color: Colors.grey,
+              color: theme.colorScheme.surfaceVariant,
               elevation: 0,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -140,9 +140,9 @@ class BoardPanal2 extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton(
+                    child: TextButton(
                       onPressed: () {},
-                      child: Text('show more'),
+                      child: Text('Show All'),
                     ),
                   ),
                 ],

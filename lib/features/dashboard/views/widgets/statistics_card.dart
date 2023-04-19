@@ -11,7 +11,7 @@ class StatCard extends StatelessWidget {
       margin: EdgeInsets.all(5),
       padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: Colors.grey,
+        color: theme.colorScheme.surfaceVariant,
         borderRadius: BorderRadius.circular(10),
       ),
 

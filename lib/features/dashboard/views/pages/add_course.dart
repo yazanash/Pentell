@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:pentelligence/core/utilities/dropdown.dart';
 import 'package:pentelligence/core/utilities/form_item.dart';
 import 'package:pentelligence/core/utilities/inputbtn.dart';
+import 'package:pentelligence/core/utilities/tag_widget.dart';
 import 'package:pentelligence/features/course/data/models/categories_model.dart';
 import 'package:pentelligence/features/course/views/widgets/course_header.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +19,7 @@ class AddCourse extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("data"),
+          title: const Text("Add Course"),
         ),
         body: Container(
             width: MediaQuery.of(context).size.width,
@@ -37,10 +38,16 @@ class AddCourse extends StatelessWidget {
                     const SizedBox(
                       height: 30,
                     ),
-                    FormInput(
-                      label: "Description",
-                      getval: ((val) => {}),
+                    SizedBox(
+                      height: 150,
+                      child: FormInput(
+                        label: "Description",
+                        getval: (val) => {},
+                        expands: true,
+                        maxLines: null,
+                      ),
                     ),
+
                     const SizedBox(
                       height: 30,
                     ),
@@ -62,12 +69,60 @@ class AddCourse extends StatelessWidget {
                     // const SizedBox(
                     //   height: 30,
                     // ),
+                    Text('Choose catagory'),
+                    Wrap(
+                      children: const [
+                        TagWidget(
+                          tag: 'tag this',
+                          color: Colors.black87,
+                          isChecked: false,
+                        ),
+                        TagWidget(
+                          tag: 'tag',
+                          color: Colors.black87,
+                          isChecked: false,
+                        ),
+                        TagWidget(
+                          tag: 'tag that',
+                          color: Colors.black87,
+                          isChecked: false,
+                        ),
+                        TagWidget(
+                          tag: 'tag what the hell',
+                          color: Colors.black87,
+                          isChecked: false,
+                        ),
+                        TagWidget(
+                          tag: 'tag',
+                          color: Colors.black87,
+                          isChecked: false,
+                        ),
+                        TagWidget(
+                          tag: 'tag',
+                          color: Colors.black87,
+                          isChecked: false,
+                        ),
+                      ],
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         InputBtn(
-                          text: "Save",
+                          text: "Save to draft",
                           icon: Icons.add,
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              DialogRoute(
+                                context: context,
+                                builder: (c) {
+                                  return Container(
+                                    color: Colors.white10,
+                                  );
+                                },
+                              ),
+                            );
+                          },
                         ),
                         InputBtn(
                           text: "open course",

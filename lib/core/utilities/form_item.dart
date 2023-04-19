@@ -8,17 +8,20 @@ class FormInput extends StatelessWidget {
       this.label,
       this.icon,
       this.suffix,
-      this.maxlen,
+      this.maxLines = 1,
+      this.minLines,
+      this.expands = false,
       this.onTap,
       required this.getval})
       : super(key: key);
   String? label;
   Widget? icon;
   Widget? suffix;
-  int? maxlen = 1;
   VoidCallback? onTap;
   Function(String?) getval;
   TextEditingController controller = TextEditingController();
+  final bool expands;
+  final int? maxLines, minLines;
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +30,12 @@ class FormInput extends StatelessWidget {
       // maxLength: maxlen,
       // obscureText: true,
       // obscuringCharacter: "*",
-      maxLines: maxlen,
+      maxLines: maxLines,
+      minLines: minLines,
+      expands: expands,
       onSaved: (newValue) => getval(newValue),
-      // maxLines:null,
+
       onTap: onTap,
-      // minLines: null,
-      // expands: true,
       decoration: InputDecoration(
         // icon: icon,
         prefixIcon: icon,

@@ -53,7 +53,7 @@ ThemeData _darkTheme2() {
 
     //   brightness: Brightness.dark,
     // ),
-    
+
     colorScheme: ColorScheme(
       brightness: Brightness.dark,
       primary: Color(0xFF6bd4f9),
@@ -69,11 +69,12 @@ ThemeData _darkTheme2() {
       surface: primary,
       onSurface: Color(0xffffffff),
       surfaceTint: Colors.transparent,
-      tertiary: primary.shade500,
-      
-      // primaryContainer: Color(0xFF6BD4F9),
-      // secondaryContainer:Color(0xFF6BD4F9),
-      // onPrimaryContainer: Colors.blueGrey.shade900,
+      tertiary: Color(0xFFFD830D),
+      // surfaceVariant: Colors.white70,
+      primaryContainer: Color(0xFF6BD4F9),
+      onPrimaryContainer: Colors.blueGrey.shade900,
+      secondaryContainer:Color(0xff00aaee),
+      onSecondaryContainer: primary.shade600,
     ),
     // navigationBarTheme:
     //     NavigationBarThemeData().copyWith(backgroundColor: primary.shade400),
@@ -111,8 +112,7 @@ ThemeData _darkTheme3() {
 
 TextTheme textTheme(TextTheme base) => base.copyWith(
 // This'll be our appbars title
-      headline1: const TextStyle(
-          fontSize: 24),
+      headline1: const TextStyle(fontSize: 24),
 // for widgets heading/title
       headline2: base.headline2!.copyWith(
         fontSize: 20,
@@ -129,11 +129,12 @@ TextTheme textTheme(TextTheme base) => base.copyWith(
       ),
 // for widgets contents/paragraph
       bodyText1: base.bodyText1!.copyWith(
-          fontSize: 20, fontWeight: FontWeight.w300, color: Colors.lightBlueAccent,),
+        fontSize: 20,
+        fontWeight: FontWeight.w300,
+        color: Colors.lightBlueAccent,
+      ),
 // for sub-widgets contents/paragraph
-      bodyText2: base.bodyText2!.copyWith(
-          fontSize: 12),
-          
+      bodyText2: base.bodyText2!.copyWith(fontSize: 12),
     );
 
 IconThemeData primaryIconThemeData(IconThemeData base) =>

@@ -3,6 +3,7 @@ import 'package:pentelligence/features/auth/models/entities/user_profile.dart';
 import 'package:pentelligence/features/connections/views/widgets/dashboard_btn.dart';
 import 'package:pentelligence/features/connections/views/widgets/lobby_card.dart';
 import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
+import 'package:pentelligence/features/dashboard/views/pages/add_course.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/action_card.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/board_panel.dart';
 
@@ -34,19 +35,31 @@ class BoardPage extends StatelessWidget {
           // ),
           Padding(
             padding: const EdgeInsets.all(5.0),
-            child: Text(
-              'Active Lobbies',
-              style: theme.textTheme.headline1,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Active Lobbies',
+                  style: theme.textTheme.headline1,
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: Text('Show All'),
+                ),
+              ],
             ),
           ),
           Container(
-            height: 100,
+            height: 130,
             margin: EdgeInsets.symmetric(vertical: 10),
             child: ListView.builder(
               itemCount: 5,
               scrollDirection: Axis.horizontal,
               itemBuilder: (cx, i) {
-                return LobbyCard2();
+                return LobbyCard2(
+                  newMessages: 1,
+                  progress: 0.5,
+                );
               },
             ),
           ),
@@ -65,18 +78,58 @@ class BoardPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Expanded(child: ActionCard()),
-                  Expanded(child: ActionCard()),
+                  Expanded(
+                    child: ActionCard(
+                      icon: Icon(Icons.menu_book_rounded),
+                      color: Colors.amber,
+                      desc: 'view and edit courses',
+                      title: 'Manage courses',
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => AddCourse()));
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: ActionCard(
+                      icon: Icon(Icons.speaker_group_rounded),
+                      color: Colors.purple,
+                      desc: 'view all lobbies',
+                      title: 'Lobbies',
+                      onPressed: () {},
+                    ),
+                  ),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Expanded(child: ActionCard()),
-                  Expanded(child: ActionCard()),
+                  Expanded(
+                    child: ActionCard(
+                      icon: Icon(Icons.groups_rounded),
+                      desc: 'view and manage cast',
+                      title: 'Cast',
+                      onPressed: () {},
+                      color: Colors.green,
+                    ),
+                  ),
+                  Expanded(
+                    child: ActionCard(
+                      icon: Icon(Icons.campaign_rounded),
+                      color: Colors.pink,
+                      desc: 'boost your reach',
+                      title: 'Advertisement',
+                      onPressed: () {},
+                    ),
+                  ),
                 ],
               ),
-              ActionCard(),
+              ActionCard(
+                icon: Icon(Icons.local_offer),
+                desc: 'make new and exciting offers',
+                title: 'Offers',
+                onPressed: () {},
+              ),
             ],
           ),
           Column(

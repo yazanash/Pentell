@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
 
 class InputBtn extends StatelessWidget {
-  InputBtn(
-      {Key? key,
-      this.text = "button",
-      this.iconColor = Colors.blue,
-      this.iconSize = 30.0,
-      this.icon = Icons.add})
-      : super(key: key);
+  InputBtn({
+    Key? key,
+    this.text = "button",
+    this.iconColor = Colors.blue,
+    this.iconSize = 30.0,
+    this.icon = Icons.add,
+    this.onPressed,
+  }) : super(key: key);
   final String text;
   final Color iconColor;
   final double iconSize;
   final IconData icon;
+  final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onPressed,
         style: ButtonStyle(
           elevation: MaterialStateProperty.all<double>(0),
 

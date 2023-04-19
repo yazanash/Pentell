@@ -71,24 +71,41 @@ class LobbyCard extends StatelessWidget {
 }
 
 class LobbyCard2 extends StatelessWidget {
-  const LobbyCard2({Key? key}) : super(key: key);
+  const LobbyCard2({
+    Key? key,
+    this.newMessages = 0,
+    this.progress = 0,
+    this.dateOfcreation = '99/99/9999',
+  }) : super(key: key);
+  final int newMessages;
+  final double progress;
+  final String dateOfcreation;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Container(
       decoration: BoxDecoration(
-        color: Colors.pink,
+        color: theme.colorScheme.onSecondaryContainer,
         borderRadius: BorderRadius.circular(10),
       ),
       width: 150,
       margin: EdgeInsets.all(5),
       padding: EdgeInsets.all(5),
-      child: Column(children: [
-        Text('lobby name or course name', style: theme.textTheme.bodyLarge),
-        SizedBox(height: 10),
-        LinearProgressIndicator(value: 0.7),
-      ]),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'lobby name or course name',
+            style: theme.textTheme.displaySmall,
+          ),
+          Text(dateOfcreation),
+          // SizedBox(height: 10),
+          if (newMessages > 0) Text('$newMessages New messages'),
+          LinearProgressIndicator(value: progress),
+        ],
+      ),
     );
   }
 }
