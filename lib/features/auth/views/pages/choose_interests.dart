@@ -11,14 +11,13 @@ class ChooseInterests extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
+        width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-      child: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             const Text("Complete your Account"),
             const SizedBox(
               height: 10,
@@ -35,20 +34,42 @@ class ChooseInterests extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            Wrap(
-              spacing: 5,
+            Row(
+             
               children: const [
-                TagWidget(tag: "tag one",color: Colors.red,isChecked: true,),
-                TagWidget(tag: "tag two",color: Colors.red,isChecked: true,),
-                TagWidget(tag: "tag three",color: Colors.red,isChecked: true,),
-                TagWidget(tag: "tag four",color: Colors.red,isChecked: true,),
-                TagWidget(tag: "tag five",color: Colors.red,isChecked: true,),
-                TagWidget(tag: "tag sex",color: Colors.red,isChecked: true,),
+                TagWidget(
+                  tag: "tag one",
+                  color: Colors.red,
+                  isChecked: true,
+                ),
+                TagWidget(
+                  tag: "tag two",
+                  color: Colors.red,
+                  isChecked: true,
+                ),
+                TagWidget(
+                  tag: "tag three",
+                  color: Colors.red,
+                  isChecked: true,
+                ),
+                TagWidget(
+                  tag: "tag four",
+                  color: Colors.red,
+                  isChecked: true,
+                ),
+                TagWidget(
+                  tag: "tag five",
+                  color: Colors.red,
+                  isChecked: true,
+                ),
+                TagWidget(
+                  tag: "tag sex",
+                  color: Colors.red,
+                  isChecked: true,
+                ),
               ],
             )
-          ],
-        ),
-      ),
-    );
+          ]),
+        ));
   }
 }

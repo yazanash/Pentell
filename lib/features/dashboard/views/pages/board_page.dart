@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:pentelligence/features/auth/models/entities/user_profile.dart';
 import 'package:pentelligence/features/connections/views/widgets/dashboard_btn.dart';
 import 'package:pentelligence/features/connections/views/widgets/lobby_card.dart';
 import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
+import 'package:pentelligence/features/dashboard/views/widgets/action_card.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/board_panel.dart';
 
 class BoardPage extends StatelessWidget {
@@ -14,41 +14,70 @@ class BoardPage extends StatelessWidget {
     final theme = Theme.of(context);
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
+      // padding: EdgeInsets.symmetric(horizontal: 10),
       // color: Colors.grey,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          BoardPanal(
-            profile: UserProfile(
-              id: '1',
-              name: "yazan abo shash",
-              email: "example@gmail.com",
-              phoneNumber: "0994916917",
-              imageUrl: "lib/assets/logo3.png",
-              address: "address",
-              followingCount: 330,
-              followersCount: 440,
+          // BoardPanal(
+          //   profile: UserProfile(
+          //     id: '1',
+          //     name: "yazan abo shash",
+          //     email: "example@gmail.com",
+          //     phoneNumber: "0994916917",
+          //     imageUrl: "lib/assets/logo3.png",
+          //     address: "address",
+          //     followingCount: 330,
+          //     followersCount: 440,
+          //   ),
+          // ),
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Text(
+              'Active Lobbies',
+              style: theme.textTheme.headline1,
             ),
           ),
           Container(
-            margin: EdgeInsets.only(bottom: 15.0, left: 15),
+            height: 100,
+            margin: EdgeInsets.symmetric(vertical: 10),
+            child: ListView.builder(
+              itemCount: 5,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (cx, i) {
+                return LobbyCard2();
+              },
+            ),
+          ),
+          BoardPanal2(),
+          Container(
+            margin: EdgeInsets.only(bottom: 15.0, top: 15.0, left: 5),
             alignment: Alignment.centerLeft,
             child: Text(
-              'lobby:',
+              'Actions:',
               style: theme.textTheme.headline6
                   ?.copyWith(fontWeight: FontWeight.bold),
             ),
           ),
-          Container(
-            height: 200,
-            child: ListView.builder(
-              itemCount: 5,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return LobbyCard(name: 'name');
-              },
-            ),
+          Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Expanded(child: ActionCard()),
+                  Expanded(child: ActionCard()),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Expanded(child: ActionCard()),
+                  Expanded(child: ActionCard()),
+                ],
+              ),
+              ActionCard(),
+            ],
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -57,7 +86,7 @@ class BoardPage extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 child: Text(
-                  "Actions",
+                  "idk",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -73,15 +102,6 @@ class BoardPage extends StatelessWidget {
                             MaterialPageRoute(builder: (_) => LobbyPage()));
                       },
                     ),
-                    DashboardButton(ratio: 1.25),
-                    DashboardButton(ratio: 1.25),
-                    DashboardButton(ratio: 1.25),
-                    DashboardButton(ratio: 1.25),
-                    DashboardButton(ratio: 1.25),
-                    DashboardButton(ratio: 1.25),
-                    DashboardButton(ratio: 1.25),
-                    DashboardButton(ratio: 1.25),
-                    DashboardButton(ratio: 1.25),
                   ],
                 ),
               ),

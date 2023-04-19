@@ -53,7 +53,8 @@ ThemeData _darkTheme2() {
 
     //   brightness: Brightness.dark,
     // ),
-    colorScheme: const ColorScheme(
+    
+    colorScheme: ColorScheme(
       brightness: Brightness.dark,
       primary: Color(0xFF6bd4f9),
       onPrimary: Color(0xff191716),
@@ -61,11 +62,15 @@ ThemeData _darkTheme2() {
       onSecondary: Color(0xffffffff),
       error: Colors.red,
       onError: Colors.white,
-      background: Color(0xff464646),
-      onBackground: Color(0xfffff),
-      surface: Color(0xff191716),
+      // background: Color(0xff464646),
+      background: primary,
+      onBackground: Color(0xffffffff),
+      // surface: Color(0xff191716),
+      surface: primary,
       onSurface: Color(0xffffffff),
-      surfaceTint: Colors.amber,
+      surfaceTint: Colors.transparent,
+      tertiary: primary.shade500,
+      
       // primaryContainer: Color(0xFF6BD4F9),
       // secondaryContainer:Color(0xFF6BD4F9),
       // onPrimaryContainer: Colors.blueGrey.shade900,

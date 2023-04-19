@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pentelligence/core/utilities/profile_image.dart';
 import 'package:pentelligence/features/auth/models/entities/user_profile.dart';
+import 'package:pentelligence/features/dashboard/views/widgets/action_card.dart';
+import 'package:pentelligence/features/dashboard/views/widgets/statistics_card.dart';
 
 class BoardPanal extends StatelessWidget {
   const BoardPanal({Key? key, required this.profile}) : super(key: key);
@@ -92,6 +94,76 @@ class BoardPanal extends StatelessWidget {
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+class BoardPanal2 extends StatelessWidget {
+  const BoardPanal2({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Card(
+      elevation: 0,
+      color: Colors.white30,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'buisness name',
+                style: theme.textTheme.headline2,
+              ),
+            ),
+            Card(
+              color: Colors.grey,
+              elevation: 0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Text('average stats'),
+                        Text(
+                          '+29%',
+                          style: theme.textTheme.headline6,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text('show more'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(child: StatCard()),
+                Expanded(child: StatCard()),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(child: StatCard()),
+                Expanded(child: StatCard()),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
