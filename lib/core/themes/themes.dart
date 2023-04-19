@@ -39,7 +39,7 @@ TextTheme textTheme(TextTheme base) => base.copyWith(
       bodyText1: base.bodyText1!.copyWith(
         fontSize: 20,
         fontWeight: FontWeight.w300,
-        color: Colors.lightBlueAccent,
+        
       ),
 // for sub-widgets contents/paragraph
       bodyText2: base.bodyText2!.copyWith(fontSize: 12),
@@ -51,24 +51,23 @@ ThemeData _lightTheme() {
       // backgroundColor: Colors.red,
       // scaffoldBackgroundColor: generateMaterialColor(Color(0xffB08726)).withOpacity(0.5),
       colorScheme: const ColorScheme(
-          // primaryContainer: Color(0xfffd830d),
-          brightness: Brightness.light,
+        // primaryContainer: Color(0xfffd830d),
+        brightness: Brightness.light,
 
-          // onPrimaryContainer: Colors.white,
-          // primaryContainer: Colors.amber,
-          primary: Color(0xffFD830D),
-          onPrimary: Colors.white,
-          secondary: Color(0xff3b7197),
-          onSecondary: Colors.white,
-          error: Colors.white,
-          onError: Colors.red,
-          background: Colors.red,
-          onBackground: Colors.red,
-          surface: Color(0xffeeeeee),
-          onSurface: Color(0xff191716),
-          surfaceTint: Color(0xffeeeeee),),
-   
-     
+        // onPrimaryContainer: Colors.white,
+        // primaryContainer: Colors.amber,
+        primary: Color(0xff6bd4f9),
+        onPrimary: Colors.white,
+        secondary: Color(0xff00aaee),
+        onSecondary: Colors.white,
+        error: Colors.white,
+        onError: Colors.red,
+        background: Color(0xff262f38),
+        onBackground: Colors.black,
+        surface: Color(0xffeeeeee),
+        onSurface: Color(0xff191716),
+        surfaceTint: Color(0xffeeeeee),
+      ),
       textTheme: textTheme(base.textTheme));
 }
 

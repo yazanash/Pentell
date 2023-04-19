@@ -18,20 +18,8 @@ class AuthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.wallet),
-      ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        controller: controller,
-        physics: const NeverScrollableScrollPhysics(),
-        child: Column(
-          children: [
-            SignUp(onPressed: () {}),
-          ],
-        ),
-      ),
+     
+      body:  Login(onPressed: () {}),
     );
   }
 }

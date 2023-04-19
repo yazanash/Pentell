@@ -5,12 +5,10 @@ Widget authButton(VoidCallback onPressed, bool isLoading) {
     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
     child: SizedBox(
       width: double.infinity,
-      height: 40,
+      height: 50,
       child: ElevatedButton(
         onPressed: onPressed,
-        // style: ButtonStyle(
-        //   backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
-        // ),
+        style: ButtonStyle(elevation: MaterialStateProperty.all<double>(0)),
         child: isLoading
             ? const SizedBox(
                 height: 20,

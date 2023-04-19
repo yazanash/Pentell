@@ -18,6 +18,7 @@ import 'package:pentelligence/features/dashboard/views/pages/addversion.dart';
 import 'package:pentelligence/features/dashboard/views/pages/my_courses.dart';
 import 'package:pentelligence/features/dashboard/views/pages/employees.dart';
 import 'package:pentelligence/features/dashboard/views/pages/org_info.dart';
+import 'package:pentelligence/features/dashboard/views/pages/user_board.dart';
 import 'package:pentelligence/features/dashboard/views/pages/user_info.dart';
 import 'package:pentelligence/main_state.dart';
 import 'package:provider/provider.dart';
@@ -171,7 +172,7 @@ class HomePage extends StatelessWidget {
               create: (context) => CoursesPageState(),
               child: const CoursesPage(isRtl: false),
             ),
-            const BoardPage(),
+            const UserBoard(),
             ProfilePage(),
             // LobbyPage(),
             // const TestPage(),

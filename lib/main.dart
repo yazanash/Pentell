@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: MyCourses(),
+      child: HomePage(),
       // child: SplashWidget(userBox:di.userBox),
       // child: PlansPage(),
     );

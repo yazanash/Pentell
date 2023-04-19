@@ -12,20 +12,20 @@ class ActionCard extends StatelessWidget {
     this.color,
   }) : super(key: key);
   final String title, desc;
-  final Widget icon;
+  final IconData icon;
   final VoidCallback onPressed;
   final Color? color;
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).colorScheme;
+    final theme = Theme.of(context);
     return Card(
-      color: color ?? theme.primary,
+      color: color ?? theme.colorScheme.primary.withOpacity(0.5),
       child: InkWell(
         onTap: onPressed,
         borderRadius: BorderRadius.circular(10),
         // splashColor: theme.secondary,
-        overlayColor: MaterialStateProperty.all<Color>(theme.primaryContainer),
+        // overlayColor: MaterialStateProperty.all<Color>(theme.primaryContainer),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -36,15 +36,16 @@ class ActionCard extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: icon,
+                    child: Icon(icon,color: Colors.white70,),
                   ),
-                  Text(
-                    title,
-                  ),
+                  Text(title, style: theme.textTheme.bodyText1!.copyWith(color: Colors.white70)),
                 ],
               ),
               SizedBox(height: 5),
-              Text(desc),
+              Text(
+                desc,
+                style: theme.textTheme.bodyText2!.copyWith(color: Colors.white70),
+              ),
             ],
           ),
         ),

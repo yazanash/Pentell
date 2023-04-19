@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pentelligence/core/utilities/button.dart';
 import 'package:pentelligence/core/utilities/form_item.dart';
 import 'package:pentelligence/core/utilities/input.dart';
+import 'package:pentelligence/core/utilities/pentell_card.dart';
 import 'package:pentelligence/features/auth/views/provider/auth_state.dart';
 import 'package:provider/provider.dart';
 
@@ -16,6 +17,7 @@ class Login extends StatelessWidget {
   final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Container(
@@ -24,26 +26,22 @@ class Login extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         child: Stack(children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "Welcome To",
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.blueGrey,
-                  ),
+                Stack(
+                  children: [
+                    Center(
+                      child: Image.asset(
+                        "lib/assets/logo3.png",
+                        color: theme.colorScheme.primary,
+                      ),
+                    ),
+                  ],
                 ),
-                const Text(
-                  "Pentelligence",
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.blueGrey,
-                  ),
-                ),
+                Text("Login", style: theme.textTheme.headline1),
                 const SizedBox(
                   height: 30,
                 ),
@@ -59,7 +57,7 @@ class Login extends StatelessWidget {
                       FormInput(
                         label: "UserName",
                         getval: (p0) => {},
-                        // icon: const Icon(Icons.email),
+                        icon: const Icon(Icons.email),
                         // maxlen: 50,
                         // suffix:
                         //     const Icon(Icons.check_circle, color: Colors.green),

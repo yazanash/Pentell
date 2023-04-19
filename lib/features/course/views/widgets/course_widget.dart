@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:pentelligence/core/utilities/profile_image.dart';
@@ -34,9 +36,7 @@ class CourseWidget extends StatelessWidget {
               //  subCard without color panel
               children: [
                 Row(
-                  // first row {Course name,institute name, teacher name} and image
                   mainAxisAlignment: MainAxisAlignment.start,
-
                   textDirection: isRtl ? TextDirection.rtl : TextDirection.ltr,
                   children: [
                     ProfileImage(
@@ -50,81 +50,79 @@ class CourseWidget extends StatelessWidget {
                       width: 20,
                     ),
                     Column(
-                      //  {Course ,institute ,teacher => names}
-
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          'institute Name',
-                          style: TextStyle(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        Text(
-                          'Course name',
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w800,
-                              color: Colors.amber),
-                        ),
+                      children: [
+                        Text('Course Name', style: theme.textTheme.headline1),
+                        Text('17 min ago',
+                            style: theme.textTheme.headline4!
+                                .copyWith(fontWeight: FontWeight.w700)),
                       ],
                     ),
                   ],
                 ),
-                //  second row course description
-                Container(
-                  alignment: Alignment.centerLeft,
-                  padding: EdgeInsets.only(top: 5),
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    child: const Text(
-                      'description of the final course at stake of course its not final nor finished but thats what you will get when you fuck with santa clause',
-                      maxLines: 2,
-                      softWrap: true,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ),
+                SizedBox(
+                  height: 5,
                 ),
-
                 //  third row controls
                 Column(
                   textDirection: isRtl ? TextDirection.rtl : TextDirection.ltr,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Row(
+                      children: [
+                        Text('Business Name', style: theme.textTheme.headline3),
+                      ],
+                    ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      padding: EdgeInsets.only(top: 5),
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: Text(
+                            'description of the final course at stake of course its not final nor finished but thats what you will get when you fuck with santa clause',
+                            maxLines: 2,
+                            softWrap: true,
+                            overflow: TextOverflow.ellipsis,
+                            style: theme.textTheme.bodyText2),
+                      ),
+                    ),
                     Row(
                       //  price and rate
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(
-                          children: [
-                            RatingBar.builder(
-                              itemSize: 15,
-                              allowHalfRating: true,
-                              ignoreGestures: true,
-                              initialRating: 4.1,
-                              itemBuilder: ((context, index) {
-                                return Icon(
-                                  Icons.star,
-                                  color: Colors.amber,
-                                );
-                              }),
-                              onRatingUpdate: (rating) {},
+                          children: const [
+                            Icon(
+                              Icons.star,
+                              color: Colors.amber,
                             ),
-                            const Text(' 4.8'),
+                            Text(' 4.8'),
                           ],
                         ),
-                        const Text(
-                          '10/10/22',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            ProfileImage(
+                              url: "lib/assets/logo3.png",
+                              size: 30,
+                              padding: 5,
+                              borderWidth: 0,
+                            ),
+                            ProfileImage(
+                              url: "lib/assets/logo3.png",
+                              size: 30,
+                              padding: 5,
+                              borderWidth: 0,
+                            ),
+                            ProfileImage(
+                              url: "lib/assets/logo3.png",
+                              size: 30,
+                              padding: 5,
+                              borderWidth: 0,
+                            ),
+                          ],
+                        )
                       ],
                     ),
                     Row(
@@ -133,64 +131,65 @@ class CourseWidget extends StatelessWidget {
                           isRtl ? TextDirection.rtl : TextDirection.ltr,
                       children: [
                         const Text(
-                          "Price : 1'500'000 s.p",
+                          "You, osama,yazan and other liked this course",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 12),
                         ),
-                        Row(
-                          children: [
-                            Material(
-                              color: Colors.transparent,
+                      ],
+                    ),
+                    Container(
+                      color: theme.colorScheme.surface,
+                      width: double.infinity,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ButtonStyle(
+                                  elevation:
+                                      MaterialStateProperty.all<double>(0)),
                               child: IconButton(
                                 splashRadius: 20,
                                 onPressed: () {},
                                 icon: Icon(Icons.bookmark_border),
                               ),
                             ),
-                            // join btn
-                            MaterialBtn(
-                              title: 'join in',
-                              color: theme.colorScheme.primary,
+                          ),
+                          Expanded(
+                            child: ElevatedButton(
                               onPressed: () {},
+                              style: ButtonStyle(
+                                  elevation:
+                                      MaterialStateProperty.all<double>(0)),
+                              child: IconButton(
+                                splashRadius: 20,
+                                onPressed: () {},
+                                icon: Icon(Icons.share),
+                              ),
                             ),
-                          ],
-                        ),
-                      ],
+                          ),
+                          Expanded(
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              style: ButtonStyle(
+                                  elevation:
+                                      MaterialStateProperty.all<double>(0)),
+                              child: IconButton(
+                                splashRadius: 20,
+                                onPressed: () {},
+                                icon: Icon(Icons.star),
+                              ),
+                            ),
+                          ),
+                          // join btn
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ],
             ),
           ),
-          Positioned(
-            top: 0,
-            right: 0,
-            child: Container(
-              padding: const EdgeInsets.all(5),
-              decoration: const BoxDecoration(
-                color: Colors.blueGrey,
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(5),
-                    topRight: Radius.circular(15)),
-              ),
-              child: RatingBar.builder(
-                ignoreGestures: true,
-                itemSize: 16,
-                itemCount: 3,
-                allowHalfRating: true,
-                itemBuilder: ((context, index) {
-                  return const Padding(
-                    padding: EdgeInsets.all(5.0),
-                    child: Icon(
-                      Icons.flash_on,
-                      color: Colors.yellow,
-                    ),
-                  );
-                }),
-                onRatingUpdate: (rating) {},
-              ),
-            ),
-          )
         ]),
       ),
     );
