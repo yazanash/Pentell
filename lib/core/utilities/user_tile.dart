@@ -12,63 +12,44 @@ class UserTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5),
-      child: Container(
-        decoration: const BoxDecoration(
-          color: Colors.white,
-        ),
-        child: ClipRRect(
-          child: ElevatedButton(
-            onPressed: onPressed,
-            style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all<Color>(Colors.white)),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      ProfileImage(
-                          url: "lib/assets/logo3.png",
-                          size: 50,
-                          borderColor: Colors.white,
-                          borderWidth: 1,
-                          background: Colors.black,
-                          padding: 8),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            Text(
-                              "User Name",
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text("User Name",
-                                style: TextStyle(
-                                    fontSize: 14, color: Colors.black)),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  if (onEdit != null)
-                    TextButton(
-                      onPressed: onEdit,
-                      child: Icon(Icons.edit),
-                    ),
-                ],
+    final theme = Theme.of(context);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+      margin: const EdgeInsets.symmetric(vertical: 5),
+      decoration: BoxDecoration(
+          color: theme.colorScheme.background,
+          borderRadius: BorderRadius.circular(5)),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              ProfileImage(
+                  url: "lib/assets/logo3.png",
+                  size: 50,
+                  borderColor: Colors.white,
+                  borderWidth: 1,
+                  background: Colors.black,
+                  padding: 8),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("User Name", style: theme.textTheme.headline3),
+                    Text("Role", style: theme.textTheme.headline4),
+                  ],
+                ),
               ),
-            ),
+            ],
           ),
-        ),
+          if (onEdit != null)
+            TextButton(
+              onPressed: onEdit,
+              child: Icon(Icons.edit),
+            ),
+        ],
       ),
     );
   }

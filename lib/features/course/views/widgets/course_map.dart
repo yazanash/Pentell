@@ -7,7 +7,9 @@ class CourseMap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: TimeLineWidget(),
+      child: TimeLineWidget(
+        children: [],
+      ),
     );
   }
 }

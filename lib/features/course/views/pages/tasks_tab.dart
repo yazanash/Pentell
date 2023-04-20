@@ -8,7 +8,7 @@ class TasksTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: TimeLineWidget(),
+      body: TimeLineWidget(children: [],),
       floatingActionButton: Wrap(
         direction: Axis.vertical,
         children: [

@@ -4,7 +4,7 @@ import 'package:timelines/timelines.dart';
 class TimeLineWidget extends StatelessWidget {
   const TimeLineWidget({
     Key? key,
-    this.children = const [],
+    required this.children,
     this.dotIndicator = const DotIndicator(
       size: 20,
       color: Colors.green,

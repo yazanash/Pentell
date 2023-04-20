@@ -12,7 +12,7 @@ class DropdownInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
+      width: MediaQuery.of(context).size.width * 0.5,
       padding: const EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
           color: Colors.transparent, borderRadius: BorderRadius.circular(15)),
@@ -21,8 +21,8 @@ class DropdownInput extends StatelessWidget {
         onSaved: (newValue) => getval(newValue),
         hint: const Text("Choose Category"),
         decoration: const InputDecoration(
-            border: UnderlineInputBorder(
-                borderSide: BorderSide(width: 20, color: Colors.blueGrey))),
+            border: OutlineInputBorder(
+                borderSide: BorderSide(width: 5, color: Colors.blueGrey))),
         borderRadius: BorderRadius.circular(15),
         // underline: BorderSide(width: 3,color: Colors.blue),
         // iconSize: 30,
