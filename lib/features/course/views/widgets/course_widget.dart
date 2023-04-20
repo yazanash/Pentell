@@ -24,10 +24,11 @@ class CourseWidget extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
         ),
-        child: Stack(children: [
+        child: Column(children: [
           Container(
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             decoration: BoxDecoration(
+              color: Colors.white,
               borderRadius: BorderRadius.circular(15),
             ),
             child: Column(
@@ -41,7 +42,7 @@ class CourseWidget extends StatelessWidget {
                   children: [
                     ProfileImage(
                       url: "lib/assets/logo3.png",
-                      size: 60,
+                      size: 50,
                       borderWidth: 0,
                       padding: 8,
                       borderColor: Colors.white,
@@ -54,6 +55,17 @@ class CourseWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text('Course Name', style: theme.textTheme.headline1),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('advanced', style: theme.textTheme.headline3!),
+                            const Icon(
+                              Icons.local_offer_rounded,
+                              size: 20,
+                              color: Colors.red,
+                            ),
+                          ],
+                        ),
                         Text('17 min ago',
                             style: theme.textTheme.headline4!
                                 .copyWith(fontWeight: FontWeight.w700)),
@@ -61,7 +73,7 @@ class CourseWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 //  third row controls
@@ -70,27 +82,9 @@ class CourseWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
-                      children: [
-                        Text('Business Name', style: theme.textTheme.headline3),
-                      ],
-                    ),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      padding: EdgeInsets.only(top: 5),
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.8,
-                        child: Text(
-                            'description of the final course at stake of course its not final nor finished but thats what you will get when you fuck with santa clause',
-                            maxLines: 2,
-                            softWrap: true,
-                            overflow: TextOverflow.ellipsis,
-                            style: theme.textTheme.bodyText2),
-                      ),
-                    ),
-                    Row(
-                      //  price and rate
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        Text('Business Name', style: theme.textTheme.headline3),
                         Row(
                           children: const [
                             Icon(
@@ -100,45 +94,37 @@ class CourseWidget extends StatelessWidget {
                             Text(' 4.8'),
                           ],
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            ProfileImage(
-                              url: "lib/assets/logo3.png",
-                              size: 30,
-                              padding: 5,
-                              borderWidth: 0,
-                            ),
-                            ProfileImage(
-                              url: "lib/assets/logo3.png",
-                              size: 30,
-                              padding: 5,
-                              borderWidth: 0,
-                            ),
-                            ProfileImage(
-                              url: "lib/assets/logo3.png",
-                              size: 30,
-                              padding: 5,
-                              borderWidth: 0,
-                            ),
-                          ],
-                        )
                       ],
+                    ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      padding: EdgeInsets.only(top: 5),
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: Text(
+                            'description of the final course at stake of course its not final nor finished but thats what you will get when you fuck with santa clause',
+                            maxLines: 3,
+                            softWrap: true,
+                            overflow: TextOverflow.ellipsis,
+                            style: theme.textTheme.bodyText2),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       textDirection:
                           isRtl ? TextDirection.rtl : TextDirection.ltr,
-                      children: [
-                        const Text(
-                          "You, osama,yazan and other liked this course",
+                      children: const [
+                        Text(
+                          "You, Osama, Yazan and other liked this course",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 12),
                         ),
                       ],
                     ),
                     Container(
-                      color: theme.colorScheme.surface,
                       width: double.infinity,
                       child: Row(
                         children: [
@@ -147,7 +133,10 @@ class CourseWidget extends StatelessWidget {
                               onPressed: () {},
                               style: ButtonStyle(
                                   elevation:
-                                      MaterialStateProperty.all<double>(0)),
+                                      MaterialStateProperty.all<double>(0),
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.transparent)),
                               child: IconButton(
                                 splashRadius: 20,
                                 onPressed: () {},
@@ -160,7 +149,10 @@ class CourseWidget extends StatelessWidget {
                               onPressed: () {},
                               style: ButtonStyle(
                                   elevation:
-                                      MaterialStateProperty.all<double>(0)),
+                                      MaterialStateProperty.all<double>(0),
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.transparent)),
                               child: IconButton(
                                 splashRadius: 20,
                                 onPressed: () {},
@@ -172,6 +164,9 @@ class CourseWidget extends StatelessWidget {
                             child: ElevatedButton(
                               onPressed: () {},
                               style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          Colors.transparent),
                                   elevation:
                                       MaterialStateProperty.all<double>(0)),
                               child: IconButton(

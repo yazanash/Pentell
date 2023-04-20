@@ -36,15 +36,23 @@ class ActionCard extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Icon(icon,color: Colors.white70,),
+                    child: Icon(
+                      icon,
+                      color: Colors.white70,
+                    ),
                   ),
-                  Text(title, style: theme.textTheme.bodyText1!.copyWith(color: Colors.white70)),
+                  Text(title,
+                      overflow: TextOverflow.ellipsis,
+                      softWrap: true,
+                      style: theme.textTheme.bodyText1!
+                          .copyWith(color: Colors.white70)),
                 ],
               ),
               SizedBox(height: 5),
               Text(
                 desc,
-                style: theme.textTheme.bodyText2!.copyWith(color: Colors.white70),
+                style:
+                    theme.textTheme.bodyText2!.copyWith(color: Colors.white70),
               ),
             ],
           ),

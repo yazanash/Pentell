@@ -29,12 +29,11 @@ class ProfileImage extends StatelessWidget {
     final theme = Theme.of(context);
     return Container(
       decoration: BoxDecoration(
-        borderRadius: radius != null
-            ? BorderRadius.circular(radius!)
-            : BorderRadius.circular(size),
-        border: Border.all(color: borderColor, width: borderWidth),
-        // color: theme.colorScheme.primary
-      ),
+          borderRadius: radius != null
+              ? BorderRadius.circular(radius!)
+              : BorderRadius.circular(size),
+          border: Border.all(color: borderColor, width: borderWidth),
+          color: theme.colorScheme.primary),
       width: size,
       height: size,
       child: Stack(children: [

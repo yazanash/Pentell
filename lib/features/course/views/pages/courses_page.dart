@@ -21,7 +21,7 @@ class CoursesPage extends StatelessWidget {
             sizeFactor: anime,
             child: Container(
               // color: Colors.white,
-              height: 140,
+              height: 150,
               child: ListView.builder(
                 itemCount: 6,
                 padding: const EdgeInsets.symmetric(horizontal: 10),

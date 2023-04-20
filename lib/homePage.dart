@@ -32,67 +32,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      drawer: Drawer(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.only(top: 50),
-          child: Column(
-            children: [
-              TextButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => CoursesPage(isRtl: false))),
-                  child: Text('courses page')),
-              TextButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => CourseInfoPage())),
-                  child: Text('courses info')),
-              TextButton(
-                  onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => LobbyPage())),
-                  child: Text('lobby page')),
-              TextButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => NotificationPage())),
-                  child: Text('notification page')),
-              TextButton(
-                  onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => AddCourse())),
-                  child: Text('add course')),
-              TextButton(
-                  onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => AddChapter())),
-                  child: Text('add chapter')),
-              TextButton(
-                  onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => BoardPage())),
-                  child: Text('board page')),
-              TextButton(
-                  onPressed: () => Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => OrgInfo())),
-                  child: Text('org info')),
-              TextButton(
-                  onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => UserInfo())),
-                  child: Text('user info')),
-              TextButton(
-                  onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => EmployeesPage())),
-                  child: Text('employee page')),
-              TextButton(
-                  onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => MyCourses())),
-                  child: Text('my courses page')),
-              TextButton(
-                  onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => ProfilePage())),
-                  child: Text('profile page')),
-              TextButton(
-                  onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => AuthPage())),
-                  child: Text('auth page')),
-            ],
-          ),
-        ),
-      ),
+      backgroundColor: theme.colorScheme.surface,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         actions: [
@@ -172,17 +112,13 @@ class HomePage extends StatelessWidget {
               create: (context) => CoursesPageState(),
               child: const CoursesPage(isRtl: false),
             ),
-            const UserBoard(),
+            const BoardPage(),
             ProfilePage(),
             // LobbyPage(),
             // const TestPage(),
             // EmployeesPage(),
           ][state.index];
         },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
       ),
     );
   }

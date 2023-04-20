@@ -87,7 +87,7 @@ class BoardPage extends StatelessWidget {
                       icon: Icons.menu_book_rounded,
                       color: Colors.amber,
                       desc: 'view and edit courses',
-                      title: 'Manage courses',
+                      title: 'Courses',
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => MyCourses()));
@@ -122,7 +122,7 @@ class BoardPage extends StatelessWidget {
                       icon: Icons.campaign_rounded,
                       color: Colors.pink,
                       desc: 'boost your reach',
-                      title: 'Advertisement',
+                      title: 'Ads',
                       onPressed: () {},
                     ),
                   ),

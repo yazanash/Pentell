@@ -24,15 +24,12 @@ class InstituteAd extends StatelessWidget {
             isTrusted: true,
             onPressed: onPressed,
           ),
-          SizedBox(
-            height: 5,
-          ),
           const SizedBox(
             width: 80,
             child: Text(
               'Institute Name Name Name',
               softWrap: true,
-              maxLines: 2,
+              maxLines: 1,
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.center,
             ),
