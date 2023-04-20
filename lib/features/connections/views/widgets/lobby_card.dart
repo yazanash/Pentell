@@ -76,10 +76,12 @@ class LobbyCard2 extends StatelessWidget {
     this.newMessages = 0,
     this.progress = 0,
     this.dateOfcreation = '99/99/9999',
+    required this.onPressed,
   }) : super(key: key);
   final int newMessages;
   final double progress;
   final String dateOfcreation;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -89,22 +91,31 @@ class LobbyCard2 extends StatelessWidget {
         color: theme.colorScheme.onSecondaryContainer,
         borderRadius: BorderRadius.circular(10),
       ),
-      width: 150,
       margin: EdgeInsets.all(5),
-      padding: EdgeInsets.all(10),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'lobby name or course name',
-            style: theme.textTheme.displaySmall,
+      width: 150,
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(10),
+          onTap: onPressed,
+          child: Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'lobby name or course name',
+                  style: theme.textTheme.displaySmall,
+                ),
+                Text(dateOfcreation),
+                // SizedBox(height: 10),
+                if (newMessages > 0) Text('$newMessages New messages'),
+                LinearProgressIndicator(value: progress),
+              ],
+            ),
           ),
-          Text(dateOfcreation),
-          // SizedBox(height: 10),
-          if (newMessages > 0) Text('$newMessages New messages'),
-          LinearProgressIndicator(value: progress),
-        ],
+        ),
       ),
     );
   }

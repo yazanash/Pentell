@@ -22,7 +22,7 @@ class PollOption extends StatelessWidget {
         Row(
           children: [
             Checkbox(value: hasVoted, onChanged: onSelect),
-            Text('option title'),
+            Text(optionTitle),
           ],
         ),
         if (isDisabled)

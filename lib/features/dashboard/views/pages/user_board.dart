@@ -29,14 +29,15 @@ class UserBoard extends StatelessWidget {
           ),
           Container(
             height: 130,
-            margin: EdgeInsets.symmetric(vertical: 10),
+            margin:const EdgeInsets.symmetric(vertical: 10),
             child: ListView.builder(
               itemCount: 5,
               scrollDirection: Axis.horizontal,
               itemBuilder: (cx, i) {
-                return const LobbyCard2(
+                return LobbyCard2(
                   newMessages: 1,
                   progress: 0.5,
+                  onPressed: () {},
                 );
               },
             ),

@@ -1,3 +1,5 @@
+import 'package:flutter/widgets.dart';
+
 enum Lang {
   AR,
   EN,
@@ -21,6 +23,19 @@ enum PopupType {
   poll,
   alert,
 }
+
+const AD_COLORS = [
+  Color(0xFFEC3232),
+  Color(0xffE8EC32),
+  Color(0xff84EC32),
+  Color(0xff32ECCA),
+  Color(0xff3250EC),
+  Color(0xff9A32EC),
+  Color(0xffEC32B8),
+  Color(0xffEC6A32),
+  Color(0xff323232),
+  Color(0xffECECEC),
+];
 
 const HTTP_API_URL = 'https://dona-soft.com/api/';
 

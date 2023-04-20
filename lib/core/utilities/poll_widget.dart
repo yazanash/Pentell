@@ -7,22 +7,49 @@ class PollWidget extends StatelessWidget {
   const PollWidget({
     Key? key,
     required this.pollModel,
+    required this.onSelect,
   }) : super(key: key);
   final PollModel pollModel;
   final int userId = 2;
+  final void Function(int index) onSelect;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Container(
       padding: const EdgeInsets.all(8.0),
+      margin: EdgeInsets.all(5),
       decoration: BoxDecoration(
-        color: theme.backgroundColor,
+        color: theme.colorScheme.onSecondaryContainer,
         borderRadius: BorderRadius.circular(15),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  Text('user name'),
+                  Text('22:30'),
+                ],
+              ),
+              InkWell(
+                borderRadius: BorderRadius.circular(5),
+                onTap: () {},
+                child: Row(
+                  children: [
+                    Text('15 '),
+                    Icon(
+                      Icons.remove_red_eye,
+                      size: 15,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
           Text(
             'title',
             style: theme.textTheme.headline5,
@@ -38,11 +65,15 @@ class PollWidget extends StatelessWidget {
           ),
           for (var i in pollModel.options.keys)
             PollOption(
-              isDisabled: pollModel.selectedOption != null ? false : true,
+              isDisabled: pollModel.selectedOption != null ? true : false,
               hasVoted: pollModel.selectedOption == i,
-              optionTitle: pollModel.options[i].toString(),
+              optionTitle: pollModel.options[i] as String,
               votePercent: 0,
-              onSelect: pollModel.selectedOption == null ? (newVal) {} : null,
+              onSelect: pollModel.selectedOption == null
+                  ? (newVal) {
+                      onSelect(i);
+                    }
+                  : null,
             ),
         ],
       ),

@@ -5,6 +5,7 @@ import 'package:pentelligence/features/connections/views/widgets/lobby_card.dart
 import 'package:pentelligence/features/connections/views/widgets/materialbtn.dart';
 import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
 import 'package:pentelligence/features/dashboard/views/pages/add_course.dart';
+import 'package:pentelligence/features/dashboard/views/pages/advertisment_page.dart';
 import 'package:pentelligence/features/dashboard/views/pages/my_courses.dart';
 import 'package:pentelligence/features/dashboard/views/pages/pending_courses.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/action_card.dart';
@@ -63,6 +64,11 @@ class BoardPage extends StatelessWidget {
                 return LobbyCard2(
                   newMessages: 1,
                   progress: 0.5,
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (c) => LobbyPage()),
+                    );
+                  },
                 );
               },
             ),
@@ -123,7 +129,12 @@ class BoardPage extends StatelessWidget {
                       color: Colors.pink,
                       desc: 'boost your reach',
                       title: 'Ads',
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (c) => AdvertismentPage()),
+                        );
+                      },
                     ),
                   ),
                 ],
