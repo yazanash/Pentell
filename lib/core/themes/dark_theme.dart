@@ -42,7 +42,7 @@ ThemeData _darkTheme2() {
   final base = ThemeData.dark();
   return ThemeData(
     useMaterial3: true,
-    scaffoldBackgroundColor: primary,
+    scaffoldBackgroundColor: Color(0xff191716),
 
     // colorScheme: ColorScheme.fromSwatch(
     //   primarySwatch: Colors.red,
@@ -53,7 +53,7 @@ ThemeData _darkTheme2() {
 
     //   brightness: Brightness.dark,
     // ),
-
+    
     colorScheme: ColorScheme(
       brightness: Brightness.dark,
       primary: Color(0xFF6BD4F9),

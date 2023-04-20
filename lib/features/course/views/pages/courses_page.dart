@@ -11,6 +11,7 @@ class CoursesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return AnimatedList(
       key: Provider.of<CoursesPageState>(context).animatedListKey,
       initialItemCount: 20,
@@ -20,8 +21,9 @@ class CoursesPage extends StatelessWidget {
             key: UniqueKey(),
             sizeFactor: anime,
             child: Container(
-              // color: Colors.white,
-              height: 150,
+              color: theme.colorScheme.surface,
+              height: 120,
+              margin: const EdgeInsets.only(bottom: 5),
               child: ListView.builder(
                 itemCount: 6,
                 padding: const EdgeInsets.symmetric(horizontal: 10),

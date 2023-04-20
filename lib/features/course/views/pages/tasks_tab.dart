@@ -11,19 +11,7 @@ class TasksTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.separated(
-        itemCount: 5,
-        itemBuilder: (cx, index) {
-          if (index % 2 == 0) {
-            return LobbyMessage();
-          } else {
-            return LobbyPoll();
-          }
-        },
-        separatorBuilder: (cx, index) {
-          return Container();
-        },
-      ),
+      body: TimeLineWidget(children: [],),
       floatingActionButton: Wrap(
         direction: Axis.vertical,
         children: [
