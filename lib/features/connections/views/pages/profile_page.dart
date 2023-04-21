@@ -10,10 +10,10 @@ class ProfilePage extends StatelessWidget {
         ProfileHeader(
           profile: UserProfile(
             id: '1',
-            name: "yazan abo shash",
+            name: "July ahmad",
             email: "example@gmail.com",
             phoneNumber: "0994916917",
-            imageUrl: "lib/assets/logo3.png",
+            imageUrl: "lib/assets/u4.jpg",
             address: "address",
             followingCount: 330,
             followersCount: 440,

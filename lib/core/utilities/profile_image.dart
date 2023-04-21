@@ -37,12 +37,13 @@ class ProfileImage extends StatelessWidget {
       width: size,
       height: size,
       child: Stack(children: [
-        Padding(
-          padding: EdgeInsets.all(padding),
-          child: Center(
-            child: Image.asset(
-              url,
-            ),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(50),
+          child: Image.asset(
+            url,
+            fit: BoxFit.cover,
+            width: size,
+            height: size,
           ),
         ),
         if (isTrusted)

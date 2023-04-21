@@ -7,6 +7,7 @@ import 'package:pentelligence/core/utilities/inputbtn.dart';
 import 'package:pentelligence/core/utilities/tag_widget.dart';
 import 'package:pentelligence/features/course/data/models/categories_model.dart';
 import 'package:pentelligence/features/course/views/widgets/course_header.dart';
+import 'package:pentelligence/features/dashboard/views/pages/add_version_cast.dart';
 import 'package:pentelligence/features/dashboard/views/pages/add_version_info.dart';
 import 'package:provider/provider.dart';
 
@@ -117,7 +118,7 @@ class AddCourse extends StatelessWidget {
                       icon: Icons.add,
                       onPressed: () {
                         Navigator.of(context).push(
-                          MaterialPageRoute(builder: (c) => AddVersion()),
+                          MaterialPageRoute(builder: (c) => CVersionMaker()),
                         );
                       },
                     ),

@@ -15,6 +15,7 @@ class CoursesPage extends StatelessWidget {
     return ListView.builder(
       // key: Provider.of<CoursesPageState>(context).animatedListKey,
       // initialItemCount: 20,
+      itemCount: 3,
       itemBuilder: (context, index) {
         if (index == 0) {
           return Container(
@@ -22,16 +23,18 @@ class CoursesPage extends StatelessWidget {
             height: 120,
             margin: const EdgeInsets.only(bottom: 5),
             child: ListView.builder(
-              itemCount: 6,
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (_, index) => InstituteAd(
-                onPressed: () {},
-              ),
-            ),
+                itemCount: 2,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (_, index) {
+                  return InstituteAd(
+                    url: "lib/assets/i${index + 1}.jpg",
+                    onPressed: () {},
+                  );
+                }),
           );
         }
-        return CourseWidget(isRtl: isRtl);
+        return CourseWidget(isRtl: isRtl, url: "lib/assets/i${index}.jpg");
       },
     );
   }
