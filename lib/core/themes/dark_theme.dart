@@ -42,7 +42,7 @@ ThemeData _darkTheme2() {
   final base = ThemeData.dark();
   return ThemeData(
     useMaterial3: true,
-    scaffoldBackgroundColor: Color(0xff191716),
+    scaffoldBackgroundColor: primary.shade900,
 
     // colorScheme: ColorScheme.fromSwatch(
     //   primarySwatch: Colors.red,
@@ -53,7 +53,7 @@ ThemeData _darkTheme2() {
 
     //   brightness: Brightness.dark,
     // ),
-    
+
     colorScheme: ColorScheme(
       brightness: Brightness.dark,
       primary: Color(0xFF6BD4F9),
@@ -70,7 +70,7 @@ ThemeData _darkTheme2() {
       onSurface: Color(0xffffffff),
       surfaceTint: primary,
       tertiary: Color(0xFFFD830D),
-      // primaryContainer: Color.fromARGB(255, 255, 191, 0),
+      primaryContainer: Color.fromARGB(255, 255, 191, 0),
       onPrimaryContainer: Colors.blueGrey.shade900,
       secondaryContainer: Color(0xFF6bd4f9),
       onSecondaryContainer: primary.shade600,
@@ -78,7 +78,12 @@ ThemeData _darkTheme2() {
 
     // navigationBarTheme:
     //     NavigationBarThemeData().copyWith(backgroundColor: primary.shade400),
-    // appBarTheme: AppBarTheme(backgroundColor: primary),
+    // appBarTheme: AppBarTheme(
+    //   // backgroundColor: primary,
+    //   systemOverlayStyle: SystemUiOverlayStyle(
+    //       statusBarColor: Colors.transparent,
+    //       ),
+    // ),
 
     // cardTheme: CardTheme().copyWith(color: Colors.deepOrange),
     // backgroundColor: Colors.white,

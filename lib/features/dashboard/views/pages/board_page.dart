@@ -6,6 +6,7 @@ import 'package:pentelligence/features/connections/views/widgets/materialbtn.dar
 import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
 import 'package:pentelligence/features/dashboard/views/pages/add_course.dart';
 import 'package:pentelligence/features/dashboard/views/pages/advertisment_page.dart';
+import 'package:pentelligence/features/dashboard/views/pages/all_lobbies.dart';
 import 'package:pentelligence/features/dashboard/views/pages/my_courses.dart';
 import 'package:pentelligence/features/dashboard/views/pages/pending_courses.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/action_card.dart';
@@ -25,57 +26,9 @@ class BoardPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // BoardPanal(
-          //   profile: UserProfile(
-          //     id: '1',
-          //     name: "yazan abo shash",
-          //     email: "example@gmail.com",
-          //     phoneNumber: "0994916917",
-          //     imageUrl: "lib/assets/logo3.png",
-          //     address: "address",
-          //     followingCount: 330,
-          //     followersCount: 440,
-          //   ),
-          // ),
-          Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Active Lobbies',
-                  style: theme.textTheme.headline1,
-                ),
-                MaterialBtn(
-                  onPressed: () {},
-                  title: 'Show All',
-                  color: Colors.blue,
-                ),
-              ],
-            ),
-          ),
-          Container(
-            height: 130,
-            margin: EdgeInsets.symmetric(vertical: 10),
-            child: ListView.builder(
-              itemCount: 5,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (cx, i) {
-                return LobbyCard2(
-                  newMessages: 1,
-                  progress: 0.5,
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(builder: (c) => LobbyPage()),
-                    );
-                  },
-                );
-              },
-            ),
-          ),
           BoardPanal2(),
           Container(
-            margin: EdgeInsets.only(bottom: 15.0, top: 15.0, left: 5),
+            margin: EdgeInsets.only(bottom: 10.0, top: 10.0, left: 5),
             alignment: Alignment.centerLeft,
             child: Text(
               'Actions:',
@@ -139,31 +92,48 @@ class BoardPage extends StatelessWidget {
                   ),
                 ],
               ),
-              
             ],
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                child: Text(
-                  "idk",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Active Lobbies',
+                  style: theme.textTheme.headline1,
                 ),
-              ),
-              SizedBox(
-                child: DashboardButton(
-                  ratio: 1.25,
+                MaterialBtn(
                   onPressed: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (_) => LobbyPage()));
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (c) => AllLobbiesPage()),
+                    );
                   },
+                  title: 'Show All',
+                  color: Colors.blue,
                 ),
-              ),
-            ],
-          )
+              ],
+            ),
+          ),
+          Container(
+            height: 130,
+            margin: EdgeInsets.symmetric(vertical: 5),
+            child: ListView.builder(
+              itemCount: 5,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (cx, i) {
+                return LobbyCard2(
+                  newMessages: 1,
+                  progress: 0.5,
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (c) => LobbyPage()),
+                    );
+                  },
+                );
+              },
+            ),
+          ),
         ],
       ),
     );

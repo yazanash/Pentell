@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pentelligence/core/constant/constant.dart';
@@ -19,13 +20,20 @@ class MainState extends ChangeNotifier {
     _theme = type;
     switch (type) {
       case ThemeType.light:
-        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light
-            .copyWith(
-                systemNavigationBarColor: lightTheme.colorScheme.background));
+        SystemChrome.setSystemUIOverlayStyle(
+          SystemUiOverlayStyle.light.copyWith(
+            systemNavigationBarColor: lightTheme.colorScheme.background,
+            statusBarColor: Colors.transparent,
+          ),
+        );
         break;
       case ThemeType.dark:
-        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
-            systemNavigationBarColor: darkTheme.colorScheme.background));
+        SystemChrome.setSystemUIOverlayStyle(
+          SystemUiOverlayStyle.dark.copyWith(
+            systemNavigationBarColor: darkTheme.colorScheme.background,
+            statusBarColor: Colors.transparent,
+          ),
+        );
         break;
       default:
         break;

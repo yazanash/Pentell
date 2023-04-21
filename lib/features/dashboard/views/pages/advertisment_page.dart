@@ -1,18 +1,41 @@
+import 'dart:io';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class AdvertismentPage extends StatelessWidget {
+class AdvertismentPage extends StatefulWidget {
   AdvertismentPage({
     Key? key,
   }) : super(key: key);
 
-  List<XFile> images = [];
+  @override
+  State<AdvertismentPage> createState() => _AdvertismentPageState();
+}
+
+class _AdvertismentPageState extends State<AdvertismentPage> {
+  List<File> images = [
+    File(
+        '/data/user/0/com.example.pentelligence/cache/37e29fe7-2bdd-4527-b7fc-b3c2e3fc898e/Screenshot_20230420-220547.jpg')
+  ];
+
   final picker = ImagePicker();
+
   Future<void> pickImages() async {
     final image = await picker.pickImage(source: ImageSource.gallery);
+
     if (image != null) {
-      images.add(image);
+      final file = File(image.path);
+
+      images.add(file);
+      setState(() {});
+    }
+  }
+
+  int calculateProgress(double? progress) {
+    if (progress != null) {
+      return (progress * 100).toInt();
+    } else {
+      return 0;
     }
   }
 
@@ -22,34 +45,40 @@ class AdvertismentPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Advertisments'),
       ),
-      body: CarouselSlider.builder(
-        options: CarouselOptions(
-          aspectRatio: 1,
-          autoPlay: true,
-        ),
-        itemCount: 5,
-        itemBuilder: (c, index1, index2) {
-          return InkWell(
-            onTap: () {},
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                border: Border.all(
-                  color: Colors.grey.shade400,
-                  width: 5,
+      body: Column(
+        children: [
+          if (images.isNotEmpty)
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.7,
+              child: CarouselSlider.builder(
+                itemCount: images.length,
+                options: CarouselOptions(
+                  scrollDirection: Axis.horizontal,
+                  enableInfiniteScroll: false,
+                  height: double.infinity,
+                  enlargeCenterPage: true,
+                  viewportFraction: 1.0,
                 ),
-              ),
-              child: Column(
-                children: [
-                  const Icon(
-                    Icons.image_search_rounded,
-                  ),
-                  Text('Add Story'),
-                ],
+                itemBuilder: (context, itemIndex, pageIndex) {
+                  return Image.file(
+                    images[itemIndex],
+                    fit: BoxFit.contain,
+                    height: MediaQuery.of(context).size.height,
+                  );
+                },
               ),
             ),
-          );
-        },
+          const SizedBox(height: 15),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: () async {
+                await pickImages();
+              },
+              child: Text('Add images'),
+            ),
+          ),
+        ],
       ),
     );
   }

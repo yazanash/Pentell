@@ -77,11 +77,14 @@ class LobbyCard2 extends StatelessWidget {
     this.progress = 0,
     this.dateOfcreation = '99/99/9999',
     required this.onPressed,
+    this.onLongPressed,
+    this.isSelected = false,
   }) : super(key: key);
   final int newMessages;
   final double progress;
   final String dateOfcreation;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed, onLongPressed;
+  final bool isSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -95,11 +98,21 @@ class LobbyCard2 extends StatelessWidget {
       width: 150,
       child: Material(
         color: Colors.transparent,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+          side: isSelected
+              ? BorderSide(
+                  width: 1,
+                  color: Colors.blue,
+                )
+              : BorderSide.none,
+        ),
         child: InkWell(
           borderRadius: BorderRadius.circular(10),
           onTap: onPressed,
+          onLongPress: onLongPressed,
           child: Padding(
-            padding: const EdgeInsets.all(5.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,8 +121,10 @@ class LobbyCard2 extends StatelessWidget {
                   'lobby name or course name',
                   style: theme.textTheme.displaySmall,
                 ),
-                Text(dateOfcreation),
-                // SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: Text(dateOfcreation),
+                ),
                 if (newMessages > 0) Text('$newMessages New messages'),
                 LinearProgressIndicator(value: progress),
               ],

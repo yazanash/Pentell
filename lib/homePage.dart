@@ -5,6 +5,7 @@ import 'package:pentelligence/core/popups/popup.dart';
 import 'package:pentelligence/core/themes/themes.dart';
 import 'package:pentelligence/features/auth/views/pages/authpage.dart';
 import 'package:pentelligence/features/connections/views/pages/profile_page.dart';
+import 'package:pentelligence/features/connections/views/widgets/album.dart';
 import 'package:pentelligence/features/course/views/pages/course_info.dart';
 import 'package:pentelligence/features/course/views/pages/notification_page.dart';
 import 'package:pentelligence/features/course/views/provider/courses_state.dart';
@@ -112,7 +113,8 @@ class HomePage extends StatelessWidget {
               child: const CoursesPage(isRtl: false),
             ),
             const BoardPage(),
-            ProfilePage(),
+            AlbumWidget(),
+            // ProfilePage(),
             // LobbyPage(),
             // const TestPage(),
             // EmployeesPage(),
