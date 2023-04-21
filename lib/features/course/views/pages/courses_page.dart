@@ -12,34 +12,26 @@ class CoursesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return AnimatedList(
-      key: Provider.of<CoursesPageState>(context).animatedListKey,
-      initialItemCount: 20,
-      itemBuilder: (context, index, anime) {
+    return ListView.builder(
+      // key: Provider.of<CoursesPageState>(context).animatedListKey,
+      // initialItemCount: 20,
+      itemBuilder: (context, index) {
         if (index == 0) {
-          return SizeTransition(
-            key: UniqueKey(),
-            sizeFactor: anime,
-            child: Container(
-              color: theme.colorScheme.surface,
-              height: 120,
-              margin: const EdgeInsets.only(bottom: 5),
-              child: ListView.builder(
-                itemCount: 6,
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (_, index) => InstituteAd(
-                  onPressed: () {},
-                ),
+          return Container(
+            color: theme.colorScheme.surface,
+            height: 120,
+            margin: const EdgeInsets.only(bottom: 5),
+            child: ListView.builder(
+              itemCount: 6,
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (_, index) => InstituteAd(
+                onPressed: () {},
               ),
             ),
           );
         }
-        return SizeTransition(
-          key: UniqueKey(),
-          sizeFactor: anime,
-          child: CourseWidget(isRtl: isRtl),
-        );
+        return CourseWidget(isRtl: isRtl);
       },
     );
   }

@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:pentelligence/core/utilities/profile_image.dart';
@@ -159,26 +157,6 @@ class CourseWidget extends StatelessWidget {
                             borderWidth: 0,
                             borderColor: Colors.transparent,
                           ),
-                          const SizedBox(
-                            width: 2,
-                          ),
-                          ProfileImage(
-                            url: "lib/assets/logo3.png",
-                            padding: 5,
-                            size: 30,
-                            borderWidth: 0,
-                            borderColor: Colors.transparent,
-                          ),
-                          const SizedBox(
-                            width: 2,
-                          ),
-                          ProfileImage(
-                            url: "lib/assets/logo3.png",
-                            padding: 5,
-                            size: 30,
-                            borderWidth: 0,
-                            borderColor: Colors.transparent,
-                          ),
                         ],
                       )
                     ],
@@ -220,7 +198,7 @@ class CourseWidget extends StatelessWidget {
                               //     MaterialStateProperty.all<Color>(
                               //         Colors.transparent),
                               elevation: MaterialStateProperty.all<double>(0)),
-                          child: Icon(Icons.star),
+                          child: Icon(Icons.favorite_border_outlined),
                         ),
                         // join btn
                       ],

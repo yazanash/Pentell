@@ -139,12 +139,7 @@ class BoardPage extends StatelessWidget {
                   ),
                 ],
               ),
-              ActionCard(
-                icon: Icons.local_offer,
-                desc: 'make new and exciting offers',
-                title: 'Offers',
-                onPressed: () {},
-              ),
+              
             ],
           ),
           Column(

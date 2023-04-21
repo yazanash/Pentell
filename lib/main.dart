@@ -48,9 +48,9 @@ class MyApp extends StatelessWidget {
           title: 'Pentelligence',
           theme: lightTheme,
           darkTheme: darkTheme,
-          themeMode: Provider.of<MainState>(context).theme == ThemeType.dark
-              ? ThemeMode.dark
-              : ThemeMode.light,
+          themeMode: Provider.of<MainState>(context).theme == ThemeType.light
+              ? ThemeMode.light
+              : ThemeMode.dark,
 
           // home: LobbyPage(),a
           // home: SplashWidget(userBox:di.userBox),
@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
       // child: MyCourses(),
       // child: SplashWidget(userBox:di.userBox),
       // child: PlansPage(),
-      child: CVersionMaker(),
+      child: HomePage(),
     );
   }
 }
