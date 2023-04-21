@@ -5,9 +5,10 @@ class InstituteAd extends StatelessWidget {
   const InstituteAd({
     Key? key,
     this.onPressed,
+    required this.url,
   }) : super(key: key);
   final VoidCallback? onPressed;
-
+final String url;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -17,7 +18,7 @@ class InstituteAd extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           ProfileImage(
-            url: 'lib/assets/logo3.png',
+            url: url,
             size: 80,
             background: theme.colorScheme.surface,
             borderWidth: 0.0,

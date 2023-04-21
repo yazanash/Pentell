@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:pentelligence/core/utilities/profile_image.dart';
@@ -7,15 +8,42 @@ import 'package:pentelligence/features/course/views/pages/course_info.dart';
 class CourseWidget extends StatelessWidget {
   const CourseWidget({
     Key? key,
+    required this.url,
     required this.isRtl,
   }) : super(key: key);
   final bool isRtl;
+  final String url;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return InkWell(
-      onTap: () => Navigator.of(context)
-          .push(MaterialPageRoute(builder: ((context) => CourseInfoPage()))),
+      onTap: () {
+        // Navigator.of(context)
+        //     .push(MaterialPageRoute(builder: ((context) => CourseInfoPage())));
+
+        Navigator.of(context).push(PageRouteBuilder(
+          transitionDuration: Duration(milliseconds: 500),
+          reverseTransitionDuration: Duration(milliseconds: 500),
+          barrierColor: Colors.transparent,
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              CourseInfoPage(),
+          transitionsBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) =>
+              SlideTransition(
+            position: Tween<Offset>(
+              begin: const Offset(0, 1),
+              end: Offset.zero,
+            ).animate(animation),
+            child: child,
+          ),
+        ));
+
+        // print("object");
+      },
       child: Container(
         width: MediaQuery.of(context).size.width,
         margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -23,6 +51,7 @@ class CourseWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         child: Container(
+          width: MediaQuery.of(context).size.width,
           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           decoration: BoxDecoration(
             color: theme.colorScheme.background,
@@ -41,7 +70,7 @@ class CourseWidget extends StatelessWidget {
                   Row(
                     children: [
                       ProfileImage(
-                        url: "lib/assets/logo3.png",
+                        url: url,
                         size: 50,
                         borderWidth: 0,
                         padding: 8,
@@ -54,23 +83,15 @@ class CourseWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Course Name', style: theme.textTheme.headline1),
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.local_offer,
-                                color: theme.colorScheme.secondary,
-                                size: 20,
-                              ),
-                              const SizedBox(
-                                width: 3,
-                              ),
-                              Icon(
-                                Icons.badge,
-                                color: theme.colorScheme.secondary,
-                                size: 20,
-                              ),
-                            ],
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.7,
+                            child: Text(
+                              'Course Name widsvsvsdvll bdsdsdvsve hereee and fuck this widget',
+                              style: theme.textTheme.headline2,
+                              softWrap: true,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                            ),
                           ),
                         ],
                       ),
@@ -110,7 +131,13 @@ class CourseWidget extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Text('Business Name', style: theme.textTheme.headline3),
+                      SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.7,
+                          child: Text('Business Name',
+                              softWrap: true,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              style: theme.textTheme.headline3)),
                     ],
                   ),
                   Container(
@@ -141,17 +168,17 @@ class CourseWidget extends StatelessWidget {
                       Row(
                         children: [
                           ProfileImage(
-                            url: "lib/assets/logo3.png",
+                            url: "lib/assets/u1.jpg",
                             padding: 5,
                             size: 30,
                             borderWidth: 0,
-                            borderColor: Colors.transparent,
+                            borderColor: Color.fromARGB(0, 240, 229, 229),
                           ),
                           const SizedBox(
                             width: 2,
                           ),
                           ProfileImage(
-                            url: "lib/assets/logo3.png",
+                            url: "lib/assets/u2.jpg",
                             padding: 5,
                             size: 30,
                             borderWidth: 0,
@@ -176,29 +203,48 @@ class CourseWidget extends StatelessWidget {
                   Container(
                     width: double.infinity,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                            elevation: MaterialStateProperty.all<double>(0),
-                            // backgroundColor:
-                            //     MaterialStateProperty.all<Color>(
-                            //         Colors.transparent)
-                          ),
-                          child: Icon(Icons.bookmark_border),
+                        Row(
+                          children: const [
+                            Icon(
+                              Icons.local_offer,
+                              // color: theme.colorScheme.primary,
+                              size: 20,
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Icon(
+                              Icons.badge,
+                              // color: theme.colorScheme.primary,
+                              size: 20,
+                            ),
+                          ],
                         ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                              // backgroundColor:
-                              //     MaterialStateProperty.all<Color>(
-                              //         Colors.transparent),
-                              elevation: MaterialStateProperty.all<double>(0)),
-                          child: Icon(Icons.favorite_border_outlined),
+                        Row(
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {},
+                              style: ButtonStyle(
+                                elevation: MaterialStateProperty.all<double>(0),
+                                // backgroundColor:
+                                //     MaterialStateProperty.all<Color>(
+                                //         Colors.transparent)
+                              ),
+                              child: Icon(Icons.bookmark_border),
+                            ),
+                            ElevatedButton(
+                              onPressed: () {},
+                              style: ButtonStyle(
+                                  // backgroundColor:
+                                  //     MaterialStateProperty.all<Color>(
+                                  //         Colors.transparent),
+                                  elevation:
+                                      MaterialStateProperty.all<double>(0)),
+                              child: Icon(Icons.favorite_border_outlined),
+                            ),
+                          ],
                         ),
                         // join btn
                       ],

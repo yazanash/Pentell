@@ -14,7 +14,7 @@ class CourseInfoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("course"),
+        title: Text("titke"),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
