@@ -19,6 +19,7 @@ class Bio extends StatelessWidget {
   CrossAxisAlignment alignment;
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Container(
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -26,12 +27,11 @@ class Bio extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(
-                fontSize: fontSize, fontWeight: FontWeight.bold, color: color),
+            style: theme.textTheme.bodyText1,
           ),
           Text(
             description.trim(),
-            style: TextStyle(color: color),
+            style: theme.textTheme.bodyText2,
           ),
         ],
       ),

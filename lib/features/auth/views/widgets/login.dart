@@ -18,115 +18,122 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-      child: Container(
-        decoration: const BoxDecoration(color: Colors.white),
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: Stack(children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Stack(
-                  children: [
-                    Center(
-                      child: Image.asset(
-                        "lib/assets/logo3.png",
-                        color: theme.colorScheme.primary,
-                      ),
-                    ),
-                  ],
-                ),
-                Text("Login", style: theme.textTheme.headline1),
-                const SizedBox(
-                  height: 30,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.white.withOpacity(0.5)),
-                  width: MediaQuery.of(context).size.width,
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
-                    child: Column(children: [
-                      FormInput(
-                        label: "UserName",
-                        getval: (p0) => {},
-                        icon: const Icon(Icons.email),
-                        // maxlen: 50,
-                        // suffix:
-                        //     const Icon(Icons.check_circle, color: Colors.green),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      FormInput(
-                        getval: (p0) => {},
-                        label: "Password",
-                        icon: const Icon(Icons.lock),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Consumer<AuthState>(
-                        builder: (_, state, child) {
-                          return authButton(
-                            () async {
-                              await Provider.of<AuthState>(context,
-                                      listen: false)
-                                  .testBtn();
-                              // controller.animateTo(
-                              //     MediaQuery.of(context).size.width,
-                              //     duration: Duration(milliseconds: 500),
-                              //     curve: Curves.linear);
-                              print("object");
-                            },
-                            state.isLoading,
-                          );
-                        },
-                      ),
-                    ]),
+    return Scaffold(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Container(
+          color: theme.colorScheme.background,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "lib/assets/logo3.png",
+                    color: theme.colorScheme.primary,
+                    width: 100,
+                    height: 113,
                   ),
-                )
-              ],
-            ),
-          ),
-          Positioned(
-            bottom: 30,
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      "From",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.blueGrey,
-                        fontWeight: FontWeight.w600,
-                      ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text("Pentelligence",
+                      style: theme.textTheme.headline1!
+                          .copyWith(color: theme.colorScheme.primary)),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
                     ),
-                    Text(
-                      "TRIOVERSE",
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.blueGrey,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
-                  ],
-                ),
+                    margin: const EdgeInsets.symmetric(vertical: 10),
+                    width: MediaQuery.of(context).size.width,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 20, horizontal: 5),
+                      child: Column(children: [
+                        Text("Login",
+                            style: theme.textTheme.headline2!
+                                .copyWith(fontWeight: FontWeight.bold)),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        FormInput(
+                          label: "UserName",
+                          getval: (p0) => {},
+                          icon: const Icon(Icons.email),
+                          // maxlen: 50,
+                          // suffix:
+                          //     const Icon(Icons.check_circle, color: Colors.green),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        FormInput(
+                          getval: (p0) => {},
+                          label: "Password",
+                          icon: const Icon(Icons.lock),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Consumer<AuthState>(
+                          builder: (_, state, child) {
+                            return AuthBtn(
+                              onPressed: () async {
+                                await Provider.of<AuthState>(context,
+                                        listen: false)
+                                    .testBtn();
+                                // controller.animateTo(
+                                //     MediaQuery.of(context).size.width,
+                                //     duration: Duration(milliseconds: 500),
+                                //     curve: Curves.linear);
+                                print("object");
+                              },
+                              isLoading: state.isLoading,
+                            );
+                          },
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("You don't have an account ?"),
+                            Consumer<AuthState>(
+                              builder: (_, state, child) {
+                                return ElevatedButton(
+                                  onPressed: () async {
+                                    await Provider.of<AuthState>(context,
+                                            listen: false)
+                                        .testBtn();
+                                    // controller.animateTo(
+                                    //     MediaQuery.of(context).size.width,
+                                    //     duration: Duration(milliseconds: 500),
+                                    //     curve: Curves.linear);
+                                    print("object");
+                                  },
+                                  style: ButtonStyle(
+                                    elevation:
+                                        MaterialStateProperty.all<double>(0),
+                                  ),
+                                  child: Text("Signup"),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ]),
+                    ),
+                  ),
+                ],
               ),
             ),
-          )
-        ]),
+          ]),
+        ),
       ),
     );
   }

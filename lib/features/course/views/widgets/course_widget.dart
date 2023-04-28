@@ -87,7 +87,8 @@ class CourseWidget extends StatelessWidget {
                             width: MediaQuery.of(context).size.width * 0.65,
                             child: Text(
                               'Course Name widsvsvsdvll bdsdsdvsve hereee and fuck this widget',
-                              style: theme.textTheme.headline2,
+                              style: theme.textTheme.headline2!
+                                  .copyWith(fontWeight: FontWeight.bold),
                               softWrap: true,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 2,

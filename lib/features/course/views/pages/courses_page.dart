@@ -28,13 +28,13 @@ class CoursesPage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (_, index) {
                   return InstituteAd(
-                    url: "lib/assets/i${index + 1}.jpg",
+                    url: "lib/assets/i1.jpg",
                     onPressed: () {},
                   );
                 }),
           );
         }
-        return CourseWidget(isRtl: isRtl, url: "lib/assets/i${index}.jpg");
+        return CourseWidget(isRtl: isRtl, url: "lib/assets/i1.jpg");
       },
     );
   }

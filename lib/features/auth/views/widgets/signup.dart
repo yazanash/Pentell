@@ -92,18 +92,19 @@ class SignUp extends StatelessWidget {
                   ),
                   Consumer<AuthState>(
                     builder: (_, state, child) {
-                      return authButton(
-                        () async {
-                          await Provider.of<AuthState>(context, listen: false)
-                              .testBtn();
-                          // controller.animateTo(
-                          //     MediaQuery.of(context).size.width,
-                          //     duration: Duration(milliseconds: 500),
-                          //     curve: Curves.linear);
-                          print("object");
-                        },
-                        state.isLoading,
-                      );
+                      return AuthBtn(
+                              onPressed: () async {
+                                await Provider.of<AuthState>(context,
+                                        listen: false)
+                                    .testBtn();
+                                // controller.animateTo(
+                                //     MediaQuery.of(context).size.width,
+                                //     duration: Duration(milliseconds: 500),
+                                //     curve: Curves.linear);
+                                print("object");
+                              },
+                              isLoading: state.isLoading,
+                            );
                     },
                   ),
                 ]),

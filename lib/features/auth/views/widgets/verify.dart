@@ -72,8 +72,8 @@ class VerifyCode extends StatelessWidget {
                       ),
                       Consumer<AuthState>(
                         builder: (_, state, child) {
-                          return authButton(
-                            () async {
+                          return AuthBtn(
+                            onPressed: () async {
                               await Provider.of<AuthState>(context,
                                       listen: false)
                                   .testBtn();
@@ -81,15 +81,9 @@ class VerifyCode extends StatelessWidget {
                               //     MediaQuery.of(context).size.width,
                               //     duration: Duration(milliseconds: 500),
                               //     curve: Curves.linear);
-                              // Navigator.of(context).pushReplacement(
-                              //   MaterialPageRoute(
-                              //     builder: (context) => EditProfilePage(),
-                              //   ),
-                              // );
                               print("object");
-                              onPressed();
                             },
-                            state.isLoading,
+                            isLoading: state.isLoading,
                           );
                         },
                       )
