@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pentelligence/core/utilities/profile_image.dart';
 import 'package:pentelligence/features/auth/models/entities/user_profile.dart';
+import 'package:pentelligence/features/dashboard/views/pages/analytics.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/action_card.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/statistics_card.dart';
 
@@ -141,7 +142,12 @@ class BoardPanal2 extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AnalyticsPage()));
+                      },
                       child: Text('Show All'),
                     ),
                   ),

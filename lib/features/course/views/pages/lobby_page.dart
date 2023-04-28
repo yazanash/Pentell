@@ -35,7 +35,11 @@ class LobbyPage extends StatelessWidget {
               ],
             ),
             // SettingsTab(),
-            AddVersionExtras(),
+            SettingsTab(
+              showBusiness: () {},
+              showCourse: () {},
+              
+            ),
           ],
         ),
       ),

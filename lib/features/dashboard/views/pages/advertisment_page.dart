@@ -13,12 +13,10 @@ class AdvertismentPage extends StatefulWidget {
 }
 
 class _AdvertismentPageState extends State<AdvertismentPage> {
-  List<File> images = [
-    File(
-        '/data/user/0/com.example.pentelligence/cache/37e29fe7-2bdd-4527-b7fc-b3c2e3fc898e/Screenshot_20230420-220547.jpg')
-  ];
+  List<File> images = [];
 
   final picker = ImagePicker();
+  final controller = CarouselController();
 
   Future<void> pickImages() async {
     final image = await picker.pickImage(source: ImageSource.gallery);
@@ -29,6 +27,11 @@ class _AdvertismentPageState extends State<AdvertismentPage> {
       images.add(file);
       setState(() {});
     }
+  }
+
+  void removeImage(int index) {
+    images.removeAt(index);
+    setState(() {});
   }
 
   int calculateProgress(double? progress) {
@@ -44,38 +47,74 @@ class _AdvertismentPageState extends State<AdvertismentPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Advertisments'),
+        actions: [
+          if (images.isNotEmpty)
+            IconButton(
+              splashRadius: 20,
+              onPressed: () {},
+              icon: const Icon(Icons.download_done_outlined),
+            )
+        ],
       ),
       body: Column(
         children: [
-          if (images.isNotEmpty)
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.7,
-              child: CarouselSlider.builder(
-                itemCount: images.length,
-                options: CarouselOptions(
-                  scrollDirection: Axis.horizontal,
-                  enableInfiniteScroll: false,
-                  height: double.infinity,
-                  enlargeCenterPage: true,
-                  viewportFraction: 1.0,
-                ),
-                itemBuilder: (context, itemIndex, pageIndex) {
-                  return Image.file(
-                    images[itemIndex],
-                    fit: BoxFit.contain,
-                    height: MediaQuery.of(context).size.height,
-                  );
-                },
+          Expanded(
+            flex: 10,
+            child: CarouselSlider.builder(
+              itemCount: images.length,
+              carouselController: controller,
+              options: CarouselOptions(
+                scrollDirection: Axis.horizontal,
+                enableInfiniteScroll: false,
+                height: double.infinity,
+                enlargeCenterPage: true,
+                viewportFraction: 1.0,
               ),
-            ),
-          const SizedBox(height: 15),
-          SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: () async {
-                await pickImages();
+              itemBuilder: (context, itemIndex, pageIndex) {
+                return Stack(
+                  children: [
+                    Image.file(
+                      images[itemIndex],
+                      fit: BoxFit.contain,
+                      height: MediaQuery.of(context).size.height,
+                    ),
+                    Align(
+                      alignment: Alignment.lerp(
+                              Alignment.bottomRight, Alignment.center, 0.1)
+                          as Alignment,
+                      child: Material(
+                        color: Theme.of(context).colorScheme.error,
+                        elevation: 5,
+                        shadowColor: Colors.black,
+                        shape: const CircleBorder(),
+                        child: InkWell(
+                          child: const Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: Icon(Icons.delete_forever),
+                          ),
+                          onTap: () {
+                            removeImage(itemIndex);
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
+                );
               },
-              child: Text('Add images'),
+            ),
+          ),
+          const SizedBox(height: 15),
+          Expanded(
+            flex: 1,
+            child: Container(
+              width: double.infinity,
+              margin: EdgeInsets.only(bottom: 5),
+              child: ElevatedButton(
+                onPressed: () async {
+                  await pickImages();
+                },
+                child: Text('Add images'),
+              ),
             ),
           ),
         ],

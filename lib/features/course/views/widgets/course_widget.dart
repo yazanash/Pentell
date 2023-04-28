@@ -84,7 +84,7 @@ class CourseWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.7,
+                            width: MediaQuery.of(context).size.width * 0.65,
                             child: Text(
                               'Course Name widsvsvsdvll bdsdsdvsve hereee and fuck this widget',
                               style: theme.textTheme.headline2,
