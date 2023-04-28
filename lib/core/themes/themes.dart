@@ -39,7 +39,6 @@ TextTheme textTheme(TextTheme base) => base.copyWith(
       bodyText1: base.bodyText1!.copyWith(
         fontSize: 20,
         fontWeight: FontWeight.w300,
-        
       ),
 // for sub-widgets contents/paragraph
       bodyText2: base.bodyText2!.copyWith(fontSize: 12),
@@ -59,7 +58,7 @@ ThemeData _lightTheme() {
         error: Colors.white,
         onError: Colors.red,
         background: Colors.white,
-        onBackground: Colors.black,
+        onBackground: Colors.white,
         surface: Color(0xffffffff),
         onSurface: Color(0xff191716),
         surfaceTint: Color(0xffeeeeee),
