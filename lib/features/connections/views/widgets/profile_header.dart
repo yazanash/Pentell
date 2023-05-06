@@ -8,8 +8,9 @@ import 'package:pentelligence/features/connections/views/widgets/materialbtn.dar
 
 class ProfileHeader extends StatelessWidget {
   final UserProfile profile;
-  final VoidCallback? follow, share, more,onPressImg;
+  final VoidCallback? follow, share, more, onPressImg;
   final bool isFollowed;
+  final bool isTrust;
   ProfileHeader({
     required this.profile,
     this.follow,
@@ -17,6 +18,7 @@ class ProfileHeader extends StatelessWidget {
     this.more,
     this.onPressImg,
     this.isFollowed = false,
+    this.isTrust = false,
   });
   @override
   Widget build(BuildContext context) {
@@ -38,6 +40,7 @@ class ProfileHeader extends StatelessWidget {
                   url: profile.imageUrl,
                   size: 80,
                   borderWidth: 0,
+                  isTrusted: true,
                 ),
               ),
               Container(
@@ -46,10 +49,31 @@ class ProfileHeader extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      profile.name,
-                      style: theme.textTheme.headline2!
-                          .copyWith(fontWeight: FontWeight.bold),
+                    Row(
+                      children: [
+                        if (isTrust)
+                          Container(
+                            margin: const EdgeInsets.only(right: 5),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: Colors.blue),
+                            height: 20,
+                            width: 20,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(15),
+                              child: Image.asset(
+                                "lib/assets/logo3.png",
+                                width: 10,
+                                height: 10,
+                              ),
+                            ),
+                          ),
+                        Text(
+                          profile.name,
+                          style: theme.textTheme.headline2!
+                              .copyWith(fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
                     Text(
                       profile.email,
@@ -83,6 +107,15 @@ class ProfileHeader extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
+          Bio(
+              color: Colors.black,
+              alignment: CrossAxisAlignment.start,
+              fontSize: 20,
+              description:
+                  "description description description description description description description description description description description description description description "),
+          const SizedBox(
+            height: 10,
+          ),
           Row(
             children: [
               Expanded(
@@ -102,15 +135,6 @@ class ProfileHeader extends StatelessWidget {
               TextButton(onPressed: more, child: Icon(Icons.more_horiz))
             ],
           ),
-          const SizedBox(
-            height: 10,
-          ),
-          Bio(
-              color: Colors.black,
-              alignment: CrossAxisAlignment.start,
-              fontSize: 20,
-              description:
-                  "description description description description description description description description description description description description description description "),
         ],
       ),
     );

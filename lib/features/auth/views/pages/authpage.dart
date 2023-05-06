@@ -18,8 +18,8 @@ class AuthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
-      body:  Login(onPressed: () {}),
+      // body: SignUp(onPressed: () {}),
+      body: Login(onPressed: () {}),
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pentelligence/core/utilities/user_tile.dart';
+import 'package:pentelligence/core/utilities/review_tile.dart';
 
-class CastsTab extends StatelessWidget {
-  const CastsTab({Key? key}) : super(key: key);
+class ReviewsTab extends StatelessWidget {
+  const ReviewsTab({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class CastsTab extends StatelessWidget {
       itemBuilder: (c, index) {
         return Container(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: const UserTile());
+            child: const Review());
       },
     );
   }

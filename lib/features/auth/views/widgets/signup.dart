@@ -16,83 +16,95 @@ class SignUp extends StatelessWidget {
   final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-      child: Container(
-        // decoration: const BoxDecoration(color: Colors.white),
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              "Welcome To",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const Text(
-              "Pentelligence",
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
+    final theme = Theme.of(context);
+    return Scaffold(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Container(
+          color: theme.colorScheme.background,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              width: MediaQuery.of(context).size.width,
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
-                child: Column(children: [
-                  FormInput(
-                    label: "UserName",
-                    getval: (p0) => {},
-                    icon: const Icon(Icons.person)
-                    // maxlen: 50,
-                    // suffix:
-                    //     const Icon(Icons.check_circle, color: Colors.green),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        "lib/assets/logo3.png",
+                        color: theme.colorScheme.primary,
+                        width: 60,
+                        height: 73,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text("Pentelligence",
+                          style: theme.textTheme.headline1!
+                              .copyWith(color: theme.colorScheme.primary)),
+                    ],
                   ),
                   const SizedBox(
-                    height: 5,
+                    height: 30,
                   ),
-                  FormInput(
-                    label: "Email",
-                    getval: (p0) => {},
-                    icon: const Icon(Icons.email),
-                    // maxlen: 50,
-                    // suffix:
-                    //     const Icon(Icons.check_circle, color: Colors.green),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  FormInput(
-                    getval: (p0) => {},
-                    label: "Password",
-                    icon: const Icon(Icons.lock),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  FormInput(
-                    getval: (p0) => {},
-                    label: "Confirm Password",
-                    icon: const Icon(Icons.lock),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Consumer<AuthState>(
-                    builder: (_, state, child) {
-                      return AuthBtn(
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    margin: const EdgeInsets.symmetric(vertical: 10),
+                    width: MediaQuery.of(context).size.width,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 20, horizontal: 5),
+                      child: Column(children: [
+                        Text("Signup",
+                            style: theme.textTheme.headline2!
+                                .copyWith(fontWeight: FontWeight.bold)),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        FormInput(
+                          label: "UserName",
+                          getval: (p0) => {},
+                          icon: const Icon(Icons.email),
+                          // maxlen: 50,
+                          // suffix:
+                          //     const Icon(Icons.check_circle, color: Colors.green),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        FormInput(
+                          getval: (p0) => {},
+                          label: "Email",
+                          icon: const Icon(Icons.email),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        FormInput(
+                          getval: (p0) => {},
+                          label: "Password",
+                          icon: const Icon(Icons.lock),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        FormInput(
+                          getval: (p0) => {},
+                          label: "Confirm Password",
+                          icon: const Icon(Icons.lock),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Consumer<AuthState>(
+                          builder: (_, state, child) {
+                            return AuthBtn(
                               onPressed: () async {
                                 await Provider.of<AuthState>(context,
                                         listen: false)
@@ -105,12 +117,42 @@ class SignUp extends StatelessWidget {
                               },
                               isLoading: state.isLoading,
                             );
-                    },
+                          },
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text("already have an account ?"),
+                            Consumer<AuthState>(
+                              builder: (_, state, child) {
+                                return ElevatedButton(
+                                  onPressed: () async {
+                                    await Provider.of<AuthState>(context,
+                                            listen: false)
+                                        .testBtn();
+                                    // controller.animateTo(
+                                    //     MediaQuery.of(context).size.width,
+                                    //     duration: Duration(milliseconds: 500),
+                                    //     curve: Curves.linear);
+                                    print("object");
+                                  },
+                                  style: ButtonStyle(
+                                    elevation:
+                                        MaterialStateProperty.all<double>(0),
+                                  ),
+                                  child: Text("Login"),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ]),
+                    ),
                   ),
-                ]),
+                ],
               ),
-            )
-          ],
+            ),
+          ]),
         ),
       ),
     );

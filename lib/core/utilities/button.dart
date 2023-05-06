@@ -26,6 +26,7 @@ class AuthBtn extends StatelessWidget {
                   width: 20,
                   child: CircularProgressIndicator.adaptive(
                     strokeWidth: 3,
+                    
                   ),
                 )
               : Text("Login",

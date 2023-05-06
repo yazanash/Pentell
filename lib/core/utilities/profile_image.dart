@@ -60,12 +60,13 @@ class ProfileImage extends StatelessWidget {
                       color: Colors.blue),
                   width: 30,
                   height: 30,
-                  child: Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Image.asset(
-                      "lib/assets/logo3.png",
-                    ),
-                  ),
+                  child: const Center(
+                      child: Icon(
+                    Icons.camera_alt,
+                    color: Colors.white,
+                  )
+                      
+                      ),
                 ),
               )
           ]),

@@ -32,18 +32,23 @@ class Login extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image.asset(
-                    "lib/assets/logo3.png",
-                    color: theme.colorScheme.primary,
-                    width: 100,
-                    height: 113,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        "lib/assets/logo3.png",
+                        color: theme.colorScheme.primary,
+                        width: 60,
+                        height: 73,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text("Pentelligence",
+                          style: theme.textTheme.headline1!
+                              .copyWith(color: theme.colorScheme.primary)),
+                    ],
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text("Pentelligence",
-                      style: theme.textTheme.headline1!
-                          .copyWith(color: theme.colorScheme.primary)),
                   const SizedBox(
                     height: 30,
                   ),

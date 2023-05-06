@@ -63,7 +63,7 @@ class AlbumWidget extends StatelessWidget {
                         children: [
                           ProfileImage(
                             url: IMG_LOGO,
-                            radius: 0,
+                            radius: 10,
                             borderWidth: 0.5,
                             borderColor: Colors.black,
                             background: Colors.white12,
@@ -73,7 +73,7 @@ class AlbumWidget extends StatelessWidget {
                           SizedBox(
                             width: 100,
                             child: Text(
-                              'title title title title title title ',
+                              'Album number 1',
                               style: theme.textTheme.bodyText2,
                               overflow: TextOverflow.ellipsis,
                             ),
