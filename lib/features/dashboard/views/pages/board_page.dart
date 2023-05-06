@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pentelligence/core/popups/popup.dart';
 import 'package:pentelligence/features/auth/models/entities/user_profile.dart';
 import 'package:pentelligence/features/connections/views/widgets/dashboard_btn.dart';
 import 'package:pentelligence/features/connections/views/widgets/lobby_card.dart';
@@ -7,6 +8,7 @@ import 'package:pentelligence/features/course/views/pages/lobby_page.dart';
 import 'package:pentelligence/features/dashboard/views/pages/add_course.dart';
 import 'package:pentelligence/features/dashboard/views/pages/advertisment_page.dart';
 import 'package:pentelligence/features/dashboard/views/pages/all_lobbies.dart';
+import 'package:pentelligence/features/dashboard/views/pages/employees.dart';
 import 'package:pentelligence/features/dashboard/views/pages/my_courses.dart';
 import 'package:pentelligence/features/dashboard/views/pages/pending_courses.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/action_card.dart';
@@ -32,8 +34,7 @@ class BoardPage extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Text(
               'Actions:',
-              style: theme.textTheme.headline6
-                  ?.copyWith(fontWeight: FontWeight.bold),
+              style: theme.textTheme.headline1,
             ),
           ),
           Column(
@@ -59,7 +60,23 @@ class BoardPage extends StatelessWidget {
                       color: Colors.purple,
                       desc: 'boost your engagment',
                       title: 'Offers',
-                      onPressed: () {},
+                      onPressed: () {
+                        showDialog(
+                            context: context,
+                            builder: (c) {
+                              return Popup(
+                                title: 'Soon!',
+                                popColor: Colors.orange,
+                                icon: Icon(Icons.construction, size: 50),
+                                positiveAction: ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text('ok'),
+                                ),
+                              );
+                            });
+                      },
                     ),
                   ),
                 ],
@@ -72,7 +89,12 @@ class BoardPage extends StatelessWidget {
                       icon: Icons.groups_rounded,
                       desc: 'view and manage cast',
                       title: 'Cast',
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (c) => EmployeesPage()),
+                        );
+                      },
                       color: Colors.green,
                     ),
                   ),

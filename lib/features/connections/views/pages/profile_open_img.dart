@@ -19,7 +19,7 @@ class ProfileImageView extends StatelessWidget {
       body: Hero(
         tag: heroTag,
         child: Center(
-          child: Image.asset(imgUrl),
+          child: InteractiveViewer(child: Image.asset(imgUrl)),
         ),
       ),
     );

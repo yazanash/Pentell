@@ -10,7 +10,7 @@ class LobbyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 2,
       child: Scaffold(
         appBar: AppBar(
             actions: [
@@ -25,7 +25,6 @@ class LobbyPage extends StatelessWidget {
               tabs: [
                 Tab(text: 'News'),
                 Tab(text: 'Members'),
-                Tab(text: 'Settings'),
               ],
             )),
         body: TabBarView(
@@ -37,13 +36,12 @@ class LobbyPage extends StatelessWidget {
               ],
             ),
             // SettingsTab(),
-            SettingsTab(
-              showBusiness: () {},
-              showCourse: () {},
-            ),
           ],
         ),
-        floatingActionButton: FloatingActionButton(onPressed: () {}),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }

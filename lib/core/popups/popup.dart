@@ -56,7 +56,7 @@ class Popup extends StatelessWidget {
             ),
           ...body,
           Container(
-            margin: EdgeInsets.only(top: 15),
+            margin: EdgeInsets.only(top: 5),
             padding: EdgeInsets.all(15),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.vertical(bottom: Radius.circular(15)),

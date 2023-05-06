@@ -11,36 +11,8 @@ class TasksTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: TimeLineWidget(children: [],),
-      floatingActionButton: Wrap(
-        direction: Axis.vertical,
-        children: [
-          FloatingActionButton(
-            heroTag: '1',
-            backgroundColor: Colors.green,
-            mini: true,
-            onPressed: () {
-              showDialog<String>(
-                context: context,
-                builder: (_) => MessageOrPoll(),
-              );
-            },
-            child: Icon(Icons.message_outlined),
-          ),
-          FloatingActionButton(
-            heroTag: '2',
-            backgroundColor: Colors.pink,
-            child: Icon(Icons.poll_outlined),
-            onPressed: () {
-              showDialog(
-                  context: context,
-                  builder: (c) => MapPopup(
-                        callback: (val) {},
-                      ));
-            },
-            mini: true,
-          ),
-        ],
+      body: TimeLineWidget(
+        children: [],
       ),
     );
   }
