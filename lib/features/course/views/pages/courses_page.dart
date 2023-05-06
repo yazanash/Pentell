@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:pentelligence/features/course/views/pages/story_page.dart';
 import 'package:pentelligence/features/course/views/provider/courses_state.dart';
 import 'package:pentelligence/features/course/views/widgets/course_widget.dart';
 import 'package:pentelligence/features/course/views/widgets/institute_ad.dart';
@@ -29,7 +30,23 @@ class CoursesPage extends StatelessWidget {
                 itemBuilder: (_, index) {
                   return InstituteAd(
                     url: "lib/assets/i1.jpg",
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) {
+                            return SlideTransition(
+                              position: Tween<Offset>(
+                                begin: Offset(0, 1),
+                                end: Offset.zero,
+                              ).animate(animation),
+                              child: StoryPage(),
+                            );
+                          },
+                        ),
+                      );
+                    },
                   );
                 }),
           );

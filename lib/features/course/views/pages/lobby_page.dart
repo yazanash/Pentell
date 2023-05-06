@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pentelligence/core/constant/constant.dart';
-import 'package:pentelligence/core/popups/message_or_poll_popup.dart';
-import 'package:pentelligence/core/popups/popup.dart';
-import 'package:pentelligence/core/popups/tesk_popup.dart';
 import 'package:pentelligence/core/utilities/user_tile.dart';
 import 'package:pentelligence/features/course/views/pages/members_tab.dart';
 import 'package:pentelligence/features/course/views/pages/settings_tab.dart';
 import 'package:pentelligence/features/course/views/pages/tasks_tab.dart';
-import 'package:pentelligence/features/dashboard/views/pages/add_version_extras.dart';
 
 class LobbyPage extends StatelessWidget {
   const LobbyPage({Key? key}) : super(key: key);
@@ -18,6 +13,13 @@ class LobbyPage extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
+            actions: [
+              IconButton(
+                splashRadius: 20,
+                onPressed: () {},
+                icon: Icon(Icons.settings),
+              ),
+            ],
             title: Text('CourseName'),
             bottom: TabBar(
               tabs: [
@@ -38,10 +40,10 @@ class LobbyPage extends StatelessWidget {
             SettingsTab(
               showBusiness: () {},
               showCourse: () {},
-              
             ),
           ],
         ),
+        floatingActionButton: FloatingActionButton(onPressed: () {}),
       ),
     );
   }

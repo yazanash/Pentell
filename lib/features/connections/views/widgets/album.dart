@@ -8,10 +8,12 @@ class AlbumWidget extends StatelessWidget {
     Key? key,
     this.borderRadius = 0,
     this.showAll,
+    this.onSelect,
   }) : super(key: key);
 
   final double borderRadius;
   final VoidCallback? showAll;
+  final void Function(int)? onSelect;
 
   @override
   Widget build(BuildContext context) {
@@ -55,26 +57,29 @@ class AlbumWidget extends StatelessWidget {
                   itemCount: 5,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        ProfileImage(
-                          url: IMG_LOGO,
-                          radius: 0,
-                          borderWidth: 0.5,
-                          borderColor: Colors.black,
-                          background: Colors.white12,
-                          size: 90,
-                        ),
-                        SizedBox(height: 5),
-                        SizedBox(
-                          width: 100,
-                          child: Text(
-                            'title title title title title title ',
-                            style: theme.textTheme.bodyText2,
-                            overflow: TextOverflow.ellipsis,
+                    return InkWell(
+                      onTap: onSelect != null ? () => onSelect!(index) : null,
+                      child: Column(
+                        children: [
+                          ProfileImage(
+                            url: IMG_LOGO,
+                            radius: 0,
+                            borderWidth: 0.5,
+                            borderColor: Colors.black,
+                            background: Colors.white12,
+                            size: 90,
                           ),
-                        ),
-                      ],
+                          SizedBox(height: 5),
+                          SizedBox(
+                            width: 100,
+                            child: Text(
+                              'title title title title title title ',
+                              style: theme.textTheme.bodyText2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
                     );
                   },
                   separatorBuilder: (context, index) => SizedBox(width: 0),

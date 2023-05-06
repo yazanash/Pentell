@@ -8,7 +8,16 @@ import 'package:pentelligence/features/connections/views/widgets/materialbtn.dar
 
 class ProfileHeader extends StatelessWidget {
   final UserProfile profile;
-  ProfileHeader({required this.profile});
+  final VoidCallback? follow, share, more,onPressImg;
+  final bool isFollowed;
+  ProfileHeader({
+    required this.profile,
+    this.follow,
+    this.share,
+    this.more,
+    this.onPressImg,
+    this.isFollowed = false,
+  });
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -22,10 +31,14 @@ class ProfileHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              ProfileImage(
-                url: profile.imageUrl,
-                size: 80,
-                borderWidth: 0,
+              Hero(
+                tag: 'p',
+                child: ProfileImage(
+                  onPressed: onPressImg,
+                  url: profile.imageUrl,
+                  size: 80,
+                  borderWidth: 0,
+                ),
               ),
               Container(
                 padding: const EdgeInsets.only(left: 10),
@@ -73,18 +86,20 @@ class ProfileHeader extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                  child: ElevatedButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                        elevation: MaterialStateProperty.all<double>(0),
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.blue),
-                        foregroundColor:
-                            MaterialStateProperty.all<Color>(Colors.white),
-                      ),
-                      child: Text("Follow"))),
-              TextButton(onPressed: () {}, child: Icon(Icons.share)),
-              TextButton(onPressed: () {}, child: Icon(Icons.more_horiz))
+                child: ElevatedButton(
+                  onPressed: follow,
+                  style: ButtonStyle(
+                    elevation: MaterialStateProperty.all<double>(0),
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                        isFollowed ? Colors.grey : Colors.blue),
+                    foregroundColor:
+                        MaterialStateProperty.all<Color>(Colors.white),
+                  ),
+                  child: isFollowed ? Text('UnFollow') : Text("Follow"),
+                ),
+              ),
+              TextButton(onPressed: share, child: Icon(Icons.share)),
+              TextButton(onPressed: more, child: Icon(Icons.more_horiz))
             ],
           ),
           const SizedBox(
