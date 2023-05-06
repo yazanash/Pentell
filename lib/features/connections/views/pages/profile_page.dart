@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:pentelligence/core/popups/popup.dart';
 import 'package:pentelligence/features/auth/models/entities/user_profile.dart';
@@ -8,6 +9,8 @@ import 'package:pentelligence/features/connections/views/widgets/album.dart';
 import 'package:pentelligence/features/connections/views/widgets/customTab.dart';
 import 'package:pentelligence/features/connections/views/widgets/profile_header.dart';
 import 'package:provider/provider.dart';
+
+import 'cast_tab.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -32,6 +35,7 @@ class ProfilePage extends StatelessWidget {
                     followersCount: 440,
                   ),
                   isFollowed: state.following,
+                  isTrust: true,
                   follow: () {
                     state.follow = !state.following;
                   },
@@ -149,7 +153,7 @@ class ProfilePage extends StatelessWidget {
             //   }),
             // )
             DefaultTabController(
-              length: 3,
+              length: 2,
               initialIndex: 0,
               child: Column(
                 children: [
@@ -160,26 +164,29 @@ class ProfilePage extends StatelessWidget {
                       tabs: [
                         SizedBox(
                           height: 50,
-                          child: Center(child: Text('tab 1')),
+                          child: Center(
+                              child: Text(
+                            'Courses',
+                            style: theme.textTheme.headline3,
+                          )),
                         ),
                         SizedBox(
                           height: 50,
-                          child: Center(child: Text('tab 2')),
-                        ),
-                        SizedBox(
-                          height: 50,
-                          child: Center(child: Text('tab 3')),
+                          child: Center(
+                              child: Text(
+                            'Casts',
+                            style: theme.textTheme.headline3,
+                          )),
                         ),
                       ],
                     ),
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.7,
-                    child: TabBarView(
+                    child: const TabBarView(
                       children: [
                         CoursesTab(),
-                        Container(child: Text('tab 2')),
-                        Container(child: Text('tab 3')),
+                        CastsTab(),
                       ],
                     ),
                   ),

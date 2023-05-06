@@ -6,10 +6,11 @@ class UserTile extends StatelessWidget {
     Key? key,
     this.onPressed,
     this.onEdit,
+    this.unFollow = false,
   }) : super(key: key);
 
   final VoidCallback? onPressed, onEdit;
-
+  final bool unFollow;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -48,6 +49,14 @@ class UserTile extends StatelessWidget {
             TextButton(
               onPressed: onEdit,
               child: Icon(Icons.edit),
+            ),
+          if (!unFollow)
+            ElevatedButton(
+              onPressed: () {},
+              child: Text(
+                "Follow",
+                style: theme.textTheme.headline4,
+              ),
             ),
         ],
       ),
