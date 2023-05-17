@@ -1,55 +1,58 @@
 import 'package:flutter/material.dart';
-import 'package:pentelligence/core/utilities/profile_image.dart';
 
-Widget CardInfo(
-    {String text = "button",
-    iconColor = Colors.white,
-    iconSize = 30.0,
-    String description = "dsv",
-    icon = Icons.add,
-    double ratio = 0.75}) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 5),
-    child: AspectRatio(
-      aspectRatio: ratio,
-      child: Container(
-        decoration: BoxDecoration(
-            color: Colors.blue, borderRadius: BorderRadius.circular(10)),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: ElevatedButton(
-            onPressed: () {},
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    icon,
-                    size: iconSize,
-                    color: iconColor,
-                  ),
-                  Text(
-                    text,
-                    style: const TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600),
-                  ),
-                 const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    description,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 13,
-                      color: Colors.white,
-                    ),
-                  ),
-                ]),
-          ),
-        ),
+class CardInfo extends StatelessWidget {
+  const CardInfo(
+      {Key? key,
+      required this.title,
+      this.info,
+      required this.icon,
+      this.child})
+      : super(key: key);
+  final String title;
+  final IconData icon;
+  final String? info;
+  final Widget? child;
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+      margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.background,
+        borderRadius: BorderRadius.circular(10),
       ),
-    ),
-  );
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(children: [
+            Icon(
+              icon,
+              color: theme.colorScheme.primary,
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            Text(
+              title,
+              style: theme.textTheme.headline3,
+            )
+          ]),
+          const SizedBox(
+            height: 10,
+          ),
+          if (info != null)
+            Text(info!,
+                style: theme.textTheme.headline2!.copyWith(
+                  fontWeight: FontWeight.w600,
+                )),
+          if (info != null)
+            const SizedBox(
+              height: 10,
+            ),
+          if (child != null) child!
+        ],
+      ),
+    );
+  }
 }

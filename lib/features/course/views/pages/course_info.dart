@@ -5,6 +5,7 @@ import 'package:pentelligence/features/connections/views/widgets/bio.dart';
 import 'package:pentelligence/features/connections/views/widgets/materialbtn.dart';
 import 'package:pentelligence/features/course/views/pages/reviews_tab.dart';
 import 'package:pentelligence/features/course/views/widgets/course_header.dart';
+import 'package:pentelligence/features/course/views/widgets/course_info.dart';
 import 'package:pentelligence/features/course/views/widgets/course_map.dart';
 import 'package:pentelligence/features/course/views/widgets/info_card.dart';
 import 'package:pentelligence/core/utilities/user_tile.dart';
@@ -67,7 +68,7 @@ class CourseInfoPage extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.7,
                   child: const TabBarView(
-                    children: [CoursesTab(), ReviewsTab(), VersionMap()],
+                    children: [CourseInfo(), ReviewsTab(), VersionMap()],
                   ),
                 ),
               ],

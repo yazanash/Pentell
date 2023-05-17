@@ -16,7 +16,7 @@ class CoursesPage extends StatelessWidget {
     return ListView.builder(
       // key: Provider.of<CoursesPageState>(context).animatedListKey,
       // initialItemCount: 20,
-      itemCount: 3,
+      itemCount: 9,
       itemBuilder: (context, index) {
         if (index == 0) {
           return Container(
