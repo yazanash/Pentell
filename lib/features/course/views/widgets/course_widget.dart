@@ -4,18 +4,26 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:pentelligence/core/utilities/profile_image.dart';
 import 'package:pentelligence/features/connections/views/widgets/materialbtn.dart';
 import 'package:pentelligence/features/course/views/pages/course_info.dart';
+import 'package:pentelligence/features/course/views/provider/courses_state.dart';
+import 'package:provider/provider.dart';
 
 class CourseWidget extends StatelessWidget {
   const CourseWidget({
     Key? key,
     required this.url,
     required this.isRtl,
+    this.isSaved = false,
+    this.isLoved = false,
+    this.loveItem,
+    this.saveItem,
   }) : super(key: key);
-  final bool isRtl;
+  final bool isRtl, isSaved, isLoved;
   final String url;
+  final VoidCallback? loveItem, saveItem;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    print('course');
     return InkWell(
       onTap: () {
         // Navigator.of(context)
@@ -226,24 +234,28 @@ class CourseWidget extends StatelessWidget {
                         Row(
                           children: [
                             ElevatedButton(
-                              onPressed: () {},
+                              onPressed: saveItem,
                               style: ButtonStyle(
                                 elevation: MaterialStateProperty.all<double>(0),
                                 // backgroundColor:
                                 //     MaterialStateProperty.all<Color>(
                                 //         Colors.transparent)
                               ),
-                              child: Icon(Icons.bookmark_border),
+                              child: Icon(isSaved
+                                  ? Icons.bookmark
+                                  : Icons.bookmark_border),
                             ),
                             ElevatedButton(
-                              onPressed: () {},
+                              onPressed: loveItem,
                               style: ButtonStyle(
                                   // backgroundColor:
                                   //     MaterialStateProperty.all<Color>(
                                   //         Colors.transparent),
                                   elevation:
                                       MaterialStateProperty.all<double>(0)),
-                              child: Icon(Icons.favorite_border_outlined),
+                              child: Icon(isLoved
+                                  ? Icons.favorite
+                                  : Icons.favorite_border_outlined),
                             ),
                           ],
                         ),

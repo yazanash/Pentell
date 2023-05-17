@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pentelligence/features/dashboard/views/pages/add_course.dart';
 import 'package:pentelligence/features/dashboard/views/pages/pending_courses.dart';
+import 'package:pentelligence/features/dashboard/views/provider/my_courses_state.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/course_card.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/tab_btn.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/versions_list.dart';
+import 'package:provider/provider.dart';
 
 class MyCourses extends StatelessWidget {
   const MyCourses({Key? key}) : super(key: key);
@@ -48,11 +50,16 @@ class MyCourses extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Column(
-                children: const [
-                  CourseCard(),
-                  CourseCard(),
-                ],
+              ChangeNotifierProvider<MyCoursesState>(
+                create: (context) => MyCoursesState(),
+                builder: (c, child) {
+                  return Column(
+                    children: [
+                      CourseCard(),
+                      CourseCard(),
+                    ],
+                  );
+                },
               )
             ],
           )),
@@ -63,7 +70,9 @@ class MyCourses extends StatelessWidget {
           minChildSize: 0,
           snap: true,
           builder: (context, myController) {
-            return VersionsList(controller: myController,);
+            return VersionsList(
+              controller: myController,
+            );
           },
         )
       ]),

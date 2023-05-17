@@ -11,20 +11,27 @@ class CoursesPageState extends ChangeNotifier {
   List<Course> courses = [];
   List<OrgProfile> orgProfile = [];
   Failure? hasCoursesError, hasjoinError, hasWishlistError, hasOrgsError;
-  final _animatedListKey = GlobalKey<AnimatedListState>();
-  GlobalKey<AnimatedListState> get animatedListKey => _animatedListKey;
-  List<int> temp = [0, 1, 2, 3, 4, 5];
+  List<int> temp = [0, 1, 2];
+  List<bool> love = [false, false, false];
+  List<bool> saved = [false, false, false];
 
   void insertItem(int item) {
     temp.insert(0, item);
-    _animatedListKey.currentState!.insertItem(0);
     notifyListeners();
   }
 
   void removeItem(int index) {
-    _animatedListKey.currentState!
-        .removeItem(index, (context, animation) => ScaleTransition(scale: animation));
     temp.removeAt(index);
+  }
+
+  void loveItem(int index) {
+    love[index] = !love[index];
+    notifyListeners();
+  }
+
+  void save(int index) {
+    saved[index] = !saved[index];
+    notifyListeners();
   }
 
   // Future<bool> loadCourses() async {

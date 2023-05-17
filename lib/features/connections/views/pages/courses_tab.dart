@@ -14,7 +14,7 @@ class CoursesTab extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 8),
       itemCount: 5,
       itemBuilder: (c, index) {
-        return CourseWidget(url: IMG_LOGO, isRtl: false);
+        return CourseWidget(url: IMG_LOGO, isRtl: false,);
       },
     );
   }

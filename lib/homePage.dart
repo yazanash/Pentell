@@ -21,6 +21,8 @@ import 'package:pentelligence/features/dashboard/views/pages/employees.dart';
 import 'package:pentelligence/features/dashboard/views/pages/org_info.dart';
 import 'package:pentelligence/features/dashboard/views/pages/user_board.dart';
 import 'package:pentelligence/features/dashboard/views/pages/user_info.dart';
+import 'package:pentelligence/features/dashboard/views/provider/board_page_state.dart';
+import 'package:pentelligence/features/dashboard/views/provider/profile_page_state.dart';
 import 'package:pentelligence/main_state.dart';
 import 'package:provider/provider.dart';
 
@@ -112,9 +114,13 @@ class HomePage extends StatelessWidget {
               create: (context) => CoursesPageState(),
               child: const CoursesPage(isRtl: false),
             ),
-            const BoardPage(),
+            ChangeNotifierProvider<BoardPageState>(
+              create: (context) => BoardPageState(),
+              child: BoardPage(),
+            ),
             // AlbumWidget(),
-            ProfilePage(),
+            ChangeNotifierProvider<ProfilePageState>(
+                create: (context) => ProfilePageState(), child: ProfilePage()),
             // LobbyPage(),
             // const TestPage(),
             // EmployeesPage(),

@@ -9,6 +9,8 @@ import 'package:pentelligence/features/course/data/models/categories_model.dart'
 import 'package:pentelligence/features/course/views/widgets/course_header.dart';
 import 'package:pentelligence/features/dashboard/views/pages/add_version_cast.dart';
 import 'package:pentelligence/features/dashboard/views/pages/add_version_info.dart';
+import 'package:pentelligence/features/dashboard/views/provider/c_version_maker_state.dart';
+import 'package:pentelligence/features/dashboard/views/provider/pending_courses_state.dart';
 import 'package:provider/provider.dart';
 
 import '../provider/chapterstate.dart';
@@ -19,112 +21,118 @@ class AddCourse extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Add Course"),
-      ),
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-        child: SingleChildScrollView(
-          child: Form(
-            key: _formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                CourseHeader(institute: "institute"),
-                FormInput(
-                  label: "Course Name",
-                  getval: ((val) => {}),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                SizedBox(
-                  height: 150,
-                  child: FormInput(
-                    label: "Description",
-                    getval: (val) => {},
-                    expands: true,
-                    maxLines: null,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<CVersionMakerState>(create: (context)=>CVersionMakerState()),
+        ChangeNotifierProvider<PendingCoursesState>(create: (context) => PendingCoursesState()),
+      ],
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Add Course"),
+        ),
+        body: Container(
+          width: MediaQuery.of(context).size.width,
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+          child: SingleChildScrollView(
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CourseHeader(institute: "institute"),
+                  FormInput(
+                    label: "Course Name",
+                    getval: ((val) => {}),
                   ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Text('Choose catagory'),
-                Wrap(
-                  children: [
-                    TagWidget(
-                      tag: 'tag this',
-                      color: Colors.white,
-                      isChecked: false,
-                      callback: (val) {},
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  SizedBox(
+                    height: 150,
+                    child: FormInput(
+                      label: "Description",
+                      getval: (val) => {},
+                      expands: true,
+                      maxLines: null,
                     ),
-                    TagWidget(
-                      tag: 'tag',
-                      color: Colors.white,
-                      isChecked: false,
-                      callback: (val) {},
-                    ),
-                    TagWidget(
-                      tag: 'tag that',
-                      color: Colors.white,
-                      isChecked: false,
-                      callback: (val) {},
-                    ),
-                    TagWidget(
-                      tag: 'tag what the hell',
-                      color: Colors.white,
-                      isChecked: false,
-                      callback: (val) {},
-                    ),
-                    TagWidget(
-                      tag: 'tag',
-                      color: Colors.white,
-                      isChecked: false,
-                      callback: (val) {},
-                    ),
-                    TagWidget(
-                      tag: 'tag',
-                      color: Colors.white,
-                      isChecked: false,
-                      callback: (val) {},
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    InputBtn(
-                      text: "Save to draft",
-                      icon: Icons.add,
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          DialogRoute(
-                            context: context,
-                            builder: (c) {
-                              return Container(
-                                color: Colors.white10,
-                              );
-                            },
-                          ),
-                        );
-                      },
-                    ),
-                    InputBtn(
-                      text: "open course",
-                      icon: Icons.add,
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(builder: (c) => CVersionMaker()),
-                        );
-                      },
-                    ),
-                  ],
-                )
-              ],
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Text('Choose catagory'),
+                  Wrap(
+                    children: [
+                      TagWidget(
+                        tag: 'tag this',
+                        color: Colors.white,
+                        isChecked: false,
+                        callback: (val) {},
+                      ),
+                      TagWidget(
+                        tag: 'tag',
+                        color: Colors.white,
+                        isChecked: false,
+                        callback: (val) {},
+                      ),
+                      TagWidget(
+                        tag: 'tag that',
+                        color: Colors.white,
+                        isChecked: false,
+                        callback: (val) {},
+                      ),
+                      TagWidget(
+                        tag: 'tag what the hell',
+                        color: Colors.white,
+                        isChecked: false,
+                        callback: (val) {},
+                      ),
+                      TagWidget(
+                        tag: 'tag',
+                        color: Colors.white,
+                        isChecked: false,
+                        callback: (val) {},
+                      ),
+                      TagWidget(
+                        tag: 'tag',
+                        color: Colors.white,
+                        isChecked: false,
+                        callback: (val) {},
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      InputBtn(
+                        text: "Save to draft",
+                        icon: Icons.add,
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            DialogRoute(
+                              context: context,
+                              builder: (c) {
+                                return Container(
+                                  color: Colors.white10,
+                                );
+                              },
+                            ),
+                          );
+                        },
+                      ),
+                      InputBtn(
+                        text: "open course",
+                        icon: Icons.add,
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(builder: (c) => CVersionMaker()),
+                          );
+                        },
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ),

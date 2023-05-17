@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:pentelligence/features/course/views/provider/members_tab_state.dart';
+import 'package:provider/provider.dart';
 
 class MembersTab extends StatelessWidget {
   const MembersTab({
@@ -9,10 +10,13 @@ class MembersTab extends StatelessWidget {
   final List<Widget> members;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-        children: members,
+    return ChangeNotifierProvider<MembersTabState>(
+      create: (context) => MembersTabState(),
+      child: Scaffold(
+        body: ListView(
+          padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+          children: members,
+        ),
       ),
     );
   }
