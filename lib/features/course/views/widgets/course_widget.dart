@@ -75,36 +75,16 @@ class CourseWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 textDirection: isRtl ? TextDirection.rtl : TextDirection.ltr,
                 children: [
-                  Row(
-                    children: [
-                      ProfileImage(
-                        url: url,
-                        size: 50,
-                        borderWidth: 0,
-                        padding: 8,
-                        borderColor: Colors.white,
-                      ),
-                      const SizedBox(
-                        width: 20,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.65,
-                            child: Text(
-                              'Course Name widsvsvsdvll bdsdsdvsve hereee and fuck this widget',
-                              style: theme.textTheme.headline2!
-                                  .copyWith(fontWeight: FontWeight.bold),
-                              softWrap: true,
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 2,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.90,
+                    child: Text(
+                      'Course Name widsvsvsdvll bdsdsdvsve hereee and fuck this widget',
+                      style: theme.textTheme.headline2!
+                          .copyWith(fontWeight: FontWeight.bold),
+                      softWrap: true,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                    ),
                   ),
                 ],
               ),
@@ -119,34 +99,32 @@ class CourseWidget extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: theme.colorScheme.primary,
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        padding: const EdgeInsets.symmetric(horizontal: 5),
-                        margin: const EdgeInsets.only(right: 5),
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.star_border_rounded,
-                              color: Colors.white,
-                            ),
-                            Text(
-                              ' 4.8',
-                              style: theme.textTheme.headline3!
-                                  .copyWith(color: Colors.white),
-                            ),
-                          ],
-                        ),
+                      ProfileImage(
+                        url: url,
+                        size: 40,
+                        borderWidth: 0,
+                        padding: 8,
+                        borderColor: Colors.white,
                       ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.7,
-                          child: Text('Business Name',
-                              softWrap: true,
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 1,
-                              style: theme.textTheme.headline3)),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.7,
+                              child: Text('Business Name',
+                                  softWrap: true,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                  style: theme.textTheme.headline3)),
+                          Text(
+                            "23/04/2023",
+                            style: theme.textTheme.bodyText2,
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                   Container(
@@ -170,9 +148,26 @@ class CourseWidget extends StatelessWidget {
                     textDirection:
                         isRtl ? TextDirection.rtl : TextDirection.ltr,
                     children: [
-                      Text(
-                        "23/04/2023",
-                        style: theme.textTheme.bodyText2,
+                      Container(
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.primary,
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        margin: const EdgeInsets.only(right: 5),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.star_border_rounded,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              ' 4.8',
+                              style: theme.textTheme.headline3!
+                                  .copyWith(color: Colors.white),
+                            ),
+                          ],
+                        ),
                       ),
                       Row(
                         children: [

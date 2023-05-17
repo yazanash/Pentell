@@ -17,7 +17,9 @@ class VersionMap extends StatelessWidget {
         child: Icon(Icons.add),
       ),
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 5,
+        ),
         width: MediaQuery.of(context).size.width,
         child: SingleChildScrollView(
             child: Column(
