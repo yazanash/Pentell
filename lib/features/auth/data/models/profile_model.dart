@@ -1,55 +1,56 @@
 import 'package:pentelligence/features/auth/models/entities/profile.dart';
 
-import '../../models/entities/user.dart';
-
 class ProfileModel extends Profile {
-  ProfileModel(String id, String name, String email, String phoneNumber,
-      String address, String imageUrl,
-      int followingCount,
-      int followersCount,
-      List<Profile> followers,
-      List<Profile> following,
-      
-      )
-      : super(
-          id: id,
-          name: name,
-          email: email,
-          phoneNumber: phoneNumber,
-          address: address,
-          imageUrl: imageUrl,
-          followingCount:followingCount,
-          followersCount:followersCount,
-          followers:followers,
-          following:following
-        );
+  ProfileModel({
+    required String id,
+    required String userId,
+    required String name,
+    required DateTime birthDay,
+    required String address,
+    required String imageUrl,
+    required int followingCount,
+    required int followersCount,
+    required List<Profile> followers,
+    required List<Profile> following,
+  }) : super(
+            id: id,
+            userId: userId,
+            name: name,
+            birthDay: birthDay,
+            address: address,
+            imageUrl: imageUrl,
+            followingCount: followingCount,
+            followersCount: followersCount,
+            followers: followers,
+            following: following);
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) {
     return ProfileModel(
-      json['id'],
-      json['name'], 
-      json['email'],
-      json['phoneNumber'], 
-      json['address'], 
-      json['imageUrl'],
-      json['followingCount'],
-      json['followersCount'],
-      json['followers'],
-      json['following']);
+      id: json['id'],
+      userId: json['userId'],
+      name: json['name'],
+      birthDay: json['birthDay'],
+      address: json['address'],
+      imageUrl: json['imageUrl'],
+      followingCount: json['followingCount'],
+      followersCount: json['followersCount'],
+      followers: json['followers'],
+      following: json['following'],
+    );
   }
 
   Map<String, dynamic> toMap(Profile profile) {
     return {
       'id': profile.id,
+      'userId': profile.userId,
+      'birthDay': profile.birthDay,
       'name': profile.name,
-      'email': profile.email,
-      'phoneNumber': profile.phoneNumber,
       'address': profile.address,
-      'imageUrl':profile.imageUrl,
-      'followingCount':profile.followingCount,
-      'followersCount':profile.followersCount,
-      'followers':profile.followers,
-      'following':profile.following
+      'imageUrl': profile.imageUrl,
+      'followingCount': profile.followingCount,
+      'followersCount': profile.followersCount,
+      'followers': profile.followers,
+      'following': profile.following,
     };
   }
 }

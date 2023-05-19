@@ -26,13 +26,13 @@ class ProfilePage extends StatelessWidget {
                 return ProfileHeader(
                   profile: UserProfile(
                     id: '1',
+                    userId: 'user',
                     name: "July ahmad",
-                    email: "example@gmail.com",
-                    phoneNumber: "0994916917",
                     imageUrl: "lib/assets/u4.jpg",
                     address: "address",
                     followingCount: 330,
                     followersCount: 440,
+                    birthDay: DateTime.now(),
                   ),
                   isFollowed: state.following,
                   isTrust: true,

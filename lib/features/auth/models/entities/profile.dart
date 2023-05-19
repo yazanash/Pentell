@@ -1,10 +1,10 @@
+import 'package:equatable/equatable.dart';
 
-
-class Profile {
-  final String id;
+class Profile extends Equatable {
+  final String? id;
+  final String userId;
   final String name;
-  final String email;
-  final String phoneNumber;
+  final DateTime birthDay;
   final String address;
   final String imageUrl;
   final int followingCount;
@@ -12,15 +12,22 @@ class Profile {
   final List<Profile>? followers;
   final List<Profile>? following;
 
-  Profile(
-      {required this.id,
-      required this.name,
-      required this.email,
-      required this.imageUrl,
-      required this.phoneNumber,
-      required this.followingCount,
-      required this.followersCount,
-       this.followers,
-       this.following,
-      required this.address});
+  Profile({
+    this.id,
+    required this.userId,
+    required this.name,
+    required this.imageUrl,
+    required this.birthDay,
+    this.followingCount = 0,
+    this.followersCount = 0,
+    this.followers,
+    this.following,
+    required this.address,
+  });
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [
+        id,
+      ];
 }

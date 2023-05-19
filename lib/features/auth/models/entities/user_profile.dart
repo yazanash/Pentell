@@ -12,11 +12,11 @@ class UserProfile extends Profile {
 
   UserProfile({
     required super.id,
+    required super.userId,
     required super.name,
-    required super.email,
-    required super.phoneNumber,
     required super.imageUrl,
     required super.address,
+    required super.birthDay,
      this.ceo,
      this.channel,
      this.courses,

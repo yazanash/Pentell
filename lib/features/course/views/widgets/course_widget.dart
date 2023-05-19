@@ -76,7 +76,7 @@ class CourseWidget extends StatelessWidget {
                 textDirection: isRtl ? TextDirection.rtl : TextDirection.ltr,
                 children: [
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.90,
+                    width: MediaQuery.of(context).size.width * 0.8,
                     child: Text(
                       'Course Name widsvsvsdvll bdsdsdvsve hereee and fuck this widget',
                       style: theme.textTheme.headline2!

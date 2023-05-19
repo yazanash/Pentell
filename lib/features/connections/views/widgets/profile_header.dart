@@ -76,7 +76,7 @@ class ProfileHeader extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      profile.email,
+                      'profile.email',
                       style: theme.textTheme.headline3,
                     ),
                   ],
