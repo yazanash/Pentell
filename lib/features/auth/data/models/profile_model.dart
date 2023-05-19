@@ -12,6 +12,7 @@ class ProfileModel extends Profile {
     required int followersCount,
     required List<Profile> followers,
     required List<Profile> following,
+    super.categories,
   }) : super(
             id: id,
             userId: userId,

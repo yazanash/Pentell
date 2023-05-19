@@ -6,10 +6,9 @@ class CourseModel extends Course {
     required super.name,
     required super.provider,
     required super.cversions,
-    super.isJoined,
-    required super.tags,
-    required super.category,
-    required super.currentVersions,
+    required super.categories,
+    required super.bio,
+    required super.activeVersions,
   });
 
   factory CourseModel.fromJson(Map<String, dynamic> json) {
@@ -18,10 +17,9 @@ class CourseModel extends Course {
         name: json['name'],
         provider: json['provider'],
         cversions: json['cversions'],
-        isJoined: json['isJoined'] ?? false,
-        tags: json['tags'],
-        category: json['category'],
-        currentVersions: json['current_version']);
+        bio: json['bio'],
+        categories: json['categories'],
+        activeVersions: json['current_version']);
   }
 
   Map<String, dynamic> toMap(Course course) {
@@ -30,9 +28,9 @@ class CourseModel extends Course {
       "name": course.name,
       "provider": course.provider,
       "cversions": course.cversions,
-      "tags": course.tags,
-      "category": course.category,
-      "current_version": currentVersions
+      "bio": course.bio,
+      "current_version": course.activeVersions,
+      "categories" : course.categories
     };
   }
 }

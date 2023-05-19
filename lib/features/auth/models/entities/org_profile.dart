@@ -19,6 +19,7 @@ class OrgProfile extends Profile {
     required super.address,
     required super.followers,
     required super.following,
+    super.categories,
     required this.ceo,
     required this.channels,
     required this.courses,
