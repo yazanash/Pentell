@@ -9,7 +9,8 @@ import 'package:pentelligence/features/connections/views/widgets/dashboard_btn.d
 import 'package:pentelligence/features/connections/views/widgets/materialbtn.dart';
 import 'package:pentelligence/features/course/data/models/categories_model.dart';
 import 'package:pentelligence/features/course/models/entities/categories.dart';
-import 'package:pentelligence/features/dashboard/models/entities/chapter.dart';
+import 'package:pentelligence/features/course/models/entities/sessions.dart';
+// import 'package:pentelligence/features/dashboard/models/entities/chapter.dart';
 import 'package:pentelligence/features/dashboard/views/provider/chapterstate.dart';
 import 'package:pentelligence/features/dashboard/views/widgets/chapter_widget.dart';
 import 'package:provider/provider.dart';
@@ -25,13 +26,13 @@ class AddChapter extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Add Chapter Page"),
         actions: [
-          IconButton(
-              onPressed: () {
-                Provider.of<ChaptersState>(context, listen: false)
-                    .add(Chapter());
-                // print("object");
-              },
-              icon: const Icon(Icons.add,color: Color(0xFF708070),))
+          // IconButton(
+          //     onPressed: () {
+          //       Provider.of<ChaptersState>(context, listen: false)
+          //           .add(Session());
+          //       // print("object");
+          //     },
+          //     icon: const Icon(Icons.add,color: Color(0xFF708070),))
         ],
       ),
       backgroundColor: Colors.white,
@@ -46,11 +47,11 @@ class AddChapter extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  for (int i = 0; i < value.chapters.length; i++)
-                    ChapterWidget(
-                      chapter: value.chapters[i],
-                      onpressed: () => value.addOp("enter sub", i),
-                    ),
+                  // for (int i = 0; i < value.chapters.length; i++)
+                  //   ChapterWidget(
+                  //     chapter: value.chapters[i],
+                  //     onpressed: () => value.addOp("enter sub", i),
+                  //   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     textDirection: TextDirection.rtl,
