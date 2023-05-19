@@ -1,24 +1,24 @@
 import 'package:pentelligence/features/auth/models/entities/org_profile.dart';
 
 class OrgProfileModel extends OrgProfile {
-  OrgProfileModel({
-    required super.id,
-    required super.userId,
-    required super.name,
-    required super.birthDay,
-    required super.address,
-    required super.ceo,
-    required super.channels,
-    required super.courses,
-    required super.imageUrl,
-    required super.followingCount,
-    required super.followersCount,
-    required super.followers,
-    required super.following,
-    required super.employee,
-    // required super.teachers,
-    required super.roles,
-  });
+  OrgProfileModel(
+      {required super.id,
+      required super.name,
+      required super.userId,
+      required super.birthDay,
+      required super.address,
+      required super.ceo,
+      required super.channels,
+      required super.courses,
+      required super.imageUrl,
+      required super.followingCount,
+      required super.followersCount,
+      required super.followers,
+      required super.following,
+      required super.employee,
+      super.categories,
+      // required super.teachers,
+      required super.roles});
 
   factory OrgProfileModel.fromJson(Map<String, dynamic> json) {
     return OrgProfileModel(

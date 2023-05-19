@@ -16,6 +16,7 @@ class UserProfileModel extends UserProfile {
     required super.followers,
     required super.following,
     required super.org_ex,
+    super.categories,
   });
   factory UserProfileModel.fromJson(Map<String, dynamic> json) {
     return UserProfileModel(

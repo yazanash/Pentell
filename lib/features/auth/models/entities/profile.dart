@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:pentelligence/features/course/models/entities/categories.dart';
 
 class Profile extends Equatable {
   final String? id;
@@ -11,13 +12,14 @@ class Profile extends Equatable {
   final int followersCount;
   final List<Profile>? followers;
   final List<Profile>? following;
-
+  final List<Category?>? categories;
   Profile({
     this.id,
     required this.userId,
     required this.name,
     required this.imageUrl,
     required this.birthDay,
+    this.categories,
     this.followingCount = 0,
     this.followersCount = 0,
     this.followers,

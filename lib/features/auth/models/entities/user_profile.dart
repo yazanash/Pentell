@@ -17,6 +17,7 @@ class UserProfile extends Profile {
     required super.imageUrl,
     required super.address,
     required super.birthDay,
+      super.categories,
      this.ceo,
      this.channel,
      this.courses,
