@@ -1,6 +1,7 @@
 import 'package:pentelligence/core/utilities/review_tile.dart';
 import 'package:pentelligence/features/auth/models/entities/profile.dart';
 import 'package:pentelligence/features/course/models/entities/categories.dart';
+import 'package:pentelligence/features/course/models/entities/course.dart';
 import 'package:pentelligence/features/course/models/entities/sessions.dart';
 
 import '../../../auth/models/entities/user_profile.dart';
@@ -9,7 +10,7 @@ class CVersion {
   final String? version_id;
   final String label;
   final List<Profile>? casts;
-  final String course_id;
+  final Course course_id;
   final List<Review>? ratings;
   final List<Session>? path;
   final int lobby;
