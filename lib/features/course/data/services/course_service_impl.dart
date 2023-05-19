@@ -5,6 +5,7 @@ import 'package:pentelligence/features/auth/models/entities/org_profile.dart';
 import 'package:pentelligence/features/course/data/sources/course_local_source.dart';
 import 'package:pentelligence/features/course/data/sources/course_remote_source.dart';
 import 'package:pentelligence/features/course/models/entities/course.dart';
+import 'package:pentelligence/features/course/models/entities/cversion.dart';
 import 'package:pentelligence/features/course/models/services/course_service.dart';
 
 class CourseServiceImpl implements CourseService {
@@ -19,19 +20,19 @@ class CourseServiceImpl implements CourseService {
   CourseServiceImpl(this.localSource, this.remoteSource, this.networkInfo);
 
   @override
-  Future<Either<Failure, List<Course>>> getAllCourses() async {
+  Future<Either<Failure, List<CVersion>>> getAllCourses() async {
     // TODO: implement getAllPosts
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<Failure, Unit>> addCVersion() {
+  Future<Either<Failure, Unit>> addCVersion(CVersion course) {
     // TODO: implement addCVersion
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<Failure, Unit>> addCourse() {
+  Future<Either<Failure, Unit>> addCourse(Course course) {
     // TODO: implement addCourse
     throw UnimplementedError();
   }
@@ -43,13 +44,13 @@ class CourseServiceImpl implements CourseService {
   }
 
   @override
-  Future<Either<Failure, Unit>> delete() {
+  Future<Either<Failure, Unit>> delete(int courseId) {
     // TODO: implement delete
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<Failure, Unit>> inviteFriends() {
+  Future<Either<Failure, Unit>> inviteFriends(int profileId) {
     // TODO: implement inviteFriends
     throw UnimplementedError();
   }
@@ -61,7 +62,7 @@ class CourseServiceImpl implements CourseService {
   }
 
   @override
-  Future<Either<Failure, Unit>> modify() {
+  Future<Either<Failure, Unit>> modify(CVersion course) {
     // TODO: implement modify
     throw UnimplementedError();
   }

@@ -3,6 +3,7 @@ import 'package:pentelligence/core/errors/failures.dart';
 import 'package:pentelligence/features/auth/models/entities/org_profile.dart';
 import 'package:pentelligence/features/course/data/services/course_service_impl.dart';
 import 'package:pentelligence/features/course/models/entities/course.dart';
+import 'package:pentelligence/features/course/models/entities/cversion.dart';
 import 'package:pentelligence/features/course/models/services/course_service.dart';
 import 'package:pentelligence/injection_dependancy.dart' as di;
 
@@ -12,12 +13,12 @@ class CoursesUsecases {
 
   //  USER usecases
 
-  Future<Either<Failure, List<Course>>> getAllCourses() async {
+  Future<Either<Failure, List<CVersion>>> getAllCourses() async {
     return await _courseService.getAllCourses();
   }
 
-  Future<Either<Failure, Unit>> inviteFriends() async {
-    return await _courseService.inviteFriends();
+  Future<Either<Failure, Unit>> inviteFriends(int profileId) async {
+    return await _courseService.inviteFriends(profileId);
   }
 
   Future<Either<Failure, Unit>> joinCourse(Course course) async {
@@ -28,27 +29,26 @@ class CoursesUsecases {
     return await _courseService.rateCourse(course);
   }
 
-  @override
   Future<Either<Failure, Unit>> addToWishList(Course course) async {
     return await _courseService.addToWishList(course);
   }
 
   //  ORG usecases
 
-  Future<Either<Failure, Unit>> addCourse() async {
-    return await _courseService.addCourse();
+  Future<Either<Failure, Unit>> addCourse(Course course) async {
+    return await _courseService.addCourse(course);
   }
 
-  Future<Either<Failure, Unit>> addCVersion() async {
-    return await _courseService.addCVersion();
+  Future<Either<Failure, Unit>> addCVersion(CVersion course) async {
+    return await _courseService.addCVersion(course);
   }
 
-  Future<Either<Failure, Unit>> modify() async {
-    return await _courseService.modify();
+  Future<Either<Failure, Unit>> modify(CVersion course) async {
+    return await _courseService.modify(course);
   }
 
-  Future<Either<Failure, Unit>> delete() async {
-    return await _courseService.delete();
+  Future<Either<Failure, Unit>> delete(int courseId) async {
+    return await _courseService.delete(courseId);
   }
 
   //  Genral purpose

@@ -6,7 +6,7 @@ import 'package:pentelligence/features/course/models/services/course_service.dar
 class GetAllCoursesUsecase {
   final CourseService _courseService;
   GetAllCoursesUsecase(this._courseService);
-  Future<Either<Failure, List<Course>>> call() async {
-    return await _courseService.getAllCourses();
-  }
+  // Future<Either<Failure, List<Course>>> call() async {
+  //   return await _courseService.getAllCourses();
+  // }
 }
