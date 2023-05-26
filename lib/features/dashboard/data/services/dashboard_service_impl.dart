@@ -1,3 +1,6 @@
+import 'package:pentelligence/core/backend/network_info.dart';
+import 'package:pentelligence/features/dashboard/data/sources/dash_local_source.dart';
+import 'package:pentelligence/features/dashboard/data/sources/dash_remote_source.dart';
 import 'package:pentelligence/features/dashboard/models/entities/story.dart';
 import 'package:pentelligence/features/dashboard/models/entities/message.dart';
 import 'package:pentelligence/features/dashboard/models/entities/lobby.dart';
@@ -5,7 +8,16 @@ import 'package:pentelligence/core/errors/failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:pentelligence/features/dashboard/models/services/dashboard_service.dart';
 
-class DashboardServiceImpl implements DashboardService{
+class DashboardServiceImpl implements DashboardService {
+  final DashboardRemoteSource _remoteSource;
+  final DashboardLocalSource _localSource;
+  final NetworkInfo _networkInfo;
+  const DashboardServiceImpl(
+    this._networkInfo,
+    this._localSource,
+    this._remoteSource,
+  );
+
   @override
   Future<Either<Failure, Unit>> broudcastMessage(List<String> lobbyIds) {
     // TODO: implement broudcastMessage
@@ -59,5 +71,4 @@ class DashboardServiceImpl implements DashboardService{
     // TODO: implement puplishStory
     throw UnimplementedError();
   }
-  
 }

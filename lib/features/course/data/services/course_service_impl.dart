@@ -9,8 +9,8 @@ import 'package:pentelligence/features/course/models/entities/cversion.dart';
 import 'package:pentelligence/features/course/models/services/course_service.dart';
 
 class CourseServiceImpl implements CourseService {
-  final PostLocalSource localSource;
-  final PostRemoteSource remoteSource;
+  final CourseRemoteSource remoteSource;
+  final CourseLocalSource localSource;
   final NetworkInfo networkInfo;
 
   List<Course> cacheCourse = [],cacheWishlist =[];

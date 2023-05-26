@@ -1,15 +1,28 @@
-import 'package:dartz/dartz.dart';
-import 'package:pentelligence/features/course/models/entities/course.dart';
+import 'package:pentelligence/features/course/models/entities/cversion.dart';
 
-abstract class PostLocalSource {
-  Future<List<Course>> getAllPosts();
+abstract class CourseLocalSource {
+  Future<void> cachCourses(List<CVersion> courses);
+  Future<void> cachWishList(CVersion course);
+  Future<void> cachFinishedCourses(List<CVersion> finished);
+
 }
 
-class PostLocalSourceImpl implements PostLocalSource {
+class CourseLocalSourceImpl implements CourseLocalSource {
   @override
-  Future<List<Course>> getAllPosts()async {
-    // TODO: implement getAllPosts
+  Future<void> cachCourses(List<CVersion> courses) {
+    // TODO: implement cachCourses
     throw UnimplementedError();
   }
 
+  @override
+  Future<void> cachFinishedCourses(List<CVersion> finished) {
+    // TODO: implement cachFinishedCourses
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> cachWishList(CVersion course) {
+    // TODO: implement cachWishList
+    throw UnimplementedError();
+  }
 }
